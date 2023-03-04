@@ -1,0 +1,114 @@
+@font-face {
+  font-family: DM_Sans;
+  src: url("../fonts/DM_Sans/DMSans-Regular.ttf");
+}
+
+@font-face {
+  font-family: DM_SansBold;
+  src: url("../fonts/DM_Sans/DMSans-Bold.ttf");
+}
+
+/* ::-webkit-scrollbar {
+  display: none
+} */
+
+:root {
+  --primaryCol: #F68C36;
+  --orange: #F7931e;
+  --lightBlue: #25B0E9;
+  --shadowedBlue: rgba(28, 123, 175, 0.78);
+  --fade-gray: #657482;
+}
+
+
+
+body {
+  background-size: cover;
+  color: #000;
+  font-family: DM_Sans;
+  width: 100vw !important;
+  margin: 0 !important;
+  overflow-x: hidden !important;
+}
+
+.fontBold {
+  font-family: DM_SansBold;
+}
+
+
+
+.textPrimary {
+  color: var(--primaryCol);
+}
+
+.button {
+  background: var(--primaryCol) !important;
+  color: #fff !important;
+  border: 2px solid var(--primaryCol);
+  border-radius: 100px;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+.outline-btn {
+  background: transparent !important;
+  color: var(--primaryCol) !important;
+  border: 2px solid var(--primaryCol);
+  border-radius: 100px;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+/* LANDING 
+ */
+.landing_cards {
+  background: #fff;
+  color: #555555;
+  border-radius: 20px;
+  padding: 20px;
+  height: fit-content;
+  width: 200px;
+  /* height: 150px; */
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.landing_cards:hover {
+  transform: scale(1.05);
+}
+
+.landing_cards iconify-icon {
+  font-size: 30px;
+  /* margin-top: 30px; */
+  color: #555555;
+}
+
+.landing_cards .cardText {
+  margin-top: 10px;
+  /* margin-bottom: 30px; */
+}
+
+.landing_cards button {
+  padding: 5px 20px;
+  font-size: 14px;
+  margin-top: 10px;
+  display: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.landing_cards.activo {
+  transform: scale(1.05);
+  margin-top: -20px;
+}
+
+.landing_cards.activo button {
+  display: block;
+
+}
+
+/* landingFooter 
+ */
+
+footer .theNav iconify-icon {
+  font-size: 25px;
+}

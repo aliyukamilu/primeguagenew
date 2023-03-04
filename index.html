@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PrimeGuage</title>
+
+  <!-- FAVION ICON -->
+  <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
+  <link rel="stylesheet" href="assets/fontawesome/css/all.css" />
+  <link rel="stylesheet" href="assets/js/aos-master/dist/aos.css" />
+
+</head>
+
+<body class="h-[100vh] bg-[url('./assets/img/slider.png')]">
+
+  <div class="absolute w-full h-full -z-10" style="background: #00000060;"></div>
+
+  <header class="flex justify-between px-10 bg-white py-3">
+
+    <div class="flex gap-2 items-center">
+      <div class="w-[40px] h-[40px]">
+        <img src="./assets/img/logo.png" class="" />
+      </div>
+      <p class="text-black fontBold">Pay Ibom</p>
+    </div>
+
+    <div class="flex items-center gap-5 text-[#555555]">
+
+      <div class="flex gap-3">
+        <a href="#">Home</a>
+        <a href="#">About Us</a>
+        <a href="#">E-Services</a>
+        <a href="#">What we offer</a>
+        <a href="#">How to pay</a>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <button class="outline-btn">Sign In</button>
+        <button class="button">Register</button>
+      </div>
+
+    </div>
+  </header>
+
+  <section class="text-center text-white mt-20">
+    <h1 class="text-5xl fontBold">Pay your tax !</h1>
+    <!-- <h1 class="text-xl mt-2">Let's build Akwa Ibom together</h1> -->
+
+    <div class="flex justify-center">
+      <p class="mt-3 w-[50%] text-lg">As Akwa Ibom moves towards meeting the needs of a mega city, Akwa Ibom Internal
+        Revenue
+        Service continues to position itself as a major funding arm. All payments has been made easy and convenient.</p>
+    </div>
+
+  </section>
+
+  <section class="flex justify-center mt-10 gap-4">
+
+    <div class="landing_cards text-center activo">
+      <div class="flex justify-center items-center flex-col h-full">
+        <div class="py-3">
+          <iconify-icon icon="fa-solid:money-check-alt"></iconify-icon>
+          <p class="cardText">Generate Invoice</p>
+        </div>
+        <button class="button w-full">Generate Invoice</button>
+      </div>
+    </div>
+
+    <div class="landing_cards text-center">
+      <div class="flex justify-center items-center flex-col h-full">
+        <div class="py-3">
+          <iconify-icon icon="mdi:invoice-check"></iconify-icon>
+          <p class="cardText">Verify Invoice</p>
+        </div>
+        <button class="button w-full">Verify Invoice</button>
+      </div>
+
+    </div>
+
+    <div class="landing_cards text-center">
+      <div class="flex justify-center items-center flex-col h-full">
+        <div class="py-3">
+          <iconify-icon icon="fluent:payment-24-filled"></iconify-icon>
+          <p class="cardText">Pay Now</p>
+        </div>
+        <button class="button w-full">Pay Now</button>
+      </div>
+
+    </div>
+
+    <div class="landing_cards text-center">
+      <div class="flex justify-center items-center flex-col h-full">
+        <div class="py-3">
+          <iconify-icon icon="dashicons:welcome-write-blog"></iconify-icon>
+          <p class="cardText">Continue Payment</p>
+        </div>
+        <button class="button w-full">Payment</button>
+      </div>
+
+    </div>
+
+    <div class="landing_cards text-center">
+      <div class="flex justify-center items-center flex-col h-full">
+        <div class="py-3">
+          <iconify-icon icon="material-symbols:file-present"></iconify-icon>
+          <p class="cardText">Self Assessment</p>
+        </div>
+        <button class="button w-full">Self Assessment</button>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="absolute bottom-0 w-full">
+    <footer class="bg-white flex justify-between items-center px-10 py-2 landingFooter">
+      <div class="flex items-center gap-2">
+        <p class="text-[#555555] text-sm">Copyright 2023 Primegauge LTD</p>
+        <img src="./assets/img/logo1.png" class="w-[60px] h-[30px]" alt="">
+      </div>
+
+
+      <div class="flex items-center gap-5 text-[#555555] theNav">
+        <div class="text-center">
+          <iconify-icon icon="wpf:faq"></iconify-icon>
+          <p class="text-sm m-0">FAQ</p>
+        </div>
+
+        <div class="text-center">
+          <iconify-icon icon="fluent:contact-card-32-filled"></iconify-icon>
+          <p class="text-sm m-0">Contact Us</p>
+        </div>
+
+        <div class="text-center">
+          <iconify-icon icon="fluent:news-20-filled"></iconify-icon>
+          <p class="text-sm m-0">News</p>
+        </div>
+
+        <div class="text-center">
+          <iconify-icon icon="dashicons:format-gallery"></iconify-icon>
+          <p class="text-sm m-0">Gallery</p>
+        </div>
+
+      </div>
+
+    </footer>
+  </section>
+
+
+
+  <script src="assets/js/jquery.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.bundle.js"></script>
+  <script src="assets/js/aos-master/dist/aos.js"></script>
+  <script src="assets/js/sweetalert2/dist/sweetalert2.all.min.js"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+  <script>
+    AOS.init();
+  </script>
+  <script src="assets/js/nav.js"></script>
+  <script src="assets/js/landing.js"></script>
+  <script src="assets/js/landingcms.js"></script>
+</body>
+
+</html>
