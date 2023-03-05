@@ -41,6 +41,10 @@ body {
   color: var(--primaryCol);
 }
 
+.bgPrimary {
+  background: var(--primaryCol);
+}
+
 .button {
   background: var(--primaryCol) !important;
   color: #fff !important;

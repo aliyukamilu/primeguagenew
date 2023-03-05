@@ -6,64 +6,31 @@
 
 
 // if (THE_SESSION) {
-//   $("#theHeader").html(`
-//   <div class="flex items-center justify-between py-3 px-[5%]">
-//     <a href="index.html" class="logo-container">
-//       <img src="./assets/img/logo.png" alt="" class="h-[50px]" />
-//     </a>
+$("#theHeader").html(`
+  <div class="flex gap-2 items-center">
+    <div class="w-[40px] h-[40px]">
+      <img src="./assets/img/logo.png" class="" />
+    </div>
+    <p class="text-black fontBold">Pay Ibom</p>
+  </div>
 
-//     <div class="transition-all shadow-lg sidebarrr bg-white h-[100vh] absolute w-[70%] gap-3 top-0  flex flex-col p-3">
-//     <a href="index.html" class="navItem">Home</a>
-//     <a href="dashboard.html" class="navItem">Dashboard</a>
-//     <a href="aboutus.html" class="navItem">About Us</a>
-//     <a href="paymenthistory.html" class="navItem">Payment History</a>
-//     <a href="invoices.html" class="navItem">Invoices</a>
-//     <a href="support.html" class="navItem">FAQs</a>
-//       <div class="dropdown show">
-//         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown">
-//           Taxes
-//         </a>
+  <div class="flex items-center gap-5 text-[#555555]">
 
-//         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-//           <a class="dropdown-item" href="taxcategories.html">Tax Categories</a>
-//           <a class="dropdown-item" href="whattopay.html">What to pay for</a>
-//           <a class="dropdown-item" href="howtopay.html">How to pay</a>
-//         </div>
-//       </div>
-      
-//       <a href="userprofile.html" class="flex items-center space-x-2">
-//         <img src="assets/img/profile_pic.png" class="w-[40px] h-[40px]" />
-//         <p>John Doe</p>
-//       </a>
-//     </div>
+    <div class="flex gap-3">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="#">E-Services</a>
+      <a href="offer.html">What we offer</a>
+      <a href="howtopay.html">How to pay</a>
+    </div>
 
-//     <div class="navItems-mom items-center space-x-8 hidden md:flex">
-//       <a href="index.html" class="navItem">Home</a>
-//       <a href="dashboard.html" class="navItem">Dashboard</a>
-//       <a href="aboutus.html" class="navItem">About Us</a>
-//       <a href="support.html" class="navItem">FAQs</a>
-//       <div class="dropdown show">
-//         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown">
-//           Taxes
-//         </a>
+    <div class="flex items-center gap-3">
+      <button class="outline-btn">Sign In</button>
+      <button class="button">Register</button>
+    </div>
 
-//         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-//           <a class="dropdown-item" href="taxcategories.html">Tax Categories</a>
-//           <a class="dropdown-item" href="whattopay.html">What to pay for</a>
-//           <a class="dropdown-item" href="howtopay.html">How to pay</a>
-//         </div>
-//       </div>
-      
-//       <a href="userprofile.html" class="flex items-center space-x-2">
-//         <img src="assets/img/profile_pic.png" class="w-[40px] h-[40px]" />
-//         <p></p>
-//       </a>
-//     </div>
-//     <button id="openSideBar" class="block md:hidden">
-//       <i class="fas fa-bars"></i>
-//     </button>
-//   </div>
-// `)
+  </div>
+`)
 // } else {
 //   let heeaderr = ""
 
@@ -78,7 +45,7 @@
 //     </a>
 
 //       <div class="transition-all sidebarrr bg-white h-[100vh] absolute w-[70%] gap-3 top-0  flex flex-col p-3">
-        
+
 //         <div class="dropdown show">
 //           <a class="dropdown-toggle" href="#" role="button" id="paymentLink" data-bs-toggle="dropdown">
 //             Payments
@@ -168,68 +135,39 @@
 //   `
 
 //   $("#theHeader").html(heeaderr)
-
-
-
-
 // }
 
 
-// $("#footer").html(`
-//   <div class="flex justify-between flex-wrap">
-//     <div>
-//       <img src="./assets/img/logo1.png" class="w-[230px] h-[100px]">
-//     </div>
+$("#footer").html(`
+    <footer class="bg-white flex justify-between items-center px-10 py-2 landingFooter border-t border-gray-200">
+      <div class="flex items-center gap-2">
+          <p class="text-[#555555] text-sm">Copyright 2023 Primegauge LTD</p>
+          <img src="./assets/img/logo1.png" class="w-[60px] h-[30px]" alt="">
+      </div>
 
+      <div class="flex items-center gap-5 text-[#555555] theNav">
+        <a href="" class="text-center">
+            <iconify-icon icon="wpf:faq"></iconify-icon>
+            <p class="text-sm m-0">FAQ</p>
+        </a>
 
-//     <div class="">
-//       <ul>
-//         <li class="text-sm mb-2"><a href="../aboutus.html" class="hover:text-white text-lg fontBold">About Us</a></li>
-//         <li class="text-sm mb-2"><a href="../taxcategories.html" class="hover:text-white">Tax Categories</a></li>
-//         <li class="text-sm mb-2"><a href="../whattopay.html" class="hover:text-white">What to pay for</a></li>
-//         <li class="text-sm mb-2"><a href="../howtopay.html" class="hover:text-white">How to pay</a></li>
-//         <li class="text-sm mb-2"><a href="../support.html" class="hover:text-white">FAQs</a></li>
-//       </ul>
+        <a href="" class="text-center">
+            <iconify-icon icon="fluent:contact-card-32-filled"></iconify-icon>
+            <p class="text-sm m-0">Contact Us</p>
+        </a>
 
-      
-//     </div>
-//     <div class="">
-//     <ul>
-//         <li class="text-sm mb-2"><a href="#" class="hover:text-white text-lg fontBold">Explore</a></li>
-//         <li class="text-sm mb-2"><a href="../index.html" class="hover:text-white">Home</a></li>
-//         <li class="text-sm mb-2"><a href="../aboutus.html" class="hover:text-white">About</a></li>
-//       </ul>
-//     </div>
-//     <div class="">
-//     <ul>
-//         <li class="text-sm mb-2"><a href="#" class="hover:text-white text-lg fontBold">Contact Us</a></li>
-//         <div class="mt-2">
-//         <div id="contact2">
-        
-//         </div>
-        
-//         <div class="flex items-center space-x-6 the_icons mt-4">
-//           <a href="#" class="hover:text-white">
-//             <i class="fab fa-facebook"></i>
-//           </a>
-//           <a href="#" class="hover:text-white">
-//             <i class="fab fa-instagram"></i>
-//           </a>
-//           <a href="#" class="hover:text-white">
-//             <i class="fab fa-twitter"></i>
-//           </a>
-//           <a href="#" class="hover:text-white">
-//             <i class="fab fa-linkedin"></i>
-//           </a>
-//         </div>
-//       </div>
-//       </ul>
-//     </div>
+        <a href="" class="text-center">
+            <iconify-icon icon="fluent:news-20-filled"></iconify-icon>
+            <p class="text-sm m-0">News</p>
+        </a>
 
-//   </div>
-//   <hr class="mt-5 color-[#fff]" />
-//   <p class="text-center mt-3">&copy; 2022 Primeguage IBS</p>
-// `);
+        <a href="" class="text-center">
+            <iconify-icon icon="dashicons:format-gallery"></iconify-icon>
+            <p class="text-sm m-0">Gallery</p>
+        </a>
+      </div>
+    </footer>
+`);
 
 // $("#openSideBar").on("click", () => {
 //   let sideBarr = document.querySelector(".sidebarrr");
