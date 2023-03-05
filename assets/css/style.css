@@ -62,7 +62,14 @@ body {
   padding: 10px 20px;
   text-align: center;
 }
-
+.btn-outline {
+  background: transparent !important;
+  color: var(--primaryCol) !important;
+  border: 2px solid #D7D7D7;
+  border-radius: 100px;
+  padding: 8px 20px;
+  text-align: center;
+}
 /* LANDING 
  */
 .landing_cards {
@@ -116,3 +123,24 @@ body {
 footer .theNav iconify-icon {
   font-size: 25px;
 }
+
+a:hover {
+color: var(--primaryCol);
+}
+
+.signin .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #F68C36;
+  background-color: transparent;
+  border-bottom: 2px solid #F68C36;
+  border-radius: 0%;
+  font-size: 14px;
+}
+
+.signin .nav{
+  border-bottom: 1px solid #D7D7D7;
+  font-size: 14px;
+}
+a{
+  text-decoration: none;
+}
+
