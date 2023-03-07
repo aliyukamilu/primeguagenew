@@ -146,22 +146,22 @@ $("#footer").html(`
       </div>
 
       <div class="flex items-center gap-5 text-[#555555] theNav">
-        <a href="" class="text-center">
+        <a href="faqs.html" class="text-center">
             <iconify-icon icon="wpf:faq"></iconify-icon>
             <p class="text-sm m-0">FAQ</p>
         </a>
 
-        <a href="" class="text-center">
+        <a href="contact.html" class="text-center">
             <iconify-icon icon="fluent:contact-card-32-filled"></iconify-icon>
             <p class="text-sm m-0">Contact Us</p>
         </a>
 
-        <a href="" class="text-center">
+        <a href="news.html" class="text-center">
             <iconify-icon icon="fluent:news-20-filled"></iconify-icon>
             <p class="text-sm m-0">News</p>
         </a>
 
-        <a href="" class="text-center">
+        <a href="gallery.html" class="text-center">
             <iconify-icon icon="dashicons:format-gallery"></iconify-icon>
             <p class="text-sm m-0">Gallery</p>
         </a>
