@@ -18,10 +18,7 @@
 
 </head>
 
-<body class="h-[120vh] bg-[url('./assets/img/slide2.png')] bg-no-repeat bg-bottom">
-
-    <div class="absolute w-full h-[120vh] -z-10" style="background: rgba(255, 255, 255, 0.8);"></div>
-
+<body class="">
     <header class="flex justify-between px-10 bg-white py-3">
 
         <div class="flex gap-2 items-center">
@@ -48,6 +45,61 @@
 
         </div>
     </header>
+    <section class="reg">
+        <div class="row">
+            <div class="col-md-3 col-12 bg-[#F9FAFB]">
+                <div class="pl-6 pt-3">
+                    <img src="./assets/img/reg1.png" alt="">
+                </div>
+            </div>
+            <div class="col-md-9 col-12 h-[88vh] bg-[url('./assets/img/slide2.png')] bg-no-repeat bg-center p-0">
+                <div class="w-full h-[88vh] -z-10" style="background: rgba(255, 255, 255, 0.9);">
+                    <div class="flex justify-center pt-[40px]">
+                        <div class="">
+                            <h4 class="text-[#101828] text-[30px] text-center">Register</h4>
+                            <p class="text-[#101828] text-[20px] text-center">Select your category</p>
+                            <div class="flex gap-x-5 mt-3 justify-center flex-wrap">
+                                <div class="md:w-[244px] w-full bg-white rounded-lg px-3 pb-4 cardi " data-name="individual">
+                                    <div class="flex justify-center pt-2">
+                                        <img src="./assets/img/icons/signup_personal.png.png" class="text-center" alt="">
+                                    </div>
+                                    <p class="text-[14px] text-center">Individual</p>
+                                    <p class="text-[12px] text-center pt-2">These are individuals who are required to pay taxes on their personal income, such as salary, freelance work, rental income, etc.</p>
+                                </div>
+                                <div class="md:w-[244px] w-full bg-white rounded-lg px-3 pb-4 cardi" data-name="corporate">
+                                    <div class="flex justify-center pt-2">
+                                        <img src="./assets/img/icons/signup_sole_sig.png.png" class="text-center" alt="">
+                                    </div>
+                                    <p class="text-[14px] text-center">Corporate</p>
+                                    <p class="text-[12px] text-center pt-2">These are businesses, including corporations and limited liability companies, that are required to pay taxes on their profits.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-x-5 mt-3 justify-center flex-wrap">
+                                <div class="md:w-[244px] w-full bg-white rounded-lg px-3 pb-4 cardi" data-name="state">
+                                    <div class="flex justify-center pt-2">
+                                        <img src="./assets/img/icons/signup_gov.png.png" class="text-center" alt="">
+                                    </div>
+                                    <p class="text-[14px] text-center">State Agency</p>
+                                    <p class="text-[12px] text-center pt-2">These are government agencies and departments at the state level that are responsible for paying taxes on their operations.</p>
+                                </div>
+                                <div class="md:w-[244px] w-full bg-white rounded-lg px-3 pb-4 cardi" data-name="federal">
+                                    <div class="flex justify-center pt-2">
+                                        <img src="./assets/img/icons/signup_gov.png.png" class="text-center" alt="">
+                                    </div>
+                                    <p class="text-[14px] text-center">Federal Agency</p>
+                                    <p class="text-[12px] text-center pt-2">These are government agencies and departments at the federal level that are responsible for paying taxes on their operations.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-end md:pr-20">
+                        <a class="button flex items-center gap-x-2 disabled" href="register.html">Proceed <iconify-icon icon="material-symbols:line-end-arrow-notch-sharp"></iconify-icon></a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
     <script src="assets/js/jquery.js"></script>
     <script src="assets/bootstrap/js/bootstrap.bundle.js"></script>
     <script src="assets/js/aos-master/dist/aos.js"></script>
@@ -56,9 +108,11 @@
     <script>
         AOS.init();
     </script>
+    <script>
+
+    </script>
     <script src="assets/js/nav.js"></script>
-    <script src="assets/js/landing.js"></script>
-    <script src="assets/js/landingcms.js"></script>
+    <script src="assets/js/register.js"></script>
 </body>
 
 </html>
