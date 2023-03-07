@@ -144,3 +144,9 @@ a{
   text-decoration: none;
 }
 
+.reg a.disabled{ 
+   
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.5;
+}
