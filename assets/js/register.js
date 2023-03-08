@@ -1,55 +1,55 @@
-$("#selectAccType").on("change", function () {
-  let val = $(this).val()
+// $("#selectAccType").on("change", function () {
+//   let val = $(this).val()
 
-  if (val === "2") {
-    $("#indivCorporate").html(`
-      <div class="form-group mb-3">
-        <label>First Name <span class="text-[red]">*</span></label>
-        <input class="form-control mt-1 regInputs" required data-name="first_name" type="text"
-          placeholder="Enter your First name" />
-        <small class="validate text-[red]"></small>
-      </div>
+//   if (val === "2") {
+//     $("#indivCorporate").html(`
+//       <div class="form-group mb-3">
+//         <label>First Name <span class="text-[red]">*</span></label>
+//         <input class="form-control mt-1 regInputs" required data-name="first_name" type="text"
+//           placeholder="Enter your First name" />
+//         <small class="validate text-[red]"></small>
+//       </div>
 
-      <div class="form-group mb-3">
-        <label>Surname <span class="text-[red]">*</span></label>
-        <input class="form-control mt-1 regInputs" required data-name="surname" type="text"
-          placeholder="Enter your Surname" />
-        <small class="validate text-[red]"></small>
-      </div>    
-    `)
+//       <div class="form-group mb-3">
+//         <label>Surname <span class="text-[red]">*</span></label>
+//         <input class="form-control mt-1 regInputs" required data-name="surname" type="text"
+//           placeholder="Enter your Surname" />
+//         <small class="validate text-[red]"></small>
+//       </div>    
+//     `)
 
-  } else {
+//   } else {
 
-    $("#indivCorporate").html(`
-      <div class="form-group mb-3">
-        <label>Name of Organization <span class="text-[red]">*</span></label>
-        <input class="form-control mt-1 regInputs" data-name="first_name" type="text" placeholder="Enter organization name" required />
-        <small class="validate text-[red]"></small>
-      </div>
+//     $("#indivCorporate").html(`
+//       <div class="form-group mb-3">
+//         <label>Name of Organization <span class="text-[red]">*</span></label>
+//         <input class="form-control mt-1 regInputs" data-name="first_name" type="text" placeholder="Enter organization name" required />
+//         <small class="validate text-[red]"></small>
+//       </div>
 
-      <div class="form-group mb-3">
-        <label>Industry <span class="text-[red]">*</span></label>
-        <select class="form-select mt-1" data-name="surname" required>
-          <option value="Commercial">Commercial</option>
-          <option value="Pool/betting">Pool/betting</option>
-          <option value="Education">Education</option>
-          <option value="Hospitality">Hospitality</option>
-          <option value="Manufacturing">Manufacturing</option>
-          <option value="Retail">Retail</option>
-          <option value="Mining">Mining</option>
-          <option value="Services">Services</option>
-          <option value="Agriculture">Agriculture</option>
-          <option value="Housing/real estate/lands">Housing/real estate/lands</option>
-          <option value="Transporting">Transporting</option>
-          <option value="Legal">Legal</option>
-          <option value="General">General</option>
-        </select>
-        <small class="validate text-[red]"></small>
-      </div>    
-    `)
+//       <div class="form-group mb-3">
+//         <label>Industry <span class="text-[red]">*</span></label>
+//         <select class="form-select mt-1" data-name="surname" required>
+//           <option value="Commercial">Commercial</option>
+//           <option value="Pool/betting">Pool/betting</option>
+//           <option value="Education">Education</option>
+//           <option value="Hospitality">Hospitality</option>
+//           <option value="Manufacturing">Manufacturing</option>
+//           <option value="Retail">Retail</option>
+//           <option value="Mining">Mining</option>
+//           <option value="Services">Services</option>
+//           <option value="Agriculture">Agriculture</option>
+//           <option value="Housing/real estate/lands">Housing/real estate/lands</option>
+//           <option value="Transporting">Transporting</option>
+//           <option value="Legal">Legal</option>
+//           <option value="General">General</option>
+//         </select>
+//         <small class="validate text-[red]"></small>
+//       </div>    
+//     `)
 
-  }
-})
+//   }
+// })
 
 var currentTab = 0;
 showTab(currentTab);
@@ -94,13 +94,13 @@ if (allFirstNext) {
       let firstNextMom = allFirst.parentElement.parentElement
       let reginputs = firstNextMom.querySelectorAll(".regInputs")
 
-      let TINinput = document.querySelector("#tinInput")
-      let validateInput = TINinput.nextElementSibling
+      // let TINinput = document.querySelector("#tinInput")
+      // let validateInput = TINinput.nextElementSibling
 
-      if (TINinput.value.length !== 15) {
-        validateInput.innerHTML = "Please enter a valid TIN"
-        return false;
-      } else {
+      // if (TINinput.value.length !== 15) {
+      //   validateInput.innerHTML = "Please enter a valid TIN"
+      //   return false;
+      // } else {
         for (let i = 0; i < reginputs.length; i++) {
           const reginput = reginputs[i];
           let theSmall = reginput.nextElementSibling
@@ -119,7 +119,7 @@ if (allFirstNext) {
           }
 
         }
-      }
+      // }
 
 
 
