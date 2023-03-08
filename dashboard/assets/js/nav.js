@@ -89,14 +89,14 @@ $(".navi")
 </div>
 
                   <div class="mt-4 flex gap-x-5">
-                  <div class="input-group input-group-merge md:w-72 d-none md:d-block">
+                  <div class="input-group input-group-merge md:w-72 hidden md:flex">
 <span class="input-group-text" id="basic-addon-search31"><i class="bx bx-search"></i></span>
 <input type="text" class="form-control" placeholder="Search..." aria-label="Search..."
   aria-describedby="basic-addon-search31">
 </div>
 <button data-bs-toggle="modal" data-bs-target="#generateInvModal" class="button ">
               <iconify-icon icon="ic:baseline-plus"></iconify-icon> Generate Invoice</button>
-                  <iconify-icon icon="mdi:bell-notification" class="d-none md:d-block" width="32" height="32"></iconify-icon>
+                  <iconify-icon icon="mdi:bell-notification" class="hidden md:flex" width="32" height="32"></iconify-icon>
                   <div class="avatar avatar-online">
         <img src="./assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
       </div>
