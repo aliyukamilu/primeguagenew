@@ -44,67 +44,12 @@
 
             <div class="flex items-center gap-3">
                 <a class="outline-btn" href="signin.html">Sign In</a>
-                <a class="button" href="register.html">Register</a>
+                <a class="button" href="regcategory.html">Register</a>
             </div>
 
         </div>
     </header>
     <section class="reg formTabs firstForm">
-        <div class="row">
-            <div class="col-md-3 col-12 bg-[#F9FAFB]">
-                <div class="pl-6 pt-3">
-                    <img src="./assets/img/reg1.png" alt="">
-                </div>
-            </div>
-            <div class="col-md-9 col-12 h-[88vh] bg-[url('./assets/img/slide2.png')] bg-no-repeat bg-center p-0">
-                <div class="w-full h-[88vh] -z-10" style="background: rgba(255, 255, 255, 0.9);">
-                    <div class="flex justify-center pt-[40px]">
-                        <div class="">
-                            <h4 class="text-[#101828] text-[30px] text-center">Register</h4>
-                            <p class="text-[#101828] text-[20px] text-center">Select your category</p>
-                            <div class="flex gap-x-5 mt-3 justify-center flex-wrap">
-                                <div class="md:w-[244px] w-full bg-white rounded-lg px-3 pb-4 cardi " data-name="individual">
-                                    <div class="flex justify-center pt-2">
-                                        <img src="./assets/img/icons/signup_personal.png.png" class="text-center" alt="">
-                                    </div>
-                                    <p class="text-[14px] text-center">Individual</p>
-                                    <p class="text-[12px] text-center pt-2">These are individuals who are required to pay taxes on their personal income, such as salary, freelance work, rental income, etc.</p>
-                                </div>
-                                <div class="md:w-[244px] w-full bg-white rounded-lg px-3 pb-4 cardi" data-name="corporate">
-                                    <div class="flex justify-center pt-2">
-                                        <img src="./assets/img/icons/signup_sole_sig.png.png" class="text-center" alt="">
-                                    </div>
-                                    <p class="text-[14px] text-center">Corporate</p>
-                                    <p class="text-[12px] text-center pt-2">These are businesses, including corporations and limited liability companies, that are required to pay taxes on their profits.</p>
-                                </div>
-                            </div>
-                            <div class="flex gap-x-5 mt-3 justify-center flex-wrap">
-                                <div class="md:w-[244px] w-full bg-white rounded-lg px-3 pb-4 cardi" data-name="state">
-                                    <div class="flex justify-center pt-2">
-                                        <img src="./assets/img/icons/signup_gov.png.png" class="text-center" alt="">
-                                    </div>
-                                    <p class="text-[14px] text-center">State Agency</p>
-                                    <p class="text-[12px] text-center pt-2">These are government agencies and departments at the state level that are responsible for paying taxes on their operations.</p>
-                                </div>
-                                <div class="md:w-[244px] w-full bg-white rounded-lg px-3 pb-4 cardi" data-name="federal">
-                                    <div class="flex justify-center pt-2">
-                                        <img src="./assets/img/icons/signup_gov.png.png" class="text-center" alt="">
-                                    </div>
-                                    <p class="text-[14px] text-center">Federal Agency</p>
-                                    <p class="text-[12px] text-center pt-2">These are government agencies and departments at the federal level that are responsible for paying taxes on their operations.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex justify-end md:pr-20">
-                        <button class="button flex items-center gap-x-2  firstNext">Proceed <iconify-icon icon="material-symbols:line-end-arrow-notch-sharp"></iconify-icon></button>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-    </section>
-    <section class="reg formTabs">
         <div class="row">
             <div class="col-md-3 col-12 bg-[#F9FAFB]">
                 <div class="pl-4">
@@ -113,7 +58,7 @@
             </div>
             <div class="col-md-9 col-12 h-[110vh] bg-[url('./assets/img/slide3.png')] bg-no-repeat bg-bottom p-0">
                 <div class="w-full h-[110vh] -z-10" style="background: rgba(255, 255, 255, 0.9);">
-                    <div class="px-40 pt-[40px]">
+                    <div class="md:px-40 pt-[40px]">
                             <h4 class="text-[#101828] text-[30px]">Register</h4>
                             <p class="text-[#101828] text-[20px] pt-3">Contact Information</p>
                             <div class="flex gap-x-5 pt-3 md:flex-nowrap sm:flex-wrap">
@@ -228,6 +173,54 @@
                             </div>
                             </div>
                     
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    <section class="reg formTabs">
+        <div class="row">
+            <div class="col-md-3 col-12 bg-[#F9FAFB]">
+                <div class="pl-6 pt-3">
+                    <img src="./assets/img/reg3.png" alt="">
+                </div>
+            </div>
+            <div class="col-md-9 col-12 h-[88vh] bg-[url('./assets/img/slide4.png')] bg-no-repeat bg-center p-0">
+                <div class="w-full h-[88vh] -z-10" style="background: rgba(255, 255, 255, 0.9);">
+                    <div class="md:px-40 pt-[40px]">
+                        <h4 class="text-[#101828] text-[30px]">Register</h4>
+                        <p class="text-[#101828] text-[20px] pt-3">Choose a password</p>
+                          <div class="form-group mb-3 mt-3">
+                            <label>Password <span class="text-[red]">*</span></label>
+                            <input class="form-control mt-1 regInputs" id="pps" required data-name="password" type="password"
+                              placeholder="Password" />
+                            <small class="validate text-[red]"></small>
+                          </div>
+                    
+                    
+                          <div class="form-group mb-3">
+                            <label>Confirm password <span class="text-[red]">*</span></label>
+                            <input class="form-control mt-1" required id="pps2" type="password" placeholder="Confirm password" />
+                            <small class="validate text-[red]"></small>
+                          </div>
+                          <div class="validated"></div>
+                    
+                          <div class="text-[red] text-sm" id="valPas"></div>
+                          <div class="alert alert-info">
+                            <ul class="list-disc pl-2">
+                              <li class="text-xs">At least 1 uppercase character.</li>
+                              <li class="text-xs">At least 1 lowercase character.</li>
+                              <li class="text-xs">At least 1 digit number.</li>
+                              <li class="text-xs">Minimum 8 characters.</li>
+                            </ul>
+                          </div>
+                          <div class="flex items-center mt-10 gap-4">
+                            <button class="outline-btn" type="button" onclick="nextPrev(-1)">Previous</button>
+                            <button class="button block" id="CreateAccountBtn">Register</button>
+                          </div>
+                          <div id="msg_box" class="w-full"></div>
+                        </div>
+                   
                 </div>
                 
             </div>
