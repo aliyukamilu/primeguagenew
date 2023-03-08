@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PrimeGuage</title>
+
+  <!-- FAVION ICON -->
+  <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
+  <link rel="stylesheet" href="assets/fontawesome/css/all.css" />
+  <link rel="stylesheet" href="assets/js/aos-master/dist/aos.css" />
+
+</head>
+
+<body>
+  <header class="flex justify-between px-10 bg-white py-3" id="theHeader"></header>
+
+  <section class="flex h-[89vh]">
+
+    <div class="w-4/12 bg-[#F9FAFB] p-3">
+
+      <div class="flex px-4 items-center h-full">
+
+        <div>
+          <div class="flex gap-4 mb-4">
+            <div class="theRounder">
+              <div class="active"></div>
+            </div>
+            <div>
+              <h1 class="text-xl">Billing Information</h1>
+              <p class="text-[#555555]">Please enter your details</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4 mb-4">
+            <div class="theRounder">
+              <div></div>
+            </div>
+            <div>
+              <h1 class="text-xl">Personal Details</h1>
+              <p class="text-[#555555]">Please provide your personal details</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4 mb-4">
+            <div class="theRounder">
+              <div></div>
+            </div>
+            <div>
+              <h1 class="text-xl">Generate Invoice</h1>
+              <p class="text-[#555555]">Download your invoice or make payment</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4 mb-4">
+            <div class="theRounder">
+              <div></div>
+            </div>
+            <div>
+              <h1 class="text-xl">Make Payment</h1>
+              <p class="text-[#555555]">Choose a payment method and pay</p>
+            </div>
+          </div>
+
+        </div>
+
+
+
+      </div>
+
+    </div>
+
+    <div class="w-8/12 bg-[url('./assets/img/slideimg.png')] bg-center">
+
+      <div class="flex justify-center items-center h-full">
+
+        <form action="" class="w-[60%]">
+          <h1 class="fontBold text-2xl">Generate Invoice</h1>
+          <h1 class="mb-3 mt-3">Basic Information</h1>
+
+          <div class="form-group mb-4">
+            <label for="">Select your category*</label>
+            <select class="form-select" name="" id="">
+              <option disabled selected>Select--</option>
+              <option value="Individual">Individual</option>
+              <option value="Corporate">Corporate</option>
+              <option value="State Agency">State Agency</option>
+              <option value="Federal Agency">Federal Agency</option>
+            </select>
+          </div>
+
+          <div class="form-group mb-4">
+            <label for="">What do you want to pay for?*</label>
+            <select class="form-select" name="" id="">
+              <option disabled selected>Select--</option>
+              <option value="Tractor Hiring Services ">Tractor Hiring Services </option>
+              <option value="PAYE">PAYE</option>
+            </select>
+          </div>
+
+          <div class="form-group mb-4">
+            <label for="">Amount to be paid*</label>
+            <input type="text" class="form-control" value="2632">
+          </div>
+
+          <button class="button w-full">Continue</button>
+
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+
+  <script src="assets/js/jquery.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.bundle.js"></script>
+  <script src="assets/js/aos-master/dist/aos.js"></script>
+  <script src="assets/js/sweetalert2/dist/sweetalert2.all.min.js"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+  <script>
+    AOS.init();
+  </script>
+  <script src="assets/js/nav.js"></script>
+  <script src="assets/js/landing.js"></script>
+  <script src="assets/js/landingcms.js"></script>
+</body>
+
+</html>
