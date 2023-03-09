@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PrimeGuage</title>
+
+  <!-- FAVION ICON -->
+  <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
+  <link rel="stylesheet" href="assets/fontawesome/css/all.css" />
+  <link rel="stylesheet" href="assets/js/aos-master/dist/aos.css" />
+
+  <style>
+    .formTabs {
+      display: none;
+    }
+
+    .invTa tr td {
+      padding-left: 0;
+      padding-bottom: 0px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="flex justify-between px-10 bg-white py-3" id="theHeader"></header>
+
+  <section class="flex h-[89vh] overflow-y-scroll">
+
+    <div class="w-3/12 bg-[#F9FAFB] p-3">
+
+      <div class="flex px-1 items-center h-full">
+        <div>
+          <div class="flex gap-4 mb-4">
+            <div class="theRounder">
+              <div class="active"></div>
+            </div>
+            <div>
+              <h1 class="text-xl">Invoice Number</h1>
+              <p class="text-[#555555]">Please enter your Invoice Number</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4 mb-4">
+            <div class="theRounder">
+              <div></div>
+            </div>
+            <div>
+              <h1 class="text-xl">Invoice Status</h1>
+              <p class="text-[#555555]">Please provide your personal details</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4 mb-4">
+            <div class="theRounder">
+              <div></div>
+            </div>
+            <div>
+              <h1 class="text-xl">Make Payment</h1>
+              <p class="text-[#555555]">Download your invoice or make payment</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <div class="w-9/12 bg-[url('./assets/img/slideimg.png')] bg-center overflow-y-scroll">
+
+      <section class="formTabs h-full">
+
+        <div class="flex justify-center items-center h-full">
+
+          <form action="" class="w-[60%]">
+            <h1 class="fontBold text-2xl">Verify Invoice</h1>
+            <h1 class="mb-3 mt-3">Invoice Number</h1>
+
+            <div class="form-group mb-4">
+              <label for="">Input your invoice number*</label>
+              <input type="text" class="form-control" value="2632">
+            </div>
+
+            <button class="button w-full" type="button" onclick="nextPrev(1)">Verify</button>
+
+
+          </form>
+
+        </div>
+      </section>
+
+      <section class="formTabs h-full">
+
+        <div class="flex justify-center items-center h-full">
+
+          <form action="" class="w-[60%]">
+            <h1 class="fontBold text-2xl text-center">Verify Invoice</h1>
+
+            <div class="flex justify-center mt-5">
+              <img src="./assets/img/verify.png" alt="">
+            </div>
+
+            <p class="text-center mt-2">This invoice has been paid</p>
+
+
+            <div class="flex justify-center">
+              <div class="flex justify-between mt-4 gap-3">
+                <button class="outline-btn flex gap-3 items-center px-10" type="button" onclick="nextPrev(1)">
+                  <!-- <iconify-icon icon="mdi:printer-outline" class="text-xl"></iconify-icon> -->
+                  <span>View Receipt</span>
+                </button>
+
+                <a href="index.html" class="button flex gap-3 items-center px-10" onclick="nextPrev(1)">
+                  <span>Return to home page</span>
+                  <iconify-icon icon="eva:arrow-forward-outline" class="text-xl"></iconify-icon>
+                </a>
+              </div>
+            </div>
+
+
+
+          </form>
+
+        </div>
+      </section>
+
+
+
+      <section class="formTabs pb-5">
+        <div class="pt-10 px-10">
+          <button class="flex items-center gap-2" onclick="nextPrev(-1)">
+            <iconify-icon icon="eva:arrow-back-outline"></iconify-icon>
+            <span>Go back</span>
+          </button>
+        </div>
+
+        <div class="invoiceContainer flex justify-end pr-10">
+
+          <div class="invoice bg-white w-[70%] shadow-md -mt-12">
+            <div class="invoicetop"></div>
+
+            <div class="flex px-6 pt-3 items-center justify-between">
+
+              <h1 class="fontBold text-2xl">Receipt</h1>
+
+              <div class="flex items-center gap-1">
+                <img src="./assets/img/vector.png" alt="">
+                <p class="text-2xl fontBold">INV/2023/009</p>
+              </div>
+
+            </div>
+
+            <div class="flex  justify-between px-6 mt-4">
+              <div class="w-full">
+                <p class="text-[#555555]">FROM :</p>
+                <p class="fontBold">Ministry of Agriculture</p>
+                <p class="text-[#222234] w-[60%] text-sm">2WF4+CH7, Abak Rd,
+                  520102, Uyo,
+                  Akwa Ibom</p>
+              </div>
+
+              <div class="w-full mr-[-30%]">
+                <p class="text-[#555555]">TO :</p>
+                <p class="fontBold text-left">Muhammad Bashir Hassan</p>
+                <p class="text-[#222234] text-sm w-[60%]">1 ,Mount Zion Road, Ikot Ekpene, Akwa Ibom,
+                  Nigeria, Ikot Ekpene
+                  L.G.A
+                </p>
+              </div>
+
+            </div>
+
+            <div class="px-6 mt-4">
+              <p class="text-[#555555]">INFO :</p>
+
+              <table class="table table-borderless invTa w-[70%]">
+                <tr>
+                  <td>
+                    <p class="fontBold">Payer ID: 495000</p>
+                  </td>
+                  <td>Due Date: 04/04/2020</td>
+                </tr>
+                <tr>
+                  <td>Invoice Date: 27/03/2020</td>
+                  <td>Expiry Date: 04/04/2020</td>
+                </tr>
+              </table>
+            </div>
+
+            <div class="flex justify-end">
+              <div class=" w-[70%]">
+                <table class="table table-borderless">
+                  <tr>
+                    <td class="text-[#555555] text-sm">ITEM DESCRIPTION</td>
+                    <td class="text-[#555555] text-sm">QTY</td>
+                    <td class="text-[#555555] text-sm">RATE</td>
+                    <td class="text-[#555555] text-sm">AMOUNT</td>
+                  </tr>
+                  <tr class="border-b border-b border-[#6F6F84]">
+                    <td class="text-sm">Tractor hiring service</td>
+                    <td class="text-sm">01</td>
+                    <td class="text-sm">2632</td>
+                    <td class="text-sm">2632</td>
+                  </tr>
+                  <tr>
+                    <td class="text-[#555555] text-sm">Sub Total</td>
+                    <td></td>
+                    <td></td>
+                    <td class="text-[#000] text-sm">2632</td>
+                  </tr>
+                  <tr class="border-b border-b border-[#6F6F84]">
+                    <td class="text-[#555555] text-sm">Discount</td>
+                    <td></td>
+                    <td></td>
+                    <td class="text-[#000] text-sm">N0.00</td>
+                  </tr>
+
+                  <tr>
+                    <td colspan="3" class="text-[#000]">Grand Total<span class="text-[#555555]"> (NGN)</span></td>
+                    <td class="text-[#000] text-xl fontBold">N2632</td>
+                  </tr>
+
+                  <tr>
+                    <td colspan="2" class="text-[#000]">Paying</td>
+                    <td class="textPrimary"></td>
+                    <td class="text-xl textPrimary fontBold">N2632.00</td>
+                  </tr>
+                  <tr>
+                    <td colspan="4" class="text-sm text-[#000] pb-0">Amount in words</td>
+                  </tr>
+                  <tr>
+                    <td colspan="4" class="text-sm text-[#555555] pt-0">Two thousand six hundred and thirty-two naira
+                      only
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="4" class="text-sm text-[#555555] pb-0">Notes</td>
+                  </tr>
+                  <tr>
+                    <td colspan="4" class="fontBold pt-0">Thanks for the business.</td>
+                  </tr>
+                </table>
+
+                <table class="table table-borderless bg-[#FFF3E9]">
+                  <tr>
+                    <td colspan="3" class="text-[#6F6F84] pb-0">Payment Details</td>
+                    <td class="text-right text-uppercase text-[#6F6F84] text-sm pb-0">Online payment </td>
+                  </tr>
+                  <tr>
+                    <td colspan="3"></td>
+                    <td class="text-right pt-0">Remita </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+
+
+            <hr class="my-4 mx-10">
+
+            <div class="px-10 pb-6">
+              <div class="flex items-center justify-center">
+                <img src="./assets/img/akwaimage.png" alt="">
+                <div>
+                  <p class="text-xl fontBold pb-0">Pay Ibom</p>
+                  <div class="flex items-center gap-x-3 flex-wrap">
+                    <p class="text-sm text-[#6F6F84]">www.akwaibompay.ng</p>
+                    <p class="text-sm text-[#6F6F84]">Info@akwaibompay.com</p>
+                    <p class="text-sm text-[#6F6F84]">0800 101 5555</p>
+                    <img src="./assets/img/logo1.png" class="h-[30px] w-[50px]" alt="">
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+
+        </div>
+
+        <div class="flex justify-end pr-10">
+          <div class="w-[70%]">
+            <!-- <div class="mt-4">
+              <p class="text-xl">Note: You can make part payment by editing amount you are to pay</p>
+            </div> -->
+            <div class="flex justify-between mt-4">
+              <button class="outline-btn flex gap-3 items-center px-10">
+                <iconify-icon icon="mdi:printer-outline" class="text-xl"></iconify-icon>
+                <span>Print Receipt</span>
+              </button>
+
+              <a href="index.html" class="button flex gap-3 items-center px-10" onclick="nextPrev(1)">
+                <span>Return to home page</span>
+                <iconify-icon icon="eva:arrow-forward-outline" class="text-xl"></iconify-icon>
+              </a>
+            </div>
+          </div>
+        </div>
+
+
+
+      </section>
+
+    </div>
+
+  </section>
+
+
+
+
+  <script src="assets/js/jquery.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.bundle.js"></script>
+  <script src="assets/js/aos-master/dist/aos.js"></script>
+  <script src="assets/js/sweetalert2/dist/sweetalert2.all.min.js"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+  <script>
+    AOS.init();
+  </script>
+  <script src="assets/js/nav.js"></script>
+  <script src="assets/js/generateinvoice.js"></script>
+  <script src="assets/js/landingcms.js"></script>
+</body>
+
+</html>
