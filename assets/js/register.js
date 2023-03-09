@@ -50,6 +50,25 @@
 
 //   }
 // })
+let selectcategory = document.querySelectorAll(".cardi")
+selectcategory.forEach(selecti => {
+  selecti.addEventListener("click", () =>{
+    selecti.classList.add("selectedcat");
+   let btnclicked = document.querySelector(".bb");
+   btnclicked.classList.remove("disabled");
+        var dataId = selecti.getAttribute("data-name");
+    // console.log(dataId)
+    if(dataId === "individual"){
+      $(".bb").on("click", (e) => {
+      window.location.href = `register.html?category=${dataId}`;
+      })
+    }else{
+      $(".bb").on("click", (e) => {
+        window.location.href = `registerform.html?category=${dataId}`;
+        })
+    }
+  })
+})
 
 var currentTab = 0;
 showTab(currentTab);
