@@ -25,6 +25,8 @@ async function fetchPayment() {
       const userInvoice = userInvoices.message[i];
       $("#showPayment").append(`
         <tr>
+        <td>Payer ID</td>
+        <td>Payment reference no.</td>
           <td>${userInvoice.timeIn}</td>
           <td>${userInvoice["COL_4"]}</td>
           <td>&#8358;${userInvoice["COL_6"]}</td>

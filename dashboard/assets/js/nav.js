@@ -29,38 +29,38 @@ $(".aside").html(`
         </a>
       </li>
       <li class="menu-item">
-        <a href="revhead.html" class="menu-link">
+        <a href="taxes.html" class="menu-link das">
           <i class='menu-icon tf-icons bx bx-buildings' ></i>
           <div data-i18n="Basic">My taxes</div>
         </a>
       </li>
       <li class="menu-item">
-        <a href="payments.html" class="menu-link">
-          <i class='menu-icon tf-icons bx bxs-credit-card' ></i>
+        <a href="invoice.html" class="menu-link dae">
+          <i class='menu-icon tf-icons bx bxs-credit-card'></i>
           <div data-i18n="Basic">Invoice</div>
         </a>
       </li>
       <li class="menu-item">
-        <a href="users.html" class="menu-link mdd">
+        <a href="paymenthistory.html" class="menu-link mdp">
         <i class='menu-icon tf-icons bx bxs-group' ></i>
           <div data-i18n="Basic">Payment history</div>
         </a>
       </li>
       <li class="menu-item">
-        <a href="users.html" class="menu-link mdd">
+        <a href="eservice.html" class="menu-link mdd">
         <i class='menu-icon tf-icons bx bxs-group' ></i>
           <div data-i18n="Basic">E-Services</div>
         </a>
       </li>
       <li class="menu-item">
-        <a href="users.html" class="menu-link mdd">
+        <a href="profile.html" class="menu-link mdo">
         <i class='menu-icon tf-icons bx bxs-group' ></i>
           <div data-i18n="Basic">Profile</div>
         </a>
       </li>
       <h4 class="menu-link pl-8 mt-5">YOUR ACCOUNT</h4>
       <li class="menu-item">
-        <a href="index.html"  class="menu-link dass">
+        <a href="support.html"  class="menu-link daso">
           <i class="menu-icon tf-icons bx bx-home-circle"></i>
           <div data-i18n="Analytics">Help & Support</div>
         </a>
@@ -96,7 +96,9 @@ $(".navi")
 </div>
 <button data-bs-toggle="modal" data-bs-target="#generateInvModal" class="button ">
               <iconify-icon icon="ic:baseline-plus"></iconify-icon> Generate Invoice</button>
-                  <iconify-icon icon="mdi:bell-notification" class="hidden md:flex" width="32" height="32"></iconify-icon>
+              
+                <iconify-icon icon="mdi:bell-notification" data-bs-toggle="modal" data-bs-target="#notiModal" class="hidden md:flex cursor-pointer text-[#F68C36]" width="32" height="32"></iconify-icon>
+                 
                   <div class="avatar avatar-online">
         <img src="./assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
       </div>
@@ -105,10 +107,22 @@ $(".navi")
 </div>
 
 `);
+
+$(".footer").html(`
+<div class="flex justify-between">
+<div class="flex items-center gap-x-3">
+  <p class="text-[#1E1E1E] text-[16px]">Copyright 2023 Primegauge</p>
+  <img src="../assets/img/logo1.png" width="50px" alt="">
+</div>
+<div class="flex items-center gap-x-3">
+  <p class="text-[#1E1E1E] text-[16px] flex items-center gap-x-3"><iconify-icon icon="material-symbols:mail-outline-rounded" width="28" height="28"></iconify-icon> Info@primegauge.com</p>
+<h4>|</h4>
+  <p class="text-[#1E1E1E] text-[16px] flex items-center gap-x-3"><iconify-icon icon="ic:baseline-phone-android" width="28" height="28"></iconify-icon> 0800 101 5555</p>
+</div>
+</div>
+`);
 const currentDate = new Date();
 $("#datei").html(currentDate.toLocaleDateString());
-
-
 
 function Profile() {
   let userInfo = JSON.parse(window.localStorage.getItem("mdaDataPrime"));
@@ -131,5 +145,3 @@ function Profile() {
 }
 
 Profile();
-
-
