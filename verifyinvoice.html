@@ -85,10 +85,12 @@
 
             <div class="form-group mb-4">
               <label for="">Input your invoice number*</label>
-              <input type="text" class="form-control" value="2632">
+              <input type="text" class="form-control" id="invoice_number">
             </div>
 
-            <button class="button w-full" type="button" onclick="nextPrev(1)">Verify</button>
+            <div class="verifiyer text-center mb-3"></div>
+
+            <button class="button w-full" type="button" id="verifyInvoice">Verify</button>
 
 
           </form>
@@ -100,30 +102,8 @@
 
         <div class="flex justify-center items-center h-full">
 
-          <form action="" class="w-[60%]">
-            <h1 class="fontBold text-2xl text-center">Verify Invoice</h1>
-
-            <div class="flex justify-center mt-5">
-              <img src="./assets/img/verify.png" alt="">
-            </div>
-
-            <p class="text-center mt-2">This invoice has been paid</p>
-
-
-            <div class="flex justify-center">
-              <div class="flex justify-between mt-4 gap-3">
-                <button class="outline-btn flex gap-3 items-center px-10" type="button" onclick="nextPrev(1)">
-                  <!-- <iconify-icon icon="mdi:printer-outline" class="text-xl"></iconify-icon> -->
-                  <span>View Receipt</span>
-                </button>
-
-                <a href="index.html" class="button flex gap-3 items-center px-10" onclick="nextPrev(1)">
-                  <span>Return to home page</span>
-                  <iconify-icon icon="eva:arrow-forward-outline" class="text-xl"></iconify-icon>
-                </a>
-              </div>
-            </div>
-
+          <form action="" class="w-[60%]" id="verInvv">
+            <!-- COMING FROM JS VERIFYINVOICE.JS -->
 
 
           </form>
@@ -131,11 +111,24 @@
         </div>
       </section>
 
-
-
-      <section class="formTabs pb-5">
+      <section class="formTabs pb-5" id="payment">
         <div class="pt-10 px-10">
-          <button class="flex items-center gap-2" onclick="nextPrev(-1)">
+          <button class="flex items-center gap-2" onclick="window.location.reload()">
+            <iconify-icon icon="eva:arrow-back-outline"></iconify-icon>
+            <span>Go back</span>
+          </button>
+        </div>
+
+        <div id="makePayment">
+
+          <!-- PAYMENT DESIGN COMING FROM PAYMENT.js -->
+        </div>
+
+      </section>
+
+      <section class="formTabs pb-5" id="receipt">
+        <div class="pt-10 px-10">
+          <button class="flex items-center gap-2" onclick="window.location.reload()">
             <iconify-icon icon="eva:arrow-back-outline"></iconify-icon>
             <span>Go back</span>
           </button>
@@ -323,7 +316,8 @@
     AOS.init();
   </script>
   <script src="assets/js/nav.js"></script>
-  <script src="assets/js/generateinvoice.js"></script>
+  <script src="assets/js/payment.js"></script>
+  <script src="assets/js/verifyInvoice.js"></script>
   <script src="assets/js/landingcms.js"></script>
 </body>
 
