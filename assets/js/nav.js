@@ -1,5 +1,5 @@
 // // let HOST = "http://localhost/Primeguage-IBS/php/index.php"
-// // let HOST = "http://localhost:8080/primeGuage/php/index.php"
+let HOST = "http://localhost:8080/primeGuage/php/index.php"
 // // let HOST = "https://steamledge.com/primeguage/php/index.php"
 // let HOST = "https://useibs.com/php/index.php"
 // let THE_SESSION = localStorage.getItem("userDataPrime")
@@ -143,6 +143,13 @@ $("#footer").html(`
       <div class="flex items-center gap-2">
           <p class="text-[#555555] text-sm">Copyright 2023 Primegauge LTD</p>
           <img src="./assets/img/logo1.png" class="w-[60px] h-[30px]" alt="">
+      </div>
+
+      <div class="flex items-center gap-3">
+        <p class="text-sm">Follow us on</p>
+        <iconify-icon icon="ph:facebook-logo-bold" class="text-2xl border-l border-gray-600 pl-3"></iconify-icon>
+        <iconify-icon icon="ri:twitter-line" class="text-2xl border-l border-gray-600 pl-3"></iconify-icon>
+        <iconify-icon icon="bi:instagram" class="text-2xl border-l border-gray-600 pl-3"></iconify-icon>
       </div>
 
       <div class="flex items-center gap-5 text-[#555555] theNav">

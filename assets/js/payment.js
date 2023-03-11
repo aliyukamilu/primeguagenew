@@ -171,3 +171,21 @@ $("#makePayment").html(`
 
 </div>
 `)
+
+let payCards = document.querySelectorAll(".payCards")
+let tab_steps = document.querySelectorAll(".tab_steps")
+
+if (payCards) {
+
+  payCards.forEach((payCard, i) => {
+
+    payCard.addEventListener("click", function () {
+      payCards.forEach(dd => dd.classList.remove("active"))
+      tab_steps.forEach(ff => ff.classList.remove("active"))
+      payCard.classList.add("active")
+      tab_steps[i].classList.add("active")
+
+    })
+
+  })
+}

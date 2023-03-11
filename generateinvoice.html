@@ -95,27 +95,25 @@
 
             <div class="form-group mb-4">
               <label for="">Select your category*</label>
-              <select class="form-select" name="" id="">
+              <select class="form-select genInv" required name="" id="category">
                 <option disabled selected>Select--</option>
-                <option value="Individual">Individual</option>
-                <option value="Corporate">Corporate</option>
-                <option value="State Agency">State Agency</option>
-                <option value="Federal Agency">Federal Agency</option>
+                <option value="2">Individual</option>
+                <option value="1">Corporate</option>
+                <option value="3">State Agency</option>
+                <option value="4">Federal Agency</option>
               </select>
             </div>
 
             <div class="form-group mb-4">
               <label for="">What do you want to pay for?*</label>
-              <select class="form-select" name="" id="">
+              <select class="form-select genInv" required name="" id="rev_heads">
                 <option disabled selected>Select--</option>
-                <option value="Tractor Hiring Services">Tractor Hiring Services </option>
-                <option value="PAYE">PAYE</option>
               </select>
             </div>
 
             <div class="form-group mb-4">
               <label for="">Amount to be paid*</label>
-              <input type="text" class="form-control" value="2632">
+              <input type="text" class="form-control genInv" readonly id="amountTopay">
             </div>
 
             <button class="button w-full" type="button" onclick="nextPrev(1)">Continue</button>
@@ -142,35 +140,40 @@
             <div class="flex items-center mb-4 gap-2">
               <div class="form-group w-full">
                 <label for="">First name *</label>
-                <input type="text" class="form-control" placeholder="Enter your first name">
+                <input type="text" class="form-control payInputs" required data-name="first_name"
+                  placeholder="Enter your first name">
               </div>
 
               <div class="form-group w-full">
                 <label for="">Surname *</label>
-                <input type="text" class="form-control" placeholder="Enter your surname">
+                <input type="text" class="form-control payInputs" required data-name="surname"
+                  placeholder="Enter your surname">
               </div>
             </div>
 
             <div class="flex items-center mb-4 gap-2">
               <div class="form-group w-full">
                 <label for="">Email *</label>
-                <input type="text" class="form-control" placeholder="Enter your Email Address">
+                <input type="text" class="form-control payInputs" required data-name="email"
+                  placeholder="Enter your Email Address">
               </div>
 
               <div class="form-group w-full">
                 <label for="">Phone number *</label>
-                <input type="text" class="form-control" placeholder="Your 11-digits phone number">
+                <input type="tel" class="form-control payInputs" required data-name="phone"
+                  placeholder="Your 11-digits phone number">
               </div>
             </div>
 
             <div class="flex items-center mb-4 gap-2">
               <div class="form-group w-full">
                 <label for="">TIN (Optional)</label>
-                <input type="text" class="form-control" placeholder="Enter your TIN">
+                <input type="text" class="form-control payInputs" id="tin" required data-name="tax_number"
+                  placeholder="Enter your TIN">
               </div>
 
               <div class="form-group w-full">
-                <label for="">State *</label>
+                <label for="">State*</label>
                 <select name="" id="" class="form-select">
                   <option value="Akwa Ibom">Akwa Ibom</option>
                 </select>
@@ -179,8 +182,8 @@
 
             <div class="flex items-center mb-4 gap-2">
               <div class="form-group w-full">
-                <label for="">LGA *</label>
-                <select name="" id="" class="form-select">
+                <label for="">LGA*</label>
+                <select name="" id="" class="form-select payInputs" required data-name="lga">
                   <option selected disabled>Select --</option>
                   <option value="Abak">Abak</option>
                   <option value="Eastern Obolo">Eastern Obolo</option>
@@ -217,15 +220,18 @@
               </div>
 
               <div class="form-group w-full">
-                <label for="">Address *</label>
-                <input type="text" class="form-control" placeholder="Enter your address">
+                <label for="">Address*</label>
+                <input type="text" class="form-control payInputs" required data-name="address"
+                  placeholder=" Enter your address">
               </div>
             </div>
 
 
 
 
-            <button class="button w-full" type="button" onclick="nextPrev(1)">Continue</button>
+            <button class="button w-full" type="button" id="generating_inv"
+              onclick="generateInvoiceNon()">Continue</button>
+            <div id="msg_box"></div>
           </form>
 
         </div>
@@ -242,150 +248,16 @@
           </button>
         </div>
 
-        <div class="invoiceContainer flex justify-end pr-10">
+        <div class="invoiceContainer flex justify-center">
 
-          <div class="invoice bg-white w-[70%] shadow-md -mt-12">
-            <div class="invoicetop"></div>
-
-            <div class="flex px-6 pt-3 items-center justify-between">
-
-              <h1 class="fontBold text-2xl">Invoice</h1>
-
-              <div class="flex items-center gap-1">
-                <img src="./assets/img/vector.png" alt="">
-                <p class="text-2xl fontBold">INV/2023/009</p>
-              </div>
-
-            </div>
-
-            <div class="flex  justify-between px-6 mt-4">
-              <div class="w-full">
-                <p class="text-[#555555]">FROM :</p>
-                <p class="fontBold">Ministry of Agriculture</p>
-                <p class="text-[#222234] w-[60%] text-sm">2WF4+CH7, Abak Rd,
-                  520102, Uyo,
-                  Akwa Ibom</p>
-              </div>
-
-              <div class="w-full mr-[-30%]">
-                <p class="text-[#555555]">TO :</p>
-                <p class="fontBold text-left">Muhammad Bashir Hassan</p>
-                <p class="text-[#222234] text-sm w-[60%]">1 ,Mount Zion Road, Ikot Ekpene, Akwa Ibom,
-                  Nigeria, Ikot Ekpene
-                  L.G.A
-                </p>
-              </div>
-
-            </div>
-
-            <div class="px-6 mt-4">
-              <p class="text-[#555555]">INFO :</p>
-
-              <table class="table table-borderless invTa w-[70%]">
-                <tr>
-                  <td>
-                    <p class="fontBold">Payer ID: 495000</p>
-                  </td>
-                  <td>Due Date: 04/04/2020</td>
-                </tr>
-                <tr>
-                  <td>Invoice Date: 27/03/2020</td>
-                  <td>Expiry Date: 04/04/2020</td>
-                </tr>
-              </table>
-            </div>
-
-            <div class="flex justify-end">
-              <div class=" w-[70%]">
-                <table class="table table-borderless">
-                  <tr>
-                    <td class="text-[#555555] text-sm">ITEM DESCRIPTION</td>
-                    <td class="text-[#555555] text-sm">QTY</td>
-                    <td class="text-[#555555] text-sm">RATE</td>
-                    <td class="text-[#555555] text-sm">AMOUNT</td>
-                  </tr>
-                  <tr class="border-b border-b border-[#6F6F84]">
-                    <td class="text-sm">Tractor hiring service</td>
-                    <td class="text-sm">01</td>
-                    <td class="text-sm">2632</td>
-                    <td class="text-sm">2632</td>
-                  </tr>
-                  <tr>
-                    <td class="text-[#555555] text-sm">Sub Total</td>
-                    <td></td>
-                    <td></td>
-                    <td class="text-[#000] text-sm">2632</td>
-                  </tr>
-                  <tr class="border-b border-b border-[#6F6F84]">
-                    <td class="text-[#555555] text-sm">Discount</td>
-                    <td></td>
-                    <td></td>
-                    <td class="text-[#000] text-sm">N0.00</td>
-                  </tr>
-
-                  <tr>
-                    <td colspan="3" class="text-[#000]">Grand Total<span class="text-[#555555]"> (NGN)</span></td>
-                    <td class="text-[#000] text-xl fontBold">N2632</td>
-                  </tr>
-
-                  <tr>
-                    <td colspan="2" class="text-[#000]">Paying</td>
-                    <td class="textPrimary">Edit</td>
-                    <td class="text-xl textPrimary fontBold">N2632.00</td>
-                  </tr>
-                  <tr>
-                    <td colspan="4" class="text-sm text-[#000] pb-0">Amount in words</td>
-                  </tr>
-                  <tr>
-                    <td colspan="4" class="text-sm text-[#555555] pt-0">Two thousand six hundred and thirty-two naira
-                      only
-                    </td>
-                  </tr>
-                  <tr>
-                    <td colspan="4" class="text-sm text-[#555555] pb-0">Notes</td>
-                  </tr>
-                  <tr>
-                    <td colspan="4" class="fontBold pt-0">Thanks for the business.</td>
-                  </tr>
-                </table>
-
-                <table class="table table-borderless bg-[#FFF3E9]">
-                  <tr>
-                    <td colspan="3" class="text-[#6F6F84] pb-0">Payment Details</td>
-                    <td class="text-right text-uppercase text-[#6F6F84] text-sm pb-0">Online payment </td>
-                  </tr>
-                  <tr>
-                    <td colspan="3"></td>
-                    <td class="text-right pt-0">Remita </td>
-                  </tr>
-                </table>
-              </div>
-            </div>
-
-
-            <hr class="my-4 mx-10">
-
-            <div class="px-10 pb-6">
-              <div class="flex items-center justify-center">
-                <img src="./assets/img/akwaimage.png" alt="">
-                <div>
-                  <p class="text-xl fontBold pb-0">Pay Ibom</p>
-                  <div class="flex items-center gap-x-3 flex-wrap">
-                    <p class="text-sm text-[#6F6F84]">www.akwaibompay.ng</p>
-                    <p class="text-sm text-[#6F6F84]">Info@akwaibompay.com</p>
-                    <p class="text-sm text-[#6F6F84]">0800 101 5555</p>
-                    <img src="./assets/img/logo1.png" class="h-[30px] w-[50px]" alt="">
-                  </div>
-                </div>
-              </div>
-
-            </div>
+          <div class="invoice bg-white w-[70%] shadow-md -mt-12" id="invoiceCard">
+            
           </div>
 
 
         </div>
 
-        <div class="flex justify-end pr-10">
+        <div class="flex justify-center">
           <div>
             <div class="mt-4">
               <p class="text-xl">Note: You can make part payment by editing amount you are to pay</p>
@@ -616,6 +488,7 @@
   <script src="assets/js/nav.js"></script>
   <script src="assets/js/payment.js"></script>
   <script src="assets/js/generateinvoice.js"></script>
+  <script src="assets/js/invoice.js"></script>
   <script src="assets/js/landingcms.js"></script>
 </body>
 
