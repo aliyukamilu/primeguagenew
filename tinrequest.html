@@ -559,11 +559,21 @@
 
               <div class="form-group md:w-6/12">
                 <label for="">Start Date</label>
-                <input type="text" class="form-control" placeholder="Enter first name">
+                <input type="date" class="form-control" placeholder="Enter first name">
               </div>
             </div>
 
-            <button class="button w-full mb-20 mt-5" type="button" onclick="nextPrev(1)">Continue</button>
+            <div class="form-group md:w-6/12 mb-4">
+              <label for="">TIN</label>
+              <input type="text" class="form-control">
+            </div>
+
+            <div class="form-group">
+              <input type="checkbox" class="form-check-input" id="agree">
+              <label for="agree">fill this section only if you have a dependant or spouse</label>
+            </div>
+
+            <button class="button w-full mb-20 mt-5" type="button" onclick="nextPrev(1)">Submit</button>
 
 
           </form>
@@ -571,7 +581,57 @@
         </div>
       </section>
 
+      <section class="formTabs h-full">
+        <div class="pt-10 px-10">
+          <button class="flex items-center gap-2" onclick="nextPrev(-1)">
+            <iconify-icon icon="eva:arrow-back-outline"></iconify-icon>
+            <span>Go back</span>
+          </button>
+        </div>
 
+
+        <div class="flex justify-center h-full">
+
+          <div action="" class="w-[70%] mt-10">
+            <h1 class="fontBold text-2xl">TIN Request</h1>
+            <h1 class="mb-3 mt-3">Generate Reference</h1>
+
+
+            <p>Please generate a reference number after submitting your application to help track its progress. The
+              reference number will be used to identify and track your application throughout the review process. You
+              can generate the reference number by clicking on the button below.
+              Thank you for submitting your application, and we look forward to processing it.
+              Best regards,</p>
+
+            <div class="mt-5 gap-4">
+              <button class="button" data-bs-toggle="modal" data-bs-target="#refNumberModal">Generate reference number</button>
+              <button class="outline-btn">Go back to Dashboard</button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Modal -->
+      <div class="modal fade" id="refNumberModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-md">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="text-md">TIN reference</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                <iconify-icon icon="fluent-mdl2:cancel"></iconify-icon>
+              </button>
+            </div>
+            <div class="modal-body px-5">
+
+              <h1 class="text-center text-2xl">IBS|20230215| 1033</h1>
+              <p class="text-center mt-5 text-[#555555]">Thanks for using Intelligent Billing System.</p>
+              <p class="text-center text-[#555555]">Kindly check back later to know your application
+                status.</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
     </div>
 
