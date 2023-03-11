@@ -270,7 +270,41 @@ ul {
   border-radius: 10px;
 
 }
+.taxes .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+  color: #F68C36;
+  background-color: none;
+  border-bottom: 2px solid #F68C36;
+  border-radius: 0%;
+  font-size: 14px;
+}
 
+.taxes .nav {
+  border-bottom: 1px solid #D7D7D7;
+  font-size: 14px;
+}
+
+.taxes .nav-pills .nav-link, .nav-pills .show>.nav-link {
+  color: #F68C36;
+  background-color: none;
+  border-radius: 0%;
+  font-size: 14px;
+}
+
+a:hover {
+  color: #F68C36;
+}
+
+
+.taxes .nav-pills .nav-link.active, .nav-pills .nav-link.active:hover, .nav-pills .nav-link.active:focus {
+  background-color: #fff;
+  color: black;
+  box-shadow: none !important;
+  border-radius: 0%;
+}
+
+.service .cardoo{
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
 /* .crisp-client .cc-1m7s .cc-qvio {
   background-color: #1972F5 !important;
 } */

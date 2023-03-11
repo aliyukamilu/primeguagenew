@@ -158,7 +158,7 @@ async function fetchInvoices() {
   if (userInfo) {
     userID = userInfo.id;
   }
-  $("#showInvoice").html("");
+  $(".showInvoice").html("");
   $("#loader").css("display", "flex");
 
   let config = {
@@ -222,14 +222,14 @@ async function fetchInvoices() {
           
       </tr>
       `
-      $("#showInvoice").append(addd);
+      $(".showInvoice").append(addd);
     });
   } else {
-    // $("#showInvoice").html("<tr></tr>");
-    $("#dataTable").DataTable();
+    // $(".showInvoice").html("<tr></tr>");
+    $(".dataTable").DataTable();
   }
 }
 
 fetchInvoices().then((uu) => {
-  $("#dataTable").DataTable();
+  $(".dataTable").DataTable();
 });
