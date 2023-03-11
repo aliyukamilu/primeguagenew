@@ -454,14 +454,16 @@ function createPayerUser($data)
     $tax_number = "AKW" . $category1[0] . "-" . generatePayerID();
     $phone = $data->phone;
     $state = $data->state;
+    $employment_status = $data->employment_status;
+    $business_type = $data->business_type;
     $lga = $data->lga;
     $img = $data->img;
     $address = $data->address;
     $tin = $data->tin;
     $verification = encripted_data($email . "£" . "2880" . "_");
     $verification_code = substr(str_shuffle(str_repeat("0123456789", 6)), 0, 6);
-    $query_User_re = sprintf("INSERT INTO `payer_user`(`tax_number`, `category`, `first_name`, `surname`, `email`, `phone`, `state`, `lga`, `address`, `password`,`verification_status`,`verification_code`,`img`,`tin`) 
-                VALUES ('$tax_number', '$category', '$first_name', '$surname','$email','$phone','$state','$lga','$address','$password','$verification','$verification_code','$img','$tin')");
+    $query_User_re = sprintf("INSERT INTO `payer_user`(`tax_number`, `category`, `first_name`, `surname`, `email`, `phone`, `state`,'business_type','employment_status',`lga`, `address`, `password`,`verification_status`,`verification_code`,`img`,`tin`) 
+                VALUES ('$tax_number', '$category', '$first_name', '$surname','$email','$phone','$state','$business_type','$employment_status','$lga','$address','$password','$verification','$verification_code','$img','$tin')");
     $check_exist = check_db_query_staus("SELECT email, tax_number, tax_number FROM payer_user WHERE email='{$email}'", "CHK");
 
     if ($check_exist['status'] == 1) {

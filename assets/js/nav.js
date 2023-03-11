@@ -1,4 +1,4 @@
-// // let HOST = "http://localhost/Primeguage-IBS/php/index.php"
+let HOST = "http://localhost/Primeguage-IBS/php/index.php"
 // // let HOST = "http://localhost:8080/primeGuage/php/index.php"
 // // let HOST = "https://steamledge.com/primeguage/php/index.php"
 // let HOST = "https://useibs.com/php/index.php"
@@ -26,7 +26,7 @@ $("#theHeader").html(`
 
     <div class="flex items-center gap-3">
       <a class="outline-btn" href="signin.html">Sign In</a>
-      <a class="button" href="register.html">Register</a>
+      <a class="button" href="regcategory.html">Register</a>
     </div>
 
   </div>
