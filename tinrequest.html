@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PrimeGuage</title>
+
+  <!-- FAVION ICON -->
+  <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
+  <link rel="stylesheet" href="assets/fontawesome/css/all.css" />
+  <link rel="stylesheet" href="assets/js/aos-master/dist/aos.css" />
+
+  <style>
+    .formTabs {
+      display: none;
+    }
+
+    .invTa tr td {
+      padding-left: 0;
+      padding-bottom: 0px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="flex justify-between px-10 bg-white py-3" id="theHeader"></header>
+
+  <section class="flex h-[89vh] overflow-y-scroll">
+
+    <div class="w-3/12 bg-[#F9FAFB] p-3">
+
+      <div class="flex px-1 pt-[100px] h-full">
+        <div>
+          <div class="flex gap-4 mb-4">
+            <div class="theRounder">
+              <div class="active"></div>
+            </div>
+            <div>
+              <h1 class="text-xl">Primary Information</h1>
+            </div>
+          </div>
+
+          <div class="flex gap-4 mb-4">
+            <div class="theRounder">
+              <div></div>
+            </div>
+            <div>
+              <h1 class="text-xl">Secondary Information</h1>
+            </div>
+          </div>
+
+          <div class="flex gap-4 mb-4">
+            <div class="theRounder">
+              <div></div>
+            </div>
+            <div>
+              <h1 class="text-xl">Generate Reference</h1>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <div class="w-9/12 bg-white overflow-y-scroll">
+
+      <section class="formTabs h-full">
+        <div class="pt-10 px-10">
+          <a href="eservices.html" class="flex items-center gap-2 w-fit">
+            <iconify-icon icon="eva:arrow-back-outline"></iconify-icon>
+            <span>Go back</span>
+          </a>
+        </div>
+
+        <div class="flex justify-center h-full">
+
+          <form action="" class="w-[70%]">
+            <h1 class="fontBold text-2xl">TIN Request</h1>
+            <h1 class="mb-3 mt-3">Primary Information</h1>
+
+            <div class="form-group mb-4">
+              <label for="">Title*</label>
+              <div class="flex gap-3">
+                <div class="form-group">
+                  <input type="radio" name="title" id="mr">
+                  <label for="mr">Mr</label>
+                </div>
+                <div class="form-group">
+                  <input type="radio" name="title" id="mrs">
+                  <label for="mrs">Mrs</label>
+                </div>
+                <div class="form-group">
+                  <input type="radio" name="title" id="miss">
+                  <label for="miss">Miss</label>
+                </div>
+                <div class="form-group">
+                  <input type="radio" name="title" id="others">
+                  <label for="others">Others</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3 mb-4">
+              <div class="form-group md:w-6/12">
+                <label for="">First name*</label>
+                <input type="text" class="form-control" placeholder="Enter your first name">
+              </div>
+
+              <div class="form-group  md:w-6/12">
+                <label for="">Surname*</label>
+                <input type="text" class="form-control" placeholder="Enter your last name">
+              </div>
+
+            </div>
+
+            <div class="flex items-center gap-3 mb-4">
+              <div class="form-group md:w-6/12">
+                <label for="">Middle name</label>
+                <input type="text" class="form-control" placeholder="Enter your middle name">
+              </div>
+
+              <div class="form-group  md:w-6/12">
+                <label for="">Nationaly*</label>
+                <input type="text" class="form-control" placeholder="Nationality">
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3 mb-4">
+              <div class="form-group md:w-6/12">
+                <label for="">Phone number 1 *</label>
+                <input type="tel" class="form-control" placeholder="234">
+              </div>
+
+              <div class="form-group  md:w-6/12">
+                <label for="">Phone number 2 *</label>
+                <input type="tel" class="form-control" placeholder="234">
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3 mb-4">
+              <div class="form-group md:w-6/12">
+                <label for="">State of Origin*</label>
+                <select name="" id="states" class="form-select">
+                  <option value="Akwa Ibom">Akwa Ibom</option>
+                </select>
+              </div>
+
+              <div class="form-group  md:w-6/12">
+                <label for="">Marital Status*</label>
+                <select name="" class="form-select">
+                  <option value="Single">Single</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3 mb-4">
+              <div class="form-group md:w-6/12">
+                <label for="">Date of birth*</label>
+                <input type="date" class="form-control" placeholder="234">
+              </div>
+
+              <div class="form-group  md:w-6/12">
+                <label for="">Occupation*</label>
+                <input type="text" class="form-control">
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3 mb-4">
+              <div class="form-group md:w-6/12">
+                <label for="">Gender*</label>
+                <select name="" class="form-select">
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                </select>
+              </div>
+
+              <div class="form-group  md:w-6/12">
+                <label for="">Email*</label>
+                <input type="text" class="form-control">
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3 mb-4">
+              <div class="form-group md:w-6/12">
+                <label for="">Mothers Maiden Name*</label>
+                <input type="text" class="form-control">
+              </div>
+
+              <div class="form-group md:w-6/12">
+                <label for="">Mothers Name*</label>
+                <input type="text" class="form-control">
+              </div>
+            </div>
+
+            <hr class="mb-2">
+
+            <h1 class="text-xl fontBold mb-3">Identification Card</h1>
+
+            <div class="flex items-center gap-3 mb-4">
+              <div class="form-group md:w-6/12">
+                <label for="">Type of Identification*</label>
+                <select name="" class="form-select">
+                  <option selected disabled>Select--</option>
+                  <!-- <option value="Female">Female</option> -->
+                </select>
+              </div>
+
+              <div class="form-group md:w-6/12">
+                <label for="">ID Number*</label>
+                <input type="text" class="form-control">
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3 mb-4">
+              <div class="form-group md:w-6/12">
+                <label for="">Issuance Date*</label>
+                <input type="date" class="form-control">
+              </div>
+
+              <div class="form-group md:w-6/12">
+                <label for="">Expiry Date*</label>
+                <input type="date" class="form-control">
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3 mb-4">
+              <div class="form-group md:w-6/12">
+                <label for="">Place of Issuance*</label>
+                <input type="text" class="form-control">
+              </div>
+
+              <div class="form-group md:w-6/12">
+                <label for="">ID Issuing Authority*</label>
+                <input type="text" class="form-control">
+              </div>
+            </div>
+
+            <hr class="mb-2">
+
+            <h1 class="text-xl fontBold mb-3">Tax Assessment/Payment Details</h1>
+
+            <div class="flex items-center gap-3 mb-4">
+              <div class="form-group md:w-6/12">
+                <label for="">Last Assessment Date</label>
+                <input type="date" class="form-control">
+              </div>
+
+              <div class="form-group md:w-6/12">
+                <label for="">Last Assessment Amount</label>
+                <input type="text" class="form-control">
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3 mb-4">
+              <div class="form-group md:w-6/12">
+                <label for="">Last Payment Date</label>
+                <input type="date" class="form-control">
+              </div>
+
+              <div class="form-group md:w-6/12">
+                <label for="">Last Payment Amount</label>
+                <input type="text" class="form-control">
+              </div>
+            </div>
+
+            <div class="form-group md:w-6/12 mb-4">
+              <label for="">Tax Type</label>
+              <select name="" class="form-select">
+                <option selected disabled>Select Tax Type</option>
+                <!-- <option value="Female">Female</option> -->
+              </select>
+            </div>
+
+            <hr class="mb-2">
+
+            <h1 class="text-xl fontBold mb-3">Total Income for the Past Three Years</h1>
+
+            <div class="flex items-center gap-3 mb-4">
+              <div class="form-group md:w-6/12">
+                <label for="">Year</label>
+                <input type="text" placeholder="2023" class="form-control">
+              </div>
+
+              <div class="form-group md:w-6/12">
+                <label for="">Income</label>
+                <input type="text" class="form-control">
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3 mb-4">
+              <div class="form-group md:w-6/12">
+                <label for="">Year</label>
+                <input type="text" placeholder="2022" class="form-control">
+              </div>
+
+              <div class="form-group md:w-6/12">
+                <label for="">Income</label>
+                <input type="text" class="form-control">
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3 mb-4">
+              <div class="form-group md:w-6/12">
+                <label for="">Year</label>
+                <input type="text" placeholder="2021" class="form-control">
+              </div>
+
+              <div class="form-group md:w-6/12">
+                <label for="">Income</label>
+                <input type="text" class="form-control">
+              </div>
+            </div>
+
+
+
+            <button class="button w-full mb-20" type="button" onclick="nextPrev(1)">Continue</button>
+
+
+          </form>
+
+        </div>
+      </section>
+
+      <section class="formTabs h-full">
+        <div class="pt-10 px-10">
+          <button class="flex items-center gap-2" onclick="nextPrev(-1)">
+            <iconify-icon icon="eva:arrow-back-outline"></iconify-icon>
+            <span>Go back</span>
+          </button>
+        </div>
+        <div class="flex justify-center items-center h-full -mt-10">
+
+
+
+        </div>
+      </section>
+
+
+
+    </div>
+
+  </section>
+
+
+
+
+  <script src="assets/js/jquery.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.bundle.js"></script>
+  <script src="assets/js/aos-master/dist/aos.js"></script>
+  <script src="assets/js/sweetalert2/dist/sweetalert2.all.min.js"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+  <script>
+    AOS.init();
+  </script>
+  <script src="assets/js/nav.js"></script>
+  <script src="assets/js/payment.js"></script>
+  <script src="assets/js/generateinvoice.js"></script>
+  <script src="assets/js/landingcms.js"></script>
+</body>
+
+</html>
