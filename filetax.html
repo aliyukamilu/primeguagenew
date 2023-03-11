@@ -142,7 +142,6 @@
     </section>
 
     <section class="mt-10 formTabs">
-
       <div class="flex justify-center mt-10">
 
         <form action="" class="w-[60%]">
@@ -150,11 +149,11 @@
           <div class="flex items-center gap-3 mb-4">
             <div class="form-group md:w-6/12">
               <label for="">select your category*</label>
-              <select class="form-select" id="">
-                <option value="0">Individual</option>
-                <option value="1">Coeporate</option>
-                <option value="2">Federal Agency</option>
-                <option value="3">State Agency</option>
+              <select class="form-select" id="selectAccType">
+                <option value="1">Coporate</option>
+                <option value="2" selected>Individual</option>
+                <option value="3">Federal Agency</option>
+                <option value="4">State Agency</option>
               </select>
             </div>
 
@@ -193,25 +192,25 @@
             </div>
 
           </div>
-
-          <div class="flex items-center gap-3 mb-4">
-            <div class="form-group md:w-6/12">
-              <label for="">Self-assessment form upload*</label>
-              <input type="file" class="form-control">
+          <div class="" id="indivCorporate">
+            <div class="md:flex gap-3 mt-3">
+              <div class="form-group md:w-6/12  w-full">
+              <label class="">Self-assessment form upload *</label>
+              <input class="form-control mt-1 regInputs" type="file" placeholder="Individual" maxlength="15" />
+              </div>
+              <div class="form-group md:w-6/12  w-full">
+                <label class="">Income tax form *</label>
+                 <input class="form-control mt-1 regInputs" type="file" placeholder="Individual" maxlength="15" />
+                </div>
             </div>
-
-            <div class="form-group  md:w-6/12">
-              <label for="">Income tax form*</label>
-              <input type="file" class="form-control">
+            <div class="md:flex gap-3 mt-3">
+              <div class="form-group md:w-6/12 w-full">
+              <label class="">Evidence of tax payment *</label>
+              <input class="form-control mt-1 regInputs" type="file" placeholder="Individual" maxlength="15" />
+              </div>
             </div>
-
+          </div>  
           </div>
-
-          <div class="form-group  md:w-6/12">
-            <label for="">Evidence of tax payment *</label>
-            <input type="file" class="form-control">
-          </div>
-
         </form>
 
       </div>
