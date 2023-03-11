@@ -25,8 +25,8 @@ $("#theHeader").html(`
     </div>
 
     <div class="flex items-center gap-3">
-      <button class="outline-btn">Sign In</button>
-      <button class="button">Register</button>
+      <a class="outline-btn" href="signin.html">Sign In</a>
+      <a class="button" href="register.html">Register</a>
     </div>
 
   </div>
