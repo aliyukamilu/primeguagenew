@@ -288,30 +288,33 @@
                   </div>
                   <hr class="text-[#F4F4F4] my-3">
 
-                  <div class="flex justify-between md:w-[550px] mb-3">
+                  <div class="flex justify-between md:w-[550px] mb-3 items-center gap-3">
                     <label class="w-[195px]">Old Password</label>
                     <div class="form-group md:w-[454px] w-full">
-                      <input class="form-control mt-1 regInputs" id="oldPass" type="text" placeholder="**********" />
+                      <input class="form-control mt-1 passinput" id="oldPass" type="text" placeholder="**********" />
                     </div>
+                    <iconify-icon icon="ic:outline-remove-red-eye cursor-pointer" onclick="showPass(0)"></iconify-icon>
                   </div>
 
-                  <div class="flex justify-between md:w-[550px] mb-3">
+                  <div class="flex justify-between md:w-[550px] mb-3 items-center gap-3">
                     <label class="w-[195px]">New Password</label>
                     <div class="form-group md:w-[454px] w-full">
-                      <input class="form-control mt-1 pass" type="text" placeholder="**********" />
+                      <input class="form-control mt-1 pass passinput" type="text" placeholder="**********" />
                     </div>
+                    <iconify-icon icon="ic:outline-remove-red-eye cursor-pointer" onclick="showPass(1)"></iconify-icon>
                   </div>
 
-                  <div class="flex justify-between md:w-[550px] mb-3 items-center">
+                  <div class="flex justify-between md:w-[550px] mb-3 items-center gap-3">
                     <label class="w-[195px]">Confirm New <br>Password</label>
                     <div class="form-group md:w-[454px] w-full">
-                      <input class="form-control mt-1 newpass" type="text" placeholder="**********" />
+                      <input class="form-control mt-1 newpass passinput" type="text" placeholder="**********" />
                     </div>
+                    <iconify-icon icon="ic:outline-remove-red-eye cursor-pointer" onclick="showPass(2)"></iconify-icon>
                   </div>
 
                   <div id="msg_box2" class="w-full"></div>
                   <button class="button mt-4" id="updatePass">Update Password</button>
-                  
+
                 </div>
               </div>
             </div>

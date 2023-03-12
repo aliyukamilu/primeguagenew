@@ -1133,6 +1133,18 @@ async function fetchUserDetails() {
 
 fetchUserDetails()
 
+function showPass(pos) {
+  let AllF = document.querySelectorAll(".passinput")
+
+  if (AllF[pos].type === "password") {
+
+    AllF[pos].type = "text"
+
+  } else {
+    AllF[pos].type = "password"
+  }
+}
+
 $("#updatePass").on("click", function (e) {
 
   let oldPass = document.querySelector("#oldPass").value
@@ -1179,7 +1191,7 @@ $("#updatePass").on("click", function (e) {
 
 
           setTimeout(() => {
-            window.location.href = "../login.html"
+            window.location.href = "../signin.html"
           }, 1000);
 
         }
