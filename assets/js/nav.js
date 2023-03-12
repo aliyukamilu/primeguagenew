@@ -1,5 +1,5 @@
-// // let HOST = "http://localhost/Primeguage-IBS/php/index.php"
-let HOST = "http://localhost:8080/primeGuage/php/index.php"
+let HOST = "http://localhost/Primeguage-IBS/php/index.php"
+// let HOST = "http://localhost:8080/primeGuage/php/index.php"
 // // let HOST = "https://steamledge.com/primeguage/php/index.php"
 // let HOST = "https://useibs.com/php/index.php"
 // let THE_SESSION = localStorage.getItem("userDataPrime")
@@ -26,7 +26,7 @@ $("#theHeader").html(`
 
     <div class="flex items-center gap-3">
       <a class="outline-btn" href="signin.html">Sign In</a>
-      <a class="button" href="register.html">Register</a>
+      <a class="button" href="regcategory.html">Register</a>
     </div>
 
   </div>
@@ -249,3 +249,5 @@ $("#footer").html(`
 //   d = document; s = d.createElement("script"); s.src = "https://client.crisp.chat/l.js";
 //   s.async = 1; d.getElementsByTagName("head")[0].appendChild(s);
 // })();
+
+
