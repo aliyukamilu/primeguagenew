@@ -484,6 +484,22 @@ function createPayerUser($data)
     }
 }
 
+function userProfile($id)
+{
+    include "config/index.php";
+    $query_User_re = sprintf("SELECT * FROM `payer_user` WHERE id='{$id}'");
+    $User_re = mysqli_query($ibsConnection, $query_User_re) or die(mysqli_error($ibsConnection));
+    $row_User_re = mysqli_fetch_assoc($User_re);
+    $totalRows_User_re = mysqli_num_rows($User_re);
+    if ($totalRows_User_re > 0) {
+            $arr = ['status' => 1, 'message' => 'Buzzing you in 😎', 'user' => $row_User_re];
+            exit(json_encode($arr));
+    } else {
+        $arr = ['status' => 0, 'message' => 'User does not exist',];
+        exit(json_encode($arr));
+    }
+}
+
 function updateMDA($data)
 {
     // print_r($data);
@@ -721,7 +737,7 @@ function userInvoiceSingle($data)
     include "config/index.php";
     include "config/enctp.php";
     //print_r($data);
-    $check_exist = check_db_query_staus1("SELECT invoices.payer_id, invoices.revenue_head,invoices.invoice_number, invoices.due_date, invoices.payment_status,revenue_heads.COL_3,revenue_heads.COL_4,revenue_heads.COL_6,payer_user.tax_number,payer_user.first_name,payer_user.surname FROM invoices JOIN payer_user ON invoices.payer_id = payer_user.id JOIN revenue_heads ON invoices.revenue_head = revenue_heads.id WHERE invoices.invoice_number='{$data}'", "CHK");
+    $check_exist = check_db_query_staus1("SELECT invoices.payer_id, invoices.revenue_head,invoices.invoice_number, invoices.due_date, invoices.payment_status, invoices.date_created, revenue_heads.COL_3,revenue_heads.COL_4,revenue_heads.COL_6,payer_user.tax_number,payer_user.first_name,payer_user.surname,payer_user.address FROM invoices JOIN payer_user ON invoices.payer_id = payer_user.id JOIN revenue_heads ON invoices.revenue_head = revenue_heads.id WHERE invoices.invoice_number='{$data}'", "CHK");
     if ($check_exist['status'] == 1) {
         exit(json_encode($check_exist));
     } else if ($check_exist['status'] == 0) {
@@ -743,9 +759,11 @@ function updateProfile($data)
         $contact = $data->contact;
         $tax_id_no = $data->tax_id_no;
         $state = $data->state;
-        $l_g_a = $data->l_g_a;
+        $employment_status = $data->employment_status;
+        $business_type = $data->business_type;
 
-        $query = "UPDATE `profileUpdate` SET `subject`='{$data->subject}', `name_of_organization`='{$data->name_of_organization}', `username`='{$data->username}', `email`='{$data->email}', `contact`='{$data->contact}', `tax_id_no`='{$data->tax_id_no}', `state`='{$data->state}', `l_g_a`='{$data->l_g_a}' WHERE `id` = {$data->id}";
+
+        $query = "UPDATE `profileUpdate` SET `subject`='{$data->subject}', `name_of_organization`='{$data->name_of_organization}', `username`='{$data->username}', `email`='{$data->email}', `contact`='{$data->contact}', `tax_id_no`='{$data->tax_id_no}', `state`='{$data->state}', `l_g_a`='{$data->l_g_a}', `employment_status`='{$data->employment_status}', `business_type`='{$data->business_type}' WHERE `id` = {$data->id}";
         $User_re = mysqli_query($ibsConnection, $query) or die(mysqli_error($ibsConnection));
         if ($User_re) {
             $success_updating = ["status" => 1, "message" => "User Profile Successfully Updated"];
@@ -855,6 +873,25 @@ function UpdateTINStatus($data)
         }
     }
 }
+
+function updatePassword($data)
+{
+    include "config/index.php";
+    include "config/enctp.php";
+
+    $id = $_GET['id'];
+    $password = $_GET['password'];
+
+        $query = "UPDATE `payer_user` SET `password`='{$password}' WHERE `id` = {$id}";
+        $User_re = mysqli_query($ibsConnection, $query) or die(mysqli_error($ibsConnection));
+        if ($User_re) {
+            $arr = ["status" => 1, "message" => "Password successfully updated"];
+            exit(json_encode($arr));
+        } else {
+            $error_updating = ["Error" => "Invalid operation"];
+            exit(json_encode($error_updating));
+        }
+    }
 
 function ParticularMDAUsers($data)
 {

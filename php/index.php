@@ -107,6 +107,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     getOurServices($_GET);
   } elseif (isset($_GET['deleteOurServices'])) {
     deleteOurServices($_GET['id']);
+  } elseif (isset($_GET['userProfile'])) {
+    userProfile($_GET['id']);
+  }elseif (isset($_GET['userPassword'])) {
+    updatePassword($_GET);
   }
 } elseif ($_SERVER['REQUEST_METHOD'] == 'POST') {
   include 'gate.php';
