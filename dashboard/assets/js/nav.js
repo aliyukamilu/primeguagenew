@@ -1,6 +1,6 @@
 // let HOST = "http://localhost:8080/primeGuage/php/index.php"
-let HOST = "https://steamledge.com/primeguage/php/index.php";
-// let HOST = "http://localhost/primeguagenew/php/index.php"
+// let HOST = "https://steamledge.com/primeguage/php/index.php";
+let HOST = "http://localhost/primeguagenew/php/index.php";
 
 $(".aside").html(`
     <div class="app-brand demo">
@@ -132,8 +132,8 @@ $("#logout").on("click", function (e) {
     text: "You want to Logout",
     icon: 'warning',
     showCancelButton: true,
-    confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#d33',
+    confirmButtonColor: '#d33',
+    cancelButtonColor: '#3085d6',
     confirmButtonText: 'Yes!'
   }).then((result) => {
     if (result.isConfirmed) {
@@ -142,7 +142,7 @@ $("#logout").on("click", function (e) {
         'success'
       )
   localStorage.removeItem('userDataPrime');
-      window.location.href = "index.html"
+      window.location.href = "../index.html"
     }
   })
  
