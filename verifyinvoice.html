@@ -34,7 +34,7 @@
 
   <section class="flex h-[89vh] overflow-y-scroll">
 
-    <div class="w-3/12 bg-[#F9FAFB] p-3">
+    <div class="w-3/12 md:block hidden bg-[#F9FAFB] p-3">
 
       <div class="flex px-1 items-center h-full">
         <div>
@@ -73,14 +73,14 @@
 
     </div>
 
-    <div class="w-9/12 bg-[url('./assets/img/slideimg.png')] bg-center overflow-y-scroll">
+    <div class="md:w-9/12 w-full bg-[url('./assets/img/slideimg.png')] bg-center overflow-y-scroll">
 
       <section class="formTabs h-full">
 
         <div class="flex justify-center items-center h-full">
 
-          <form action="" class="w-[60%]">
-            <h1 class="fontBold text-2xl">Verify Invoice</h1>
+          <form action="" class="md:w-[60%] w-[90%]">
+            <h1 class="fontBold text-2xl" id="title">Verify Invoice</h1>
             <h1 class="mb-3 mt-3">Invoice Number</h1>
 
             <div class="form-group mb-4">
@@ -102,7 +102,7 @@
 
         <div class="flex justify-center items-center h-full">
 
-          <form action="" class="w-[60%]" id="verInvv">
+          <form action="" class="md:w-[60%] w-[90%]" id="verInvv">
             <!-- COMING FROM JS VERIFYINVOICE.JS -->
 
 

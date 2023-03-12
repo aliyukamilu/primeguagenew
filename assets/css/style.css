@@ -38,6 +38,7 @@ body {
 header {
   /* box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px !important; */
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  width: 100%;
 }
 
 
@@ -86,14 +87,14 @@ header {
   border-radius: 20px;
   padding: 20px;
   height: fit-content;
-  width: 200px;
+  /* width: 200px; */
   /* height: 150px; */
   transition: all 0.2s ease-in-out;
   cursor: pointer;
 }
 
 .landing_cards:hover {
-  transform: scale(1.05);
+  transform: scale(1.01);
 }
 
 .landing_cards iconify-icon {
@@ -116,8 +117,8 @@ header {
 }
 
 .landing_cards.activo {
-  transform: scale(1.05);
-  margin-top: -20px;
+  transform: scale(1.02);
+  margin-top: -10px;
 }
 
 .landing_cards.activo .button {
@@ -151,6 +152,55 @@ a:hover {
 
 a {
   text-decoration: none;
+}
+
+/* HHEADER 
+ */
+
+.hamburger {
+  display: none;
+}
+
+
+.hamburger .bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: var(--primaryCol);
+}
+
+.hamburger.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+.mobile_nav {
+  position: fixed;
+  left: -100%;
+  top: 4rem;
+  flex-direction: column;
+  background-color: #fff;
+  width: 80%;
+  height: 100vh;
+  z-index: 999;
+  border-radius: 10px;
+  text-align: center;
+  transition: 0.3s;
+  box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+}
+
+.mobile_nav.active {
+  left: 0;
 }
 
 /* FORMS

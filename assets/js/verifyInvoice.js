@@ -17,6 +17,18 @@ function nextPrev(n) {
   showTab(currentTab);
 }
 
+let urlParams = new URLSearchParams(window.location.search);
+const pagePrint = urlParams.get('page')
+
+if (pagePrint === "paynow") {
+  $("#title").html("Pay Now")
+}
+else if (pagePrint === "continue") {
+  $("#title").html("Continue Payment")
+} else {
+  $("#title").html("Verify Invoice")
+}
+
 $("#verifyInvoice").on("click", () => {
   let invoiceNumber = document.querySelector("#invoice_number").value
   $(".verifiyer").html(`

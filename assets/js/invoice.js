@@ -88,10 +88,10 @@ async function openInvoice(invoicenum) {
               <p class="text-[#222234] w-[60%] text-sm">Uyo, Akwa Ibom</p>
             </div>
 
-            <div class="w-full mr-[-30%]">
+            <div class="w-full md:mr-[-30%]">
               <p class="text-[#555555]">TO :</p>
               <p class="fontBold text-left">${invoice_info.surname} ${invoice_info.first_name}</p>
-              <p class="text-[#222234] text-sm w-[60%]">1 ,Mount Zion Road, Ikot Ekpene, Akwa Ibom,
+              <p class="text-[#222234] text-sm md:w-[60%]">1 ,Mount Zion Road, Ikot Ekpene, Akwa Ibom,
                 Nigeria, Ikot Ekpene
                 L.G.A
               </p>
@@ -102,7 +102,7 @@ async function openInvoice(invoicenum) {
           <div class="px-6 mt-4">
             <p class="text-[#555555]">INFO :</p>
 
-            <table class="table table-borderless invTa w-[70%]">
+            <table class="table table-borderless invTa md:w-[70%] w-full">
               <tr>
                 <td>
                   <p class="fontBold">Payer ID: ${invoice_info.tax_number}</p>
@@ -117,7 +117,7 @@ async function openInvoice(invoicenum) {
           </div>
 
           <div class="flex justify-end">
-            <div class=" w-[70%]">
+            <div class="md:w-[70%] w-[90%]">
               <table class="table table-borderless">
                 <tr>
                   <td class="text-[#555555] text-sm">ITEM DESCRIPTION</td>
@@ -182,9 +182,9 @@ async function openInvoice(invoicenum) {
           </div>
 
 
-          <hr class="my-4 mx-10">
+          <hr class="my-4 md:mx-10 mx-4">
 
-          <div class="px-10 pb-6">
+          <div class="md:px-10 px-2 pb-6">
             <div class="flex items-center justify-center">
               <img src="./assets/img/akwaimage.png" alt="">
               <div>

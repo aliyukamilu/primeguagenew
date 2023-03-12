@@ -14,7 +14,7 @@ $("#theHeader").html(`
     <p class="text-black fontBold">Pay Ibom</p>
   </div>
 
-  <div class="flex items-center gap-5 text-[#555555]">
+  <div class="md:flex hidden items-center gap-5 text-[#555555]">
 
     <div class="flex gap-3">
       <a href="index.html">Home</a>
@@ -30,7 +30,63 @@ $("#theHeader").html(`
     </div>
 
   </div>
+
+  <div class="mobile_nav p-6">
+    <div class="flex flex-col text-left gap-3">
+      <a class="text-xl" href="index.html">Home</a>
+      <a class="text-xl" href="about.html">About Us</a>
+      <a class="text-xl" href="eservices.html">E-Services</a>
+      <a class="text-xl" href="offer.html">What we offer</a>
+      <a class="text-xl" href="howtopay.html">How to pay</a>
+    </div>
+
+      <h1 class="text-left mb-3 mt-3">Links</h1>
+      <hr class="mb-3">
+      <div class="text-left gap-5 text-[#555555] theNav">
+        <a href="faqs.html" class="flex items-center gap-3 mb-4">
+            <iconify-icon icon="wpf:faq"></iconify-icon>
+            <p class="text-sm m-0">FAQ</p>
+        </a>
+
+        <a href="contact.html" class="flex items-center gap-3 mb-4">
+            <iconify-icon icon="fluent:contact-card-32-filled"></iconify-icon>
+            <p class="text-sm m-0">Contact Us</p>
+        </a>
+
+        <a href="news.html" class="flex items-center gap-3 mb-4">
+            <iconify-icon icon="fluent:news-20-filled"></iconify-icon>
+            <p class="text-sm m-0">News</p>
+        </a>
+
+        <a href="gallery.html" class="flex items-center gap-3 mb-4">
+            <iconify-icon icon="dashicons:format-gallery"></iconify-icon>
+            <p class="text-sm m-0">Gallery</p>
+        </a>
+      </div>
+
+    <div class="flex items-center gap-3 mt-5">
+      <a class="outline-btn" href="signin.html">Sign In</a>
+      <a class="button" href="register.html">Register</a>
+    </div>
+  </div>
+
+  <div class="hamburger md:hidden block">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </div>
 `)
+
+const hamburger = document.querySelector(".hamburger");
+const mobile_nav = document.querySelector(".mobile_nav")
+if (hamburger) {
+  hamburger.addEventListener("click", function () {
+    mobile_nav.classList.toggle("active");
+    hamburger.classList.toggle("active");
+
+  });
+}
+
 // } else {
 //   let heeaderr = ""
 
@@ -139,20 +195,20 @@ $("#theHeader").html(`
 
 
 $("#footer").html(`
-    <footer class="bg-white flex justify-between items-center px-10 py-2 landingFooter border-t border-gray-200">
+    <footer class="bg-white flex justify-between items-center md:px-10 px-3 py-2 landingFooter border-t border-gray-200">
       <div class="flex items-center gap-2">
-          <p class="text-[#555555] text-sm">Copyright 2023 Primegauge LTD</p>
+          <p class="text-[#555555] md:text-sm text-xs">Copyright 2023 Primegauge LTD</p>
           <img src="./assets/img/logo1.png" class="w-[60px] h-[30px]" alt="">
       </div>
 
       <div class="flex items-center gap-3">
-        <p class="text-sm">Follow us on</p>
-        <iconify-icon icon="ph:facebook-logo-bold" class="text-2xl border-l border-gray-600 pl-3"></iconify-icon>
-        <iconify-icon icon="ri:twitter-line" class="text-2xl border-l border-gray-600 pl-3"></iconify-icon>
-        <iconify-icon icon="bi:instagram" class="text-2xl border-l border-gray-600 pl-3"></iconify-icon>
+        <p class="text-sm md:block hidden">Follow us on</p>
+        <iconify-icon icon="ph:facebook-logo-bold" class="md:text-2xl border-l border-gray-600 pl-3"></iconify-icon>
+        <iconify-icon icon="ri:twitter-line" class="md:text-2xl border-l border-gray-600 pl-3"></iconify-icon>
+        <iconify-icon icon="bi:instagram" class="md:text-2xl border-l border-gray-600 pl-3"></iconify-icon>
       </div>
 
-      <div class="flex items-center gap-5 text-[#555555] theNav">
+      <div class="md:flex hidden items-center gap-5 text-[#555555] theNav">
         <a href="faqs.html" class="text-center">
             <iconify-icon icon="wpf:faq"></iconify-icon>
             <p class="text-sm m-0">FAQ</p>

@@ -34,7 +34,7 @@
 
   <section class="flex h-[89vh] overflow-y-scroll">
 
-    <div class="w-3/12 bg-[#F9FAFB] p-3">
+    <div class="md:block hidden w-3/12 bg-[#F9FAFB] p-3">
 
       <div class="flex px-1 items-center h-full">
         <div>
@@ -83,13 +83,13 @@
 
     </div>
 
-    <div class="w-9/12 bg-[url('./assets/img/slideimg.png')] bg-center overflow-y-scroll">
+    <div class="md:w-9/12 w-full bg-[url('./assets/img/slideimg.png')] bg-center overflow-y-scroll">
 
       <section class="formTabs h-full">
 
         <div class="flex justify-center items-center h-full">
 
-          <form action="" class="w-[60%]">
+          <form action="" class="md:w-[60%] w-[80%]">
             <h1 class="fontBold text-2xl">Generate Invoice</h1>
             <h1 class="mb-3 mt-3">Basic Information</h1>
 
@@ -125,7 +125,7 @@
       </section>
 
       <section class="formTabs h-full">
-        <div class="pt-10 px-10">
+        <div class="pt-10 md:px-10 px-4">
           <button class="flex items-center gap-2" onclick="nextPrev(-1)">
             <iconify-icon icon="eva:arrow-back-outline"></iconify-icon>
             <span>Go back</span>
@@ -133,7 +133,7 @@
         </div>
         <div class="flex justify-center items-center h-full -mt-10">
 
-          <form action="" class="w-[70%]">
+          <form action="" class="md:w-[70%]">
             <h1 class="fontBold text-2xl">Generate Invoice</h1>
             <h1 class="mb-3 mt-3">Personal Details</h1>
 
@@ -241,7 +241,7 @@
 
 
       <section class="formTabs pb-5">
-        <div class="pt-10 px-10">
+        <div class="md:pt-10 pt-3 md:px-10 px-4">
           <button class="flex items-center gap-2" onclick="nextPrev(-1)">
             <iconify-icon icon="eva:arrow-back-outline"></iconify-icon>
             <span>Go back</span>
@@ -250,19 +250,19 @@
 
         <div class="invoiceContainer flex justify-center">
 
-          <div class="invoice bg-white w-[70%] shadow-md -mt-12" id="invoiceCard">
-            
+          <div class="invoice bg-white md:w-[70%] w-[90%] shadow-md md:-mt-12 mt-2" id="invoiceCard">
+            <!-- COMING FROM JS invoice.js -->
           </div>
 
 
         </div>
 
-        <div class="flex justify-center">
+        <div class="flex justify-center px-4">
           <div>
             <div class="mt-4">
               <p class="text-xl">Note: You can make part payment by editing amount you are to pay</p>
             </div>
-            <div class="flex justify-between mt-4">
+            <div class="flex justify-between mt-4 gap-3">
               <button class="outline-btn flex gap-3 items-center px-10">
                 <iconify-icon icon="mdi:printer-outline" class="text-xl"></iconify-icon>
                 <span>Print Invoice</span>

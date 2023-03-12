@@ -22,89 +22,87 @@
 
   <div class="absolute w-full h-full -z-10" style="background: #00000060;"></div>
 
-  <header class="flex justify-between px-10 bg-white py-3" id="theHeader">
+  <header class="flex justify-between md:px-10 px-4 bg-white py-3" id="theHeader">
 
 
-    <div class="flex items-center gap-3">
-      <a class="outline-btn" href="signin.html">Sign In</a>
-      <a class="button">Register</a>
-    </div>
 
-    </div>
   </header>
 
-  <section class="text-center text-white mt-20">
+  <section class="text-center text-white mt-10 md:mt-20">
     <h1 class="text-5xl fontBold">Pay your tax !</h1>
     <!-- <h1 class="text-xl mt-2">Let's build Akwa Ibom together</h1> -->
 
     <div class="flex justify-center">
-      <p class="mt-3 w-[50%] text-lg">As Akwa Ibom moves towards meeting the needs of a mega city, Akwa Ibom Internal
+      <p class="mt-3 md:w-[50%] w-[80%] text-lg">As Akwa Ibom moves towards meeting the needs of a mega city, Akwa Ibom
+        Internal
         Revenue
         Service continues to position itself as a major funding arm. All payments has been made easy and convenient.</p>
     </div>
 
   </section>
 
-  <section class="flex justify-center mt-10 gap-4">
+  <section class="flex justify-center mt-10 px-3 overflow-y-auto h-[52vh] pb-5">
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 pb-5">
 
-    <div class="landing_cards text-center activo">
-      <div class="flex justify-center items-center flex-col h-full">
-        <div class="py-3">
-          <iconify-icon icon="fa-solid:money-check-alt"></iconify-icon>
-          <p class="cardText">Generate Invoice</p>
-        </div>
-        <a href="generateinvoice.html" class="button w-full">Generate Invoice</a>
-      </div>
-    </div>
 
-    <div class="landing_cards text-center">
-      <div class="flex justify-center items-center flex-col h-full">
-        <div class="py-3">
-          <iconify-icon icon="mdi:invoice-check"></iconify-icon>
-          <p class="cardText">Verify Invoice</p>
+      <div class="landing_cards text-center activo">
+        <div class="flex justify-center items-center flex-col h-full">
+          <div class="py-3">
+            <iconify-icon icon="fa-solid:money-check-alt"></iconify-icon>
+            <p class="cardText">Generate Invoice</p>
+          </div>
+          <a href="generateinvoice.html" class="button w-full">Generate Invoice</a>
         </div>
-        <a href="verifyinvoice.html" class="button w-full">Verify Invoice</a>
       </div>
 
-    </div>
-
-    <div class="landing_cards text-center">
-      <div class="flex justify-center items-center flex-col h-full">
-        <div class="py-3">
-          <iconify-icon icon="fluent:payment-24-filled"></iconify-icon>
-          <p class="cardText">Pay Now</p>
+      <div class="landing_cards text-center">
+        <div class="flex justify-center items-center flex-col h-full">
+          <div class="py-3">
+            <iconify-icon icon="mdi:invoice-check"></iconify-icon>
+            <p class="cardText">Verify Invoice</p>
+          </div>
+          <a href="verifyinvoice.html?page=verify" class="button w-full">Verify Invoice</a>
         </div>
-        <a href="verifyinvoice.html" class="button w-full">Pay Now</a>
+
       </div>
 
-    </div>
-
-    <div class="landing_cards text-center">
-      <div class="flex justify-center items-center flex-col h-full">
-        <div class="py-3">
-          <iconify-icon icon="dashicons:welcome-write-blog"></iconify-icon>
-          <p class="cardText">Continue Payment</p>
+      <div class="landing_cards text-center">
+        <div class="flex justify-center items-center flex-col h-full">
+          <div class="py-3">
+            <iconify-icon icon="fluent:payment-24-filled"></iconify-icon>
+            <p class="cardText">Pay Now</p>
+          </div>
+          <a href="verifyinvoice.html?page=paynow" class="button w-full">Pay Now</a>
         </div>
-        <a href="continuepayment.html" class="button w-full">Continue Payment</a>
+
       </div>
 
-    </div>
-
-    <div class="landing_cards text-center">
-      <div class="flex justify-center items-center flex-col h-full">
-        <div class="py-3">
-          <iconify-icon icon="material-symbols:file-present"></iconify-icon>
-          <p class="cardText">Self Assessment</p>
+      <div class="landing_cards text-center">
+        <div class="flex justify-center items-center flex-col h-full">
+          <div class="py-3">
+            <iconify-icon icon="dashicons:welcome-write-blog"></iconify-icon>
+            <p class="cardText">Continue Payment</p>
+          </div>
+          <a href="verifyinvoice.html?page=continue" class="button w-full">Continue <br> Payment</a>
         </div>
-        <a href="filetax.html" class="button w-full">File Tax</a>
+
       </div>
 
-    </div>
+      <div class="landing_cards text-center">
+        <div class="flex justify-center items-center flex-col h-full">
+          <div class="py-3">
+            <iconify-icon icon="material-symbols:file-present"></iconify-icon>
+            <p class="cardText">Self Assessment</p>
+          </div>
+          <a href="filetax.html" class="button w-full">File Tax</a>
+        </div>
 
+      </div>
+    </div>
   </section>
 
 
-  <section class="absolute bottom-0 w-full" id="footer">
+  <section class="absolute bottom-0 mt-5 w-full" id="footer">
 
 
   </section>
