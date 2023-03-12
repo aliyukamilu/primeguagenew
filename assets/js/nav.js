@@ -1,10 +1,5 @@
-<<<<<<< HEAD
 let HOST = "http://localhost/Primeguage-IBS/php/index.php"
-// // let HOST = "http://localhost:8080/primeGuage/php/index.php"
-=======
-// // let HOST = "http://localhost/Primeguage-IBS/php/index.php"
-let HOST = "http://localhost:8080/primeGuage/php/index.php"
->>>>>>> 076b49f2939e5bcab5e1525f487804ebe681e900
+// let HOST = "http://localhost:8080/primeGuage/php/index.php"
 // // let HOST = "https://steamledge.com/primeguage/php/index.php"
 // let HOST = "https://useibs.com/php/index.php"
 // let THE_SESSION = localStorage.getItem("userDataPrime")
@@ -198,3 +193,5 @@ $("#footer").html(`
 //   d = document; s = d.createElement("script"); s.src = "https://client.crisp.chat/l.js";
 //   s.async = 1; d.getElementsByTagName("head")[0].appendChild(s);
 // })();
+
+

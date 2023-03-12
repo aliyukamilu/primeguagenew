@@ -66,7 +66,7 @@ $(".aside").html(`
         </a>
       </li>
       <li class="menu-item">
-        <a href="revhead.html" class="menu-link">
+        <a href="" id="logout" class="menu-link">
           <i class='menu-icon tf-icons bx bx-buildings' ></i>
           <div data-i18n="Basic">Log Out</div>
         </a>
@@ -123,6 +123,30 @@ $(".footer").html(`
 `);
 const currentDate = new Date();
 $("#datei").html(currentDate.toLocaleDateString());
+
+
+$("#logout").on("click", function (e) {
+  e.preventDefault();
+  Swal.fire({
+    title: 'Are you sure?',
+    text: "You want to Logout",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire(
+        'Your Account have been successfully Loggedout.',
+        'success'
+      )
+  localStorage.removeItem('userDataPrime');
+      window.location.href = "index.html"
+    }
+  })
+ 
+})
 
 function Profile() {
   let userInfo = JSON.parse(window.localStorage.getItem("mdaDataPrime"));

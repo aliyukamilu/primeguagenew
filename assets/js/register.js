@@ -137,6 +137,9 @@ function checkTin() {
 
 }
 
+const urlParams = new URLSearchParams(window.location.search);
+const myParam = urlParams.get('category');
+// console.log(myParam);
 $("#CreateAccountBtn").on("click", (e) => {
   e.preventDefault()
 
@@ -171,6 +174,7 @@ $("#CreateAccountBtn").on("click", (e) => {
         <div class="animate-spin rounded-full h-10 w-10 border-b-2 border-gray-900"></div>
       </div>
     `)
+   
     $("#CreateAccountBtn").addClass("hidden")
     let obj = {
       endpoint: "createPayerAccount",
@@ -178,7 +182,8 @@ $("#CreateAccountBtn").on("click", (e) => {
         verification_status: "nil",
         "surname": "",
         "img": "assets/img/userprofile.png",
-        "tax_number": ""
+        "tax_number": "",
+        "category": "myParam"
       }
     }
     allInputs.forEach(allInput => {
