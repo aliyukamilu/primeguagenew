@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 25, 2023 at 06:15 PM
--- Server version: 10.4.19-MariaDB
--- PHP Version: 7.4.20
+-- Generation Time: Mar 12, 2023 at 11:45 AM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -44,7 +44,7 @@ CREATE TABLE `Administrative_users` (
   `img` longtext NOT NULL,
   `verification_status` longtext NOT NULL,
   `time_in` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `Administrative_users`
@@ -69,15 +69,15 @@ CREATE TABLE `banner` (
   `description` varchar(400) NOT NULL,
   `description_2` varchar(400) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `banner`
 --
 
 INSERT INTO `banner` (`id`, `image`, `body`, `description`, `description_2`, `created_at`) VALUES
-(1, 'https://drive.google.com/file/d/1GpvYQ0l8wC2sHRdfauwnRmNzlpzO_GVd/view', 'Pay your tax today!', 'Let s build Akwaibom together ', 'All payment in Akwaibom has been made easy, convenient, and secure way to pay all taxes or bills owed to the Akwaibom state government.', '2023-02-23 13:28:20'),
-(3, 'https://drive.google.com/file/d/1sZGkTrmzGYg41rjz6Lah7k6p6Dh4Zd_v/view', 'Are you an individual or corporate\nbody in Akwaibom', '', 'Tax payments and all remittances to the Akwaibom government has been made easy…\n\n', '2023-02-23 13:28:20');
+(1, 'https://media.publit.io/file/slide1-z.png', 'Pay your tax today!', 'Let s build Akwaibom together ', 'All payment in Akwaibom has been made easy, convenient, and secure way to pay all taxes or bills owed to the Akwaibom state government.', '2023-02-23 13:28:20'),
+(3, 'https://media.publit.io/file/slide2-8.png', 'Are you an individual or corporate\nbody in Akwaibom', '', 'Tax payments and all remittances to the Akwaibom government has been made easy…\n\n', '2023-02-23 13:28:20');
 
 -- --------------------------------------------------------
 
@@ -91,7 +91,7 @@ CREATE TABLE `contact_us` (
   `email` varchar(350) NOT NULL,
   `phone_number` varchar(15) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `contact_us`
@@ -113,7 +113,7 @@ CREATE TABLE `invoices` (
   `invoice_number` varchar(15) NOT NULL,
   `due_date` date NOT NULL,
   `payment_status` enum('paid','unpaid') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `invoices`
@@ -352,7 +352,9 @@ INSERT INTO `invoices` (`id`, `payer_id`, `revenue_head`, `invoice_number`, `due
 (412, '1', 36, '63dd1d14e660b', '2023-03-03', 'unpaid'),
 (413, '1', 38, '63dd201890e0b', '2023-03-03', 'unpaid'),
 (414, '18', 39, '0000000414', '2023-03-14', 'unpaid'),
-(415, '24', 35, '0000000415', '2023-03-20', 'unpaid');
+(415, '24', 35, '0000000415', '2023-03-20', 'unpaid'),
+(416, '28', 2, '0000000416', '2023-04-11', 'unpaid'),
+(417, '29', 2, '0000000417', '2023-04-11', 'unpaid');
 
 -- --------------------------------------------------------
 
@@ -373,7 +375,7 @@ CREATE TABLE `mda` (
   `status` enum('active','deactivated') NOT NULL,
   `time_in` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `password` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `mda`
@@ -452,7 +454,7 @@ CREATE TABLE `mda_users` (
   `users_access` enum('view','full') NOT NULL,
   `report_access` enum('view','full') NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `mda_users`
@@ -477,7 +479,7 @@ CREATE TABLE `our_services` (
   `body` text NOT NULL,
   `icon` varchar(200) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `our_services`
@@ -507,6 +509,9 @@ CREATE TABLE `payer_user` (
   `email` varchar(50) NOT NULL,
   `phone` varchar(15) NOT NULL,
   `state` varchar(50) NOT NULL,
+  `business_type` varchar(255) NOT NULL,
+  `employment_status` varchar(255) NOT NULL,
+  `number_of_staff` varchar(10000) NOT NULL,
   `lga` varchar(50) NOT NULL,
   `address` varchar(100) NOT NULL,
   `img` longtext NOT NULL,
@@ -515,17 +520,28 @@ CREATE TABLE `payer_user` (
   `verification_code` int(20) NOT NULL,
   `tin_status` enum('Unverified','Verified') NOT NULL,
   `timeIn` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `payer_user`
 --
 
-INSERT INTO `payer_user` (`id`, `tax_number`, `tin`, `category`, `first_name`, `surname`, `email`, `phone`, `state`, `lga`, `address`, `img`, `password`, `verification_status`, `verification_code`, `tin_status`, `timeIn`) VALUES
-(1, 'SDSD-SS', '', 'Individual', 'Bello', 'Abubakar', 'abu@yahoo.com', '234234554465', 'Akwa Ibom', 'Eastern Obolo', 'ddd', '', '12345', 'M3ZHWWV0NGgxVkdMRWV1NkY2b0JqZkM0Uml0dm95K1BTZzc2SUx4c2ZPZz0=', 0, 'Verified', '2023-02-04 13:54:13'),
-(13, '16753542986362', '', 'Corporate', 'Steamledge Limited', '08135719391', 'aliyukamilu003@gmail.com', '23456788984', '', '', '', '', '12345', 'SGtnVFpoVFAwWVR1RmR4eFRDeXdnWVhnQk5TaVVWWXl1R2ZtQ2JEa2Q1ND0=', 0, 'Unverified', '2023-02-02 16:11:38'),
-(14, 'AKW-56048172', '', 'Individual', 'sd', 'we', 'aliyukamilu0ee02@gmail.com', '+2348135719391', 'Akwa Ibom', '--Select LGA--', '89 Lamido Crescent', '', 'ww', 'YzFtSUticlM0dlFjZE5GR1FYNFJNSncrdUptc0M0TzZoOE02ZFdIMHE1Vm84QmtnYktSemFobDF1WEdldWxYVw==', 0, 'Unverified', '2023-02-13 11:37:54'),
-(24, 'AKW2-79516', '1234567890-1111', 'Individual', 'Aliyu', 'Kamilu', 'aliyukamilu002@gmail.com', '08135719391', 'Akwa Ibom', 'Eket', '89 Lamido Crescent', '', 'Aliyu@2003', '1', 734263, 'Unverified', '2023-02-17 11:40:55');
+INSERT INTO `payer_user` (`id`, `tax_number`, `tin`, `category`, `first_name`, `surname`, `email`, `phone`, `state`, `business_type`, `employment_status`, `number_of_staff`, `lga`, `address`, `img`, `password`, `verification_status`, `verification_code`, `tin_status`, `timeIn`) VALUES
+(1, 'SDSD-SS', '', 'Individual', 'Bello', 'Abubakar', 'abu@yahoo.com', '234234554465', 'Akwa Ibom', '', '', '', 'Eastern Obolo', 'ddd', '', '12345', 'M3ZHWWV0NGgxVkdMRWV1NkY2b0JqZkM0Uml0dm95K1BTZzc2SUx4c2ZPZz0=', 0, 'Verified', '2023-02-04 13:54:13'),
+(13, '16753542986362', '', 'Corporate', 'Steamledge Limited', '08135719391', 'aliyukamilu003@gmail.com', '23456788984', '', '', '', '', '', '', '', '12345', 'SGtnVFpoVFAwWVR1RmR4eFRDeXdnWVhnQk5TaVVWWXl1R2ZtQ2JEa2Q1ND0=', 0, 'Unverified', '2023-02-02 16:11:38'),
+(14, 'AKW-56048172', '', 'Individual', 'sd', 'we', 'aliyukamilu0ee02@gmail.com', '+2348135719391', 'Akwa Ibom', '', '', '', '--Select LGA--', '89 Lamido Crescent', '', 'ww', 'YzFtSUticlM0dlFjZE5GR1FYNFJNSncrdUptc0M0TzZoOE02ZFdIMHE1Vm84QmtnYktSemFobDF1WEdldWxYVw==', 0, 'Unverified', '2023-02-13 11:37:54'),
+(24, 'AKW2-79516', '1234567890-1111', 'Individual', 'Aliyu', 'Kamilu', 'aliyukamilu002@gmail.com', '08135719391', 'Akwa Ibom', '', '', '', 'Eket', '89 Lamido Crescent', '', 'Aliyu@2003', '1', 734263, 'Unverified', '2023-02-17 11:40:55'),
+(25, 'AKW1-51827', '', 'Corporate', 'aljtr', 'oerk', 'reok', 'roe', 'Akwa Ibom', '', '', '', 'Eastern Obolo', 'rte', '', '12345', 'TGdEeTZLVHlCTVcydEdydmpWTlVGZz09', 494542, 'Unverified', '2023-03-11 15:02:40'),
+(26, 'AKW2-18732', 'we', 'Individual', 'o', 'je', 'erjk', 'rejlkw', 'Akwa Ibom', '', '', '', 'Abak', 'tirpe', '', '12345', 'UnhMaS9MZHBPOW4xbXdQQ2hxbXZTdz09', 271902, 'Unverified', '2023-03-11 15:05:09'),
+(27, 'AKW2-47953', 'fkw;slkf', 'Individual', 'uho', 'r', 'kbjn', 'ern', 'Akwa Ibom', '', '', '', 'Esit Eket', 'eorjfwpoe', '', '12345', 'LzVVRUtwMGJFSWFCOHdxQUZWUy9CQT09', 733249, 'Unverified', '2023-03-11 15:07:47'),
+(28, 'AKW2-82361', 'epo', 'Individual', 'ertiuhroi', 'eriuoh', 'eriuo', 'ewr', 'Akwa Ibom', '', '', '', 'Abak', 'eorip', '', '12345', 'VjMwWlYxaVdJbDRrTDB4MDk4aG1hQT09', 581270, 'Unverified', '2023-03-11 15:08:57'),
+(29, 'AKW2-32719', '2323232', 'Individual', 'aliyu', 'kamilu', 'aaa@fd.com', '13232323', 'Akwa Ibom', '', '', '', 'Abak', 'the address', '', '12345', 'UkRVYS9YM21QUDBjTTJ1STg3akN4WEQ4dDhrQ1NIT2puVk1OTS9UNjFzYz0=', 256018, 'Unverified', '2023-03-11 16:09:54'),
+(30, 'AKWindividual-21860', '1111111111-1111', 'Individual', 'Aliyu', 'Nurudeen', 'deen.aliyu4066@gmail.com', '08162248564', 'Akwa Ibom', 'Education', '', '', 'Uruan', 'Flat 373 Federal lowcost kontagora', 'assets/img/userprofile.png', '@Deenaliyu3677', 'dmx1WXN1RVlITUNIL2tSaEUxMEVUWHNnM3FGY3Z2YmdRRG55OHBQcDN2TT0=', 366108, 'Unverified', '2023-03-12 09:14:12'),
+(31, 'AKWindividual-86473', '1111111111-1111', 'Individual', 'Aliyu', 'Nurudeen', 'deen.aliyu4066o@gmail.com', '08162248564', 'Akwa Ibom', 'Education', '', '', 'Uruan', 'Flat 373 Federal lowcost kontagora', 'assets/img/userprofile.png', '@Deenaliyu3677', 'QVBzVzlBUmw0TG9YV0w0Ty9vcWdSa2w4ZXRNeGlZU3NkWmtWQnFnUnVxZ0tVbCsvbmwrVkNoL0Z6QTh0QUZ2WQ==', 714892, 'Unverified', '2023-03-12 09:16:19'),
+(32, 'AKWindividual-95230', '1111111111-1111', 'Individual', 'Aliyu', 'Nurudeen', 'deen.aliyu40662o@gmail.com', '08162248564', 'Akwa Ibom', 'Education', '', '', 'Uruan', 'Flat 373 Federal lowcost kontagora', 'assets/img/userprofile.png', '@Deenaliyu3677', 'LzdSYVRrd3JnS1FFN051M0x4ZVAxTTlkUWlxL1BkTEhzSFozTXZpV09zQmlOZ0djMUhYTStQam1uWGFvOTRDTQ==', 829369, 'Unverified', '2023-03-12 09:17:10'),
+(33, 'AKWindividual-75081', '1111111111-1111', 'Individual', 'Aliyu', 'Nurudeen', 'deen.aliyu406624o@gmail.com', '08162248564', 'Akwa Ibom', 'Education', 'Employee', '', 'Uruan', 'Flat 373 Federal lowcost kontagora', 'assets/img/userprofile.png', '@Deenaliyu3677', 'Vzk5L095V1oyYlZIN0ZaUk43U0lIZXRpRTROWjY2S2l1MklpNXhUNXU3VHZlQWxiZU9XUzIvMTAxQTJoTmQycQ==', 39264, 'Unverified', '2023-03-12 09:18:26'),
+(34, 'AKW1-87612', '1111111111-1111', 'Corporate', 'Aliyu', 'Nurudeen', 'deen.aliyu40444@gmail.com', '08162248564', 'Akwa Ibom', 'Hospitality', 'Selfemployed', '', 'Eastern Obolo', 'Flat 373 Federal lowcost kontagora', 'assets/img/userprofile.png', '@Deen3677', 'bkVjZnZlSzRINkFBRzk5cnhKVGVRankyWk9RREZBZUk0R1ZkRm9qR1Y0R2J5RjUxVlRGZzkzQ21XY2dmRXJmQg==', 947946, 'Unverified', '2023-03-12 09:43:05'),
+(35, 'AKW1-04519', '1111111111-1111', 'Corporate', 'Aliyu', 'Nurudeen', 'deen.aliyu40@gmail.com', '08162248564', 'Akwa Ibom', 'Pool', 'Selfemployed', '', 'Esit Eket', 'Flat 373 Federal lowcost kontagora', 'assets/img/userprofile.png', '@Deen3677', 'WWhjejE3NkJLazhQRUlaQWlOQzZJazI2Y2pSdDN2WUJCdWV4c1dFa1ZXST0=', 524880, 'Unverified', '2023-03-12 09:57:31');
 
 -- --------------------------------------------------------
 
@@ -538,7 +554,7 @@ CREATE TABLE `payment_2` (
   `0` varchar(100) DEFAULT NULL,
   `1` int(255) DEFAULT NULL,
   `time_in` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -556,7 +572,7 @@ CREATE TABLE `payment_collection_report_individual` (
   `payment_reference_number` varchar(50) NOT NULL,
   `receipt_number` varchar(50) NOT NULL,
   `timeIn` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `payment_collection_report_individual`
@@ -577,7 +593,7 @@ CREATE TABLE `payment_form_labels` (
   `content` longtext NOT NULL,
   `mda_id` int(255) NOT NULL,
   `time_in` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `payment_form_labels`
@@ -603,7 +619,7 @@ CREATE TABLE `pending_payment_list` (
   `payment_status` enum('unpaid','invoiced','paid') NOT NULL,
   `status` enum('inactive','active') NOT NULL,
   `date_of_payment` varchar(12) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `pending_payment_list`
@@ -628,7 +644,7 @@ CREATE TABLE `revenue_heads` (
   `COL_5` varchar(14) DEFAULT NULL,
   `COL_6` varchar(6) DEFAULT NULL,
   `time_in` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `revenue_heads`
@@ -1081,7 +1097,7 @@ CREATE TABLE `revenue_heads1` (
   `amount` double(10,2) NOT NULL,
   `mda_id` int(255) NOT NULL,
   `time_in` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `revenue_heads1`
@@ -1208,7 +1224,7 @@ ALTER TABLE `contact_us`
 -- AUTO_INCREMENT for table `invoices`
 --
 ALTER TABLE `invoices`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=416;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=418;
 
 --
 -- AUTO_INCREMENT for table `mda`
@@ -1232,7 +1248,7 @@ ALTER TABLE `our_services`
 -- AUTO_INCREMENT for table `payer_user`
 --
 ALTER TABLE `payer_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `payment_2`

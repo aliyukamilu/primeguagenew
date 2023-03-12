@@ -138,12 +138,21 @@ function checkTin() {
 }
 
 const urlParams = new URLSearchParams(window.location.search);
-const myParam = urlParams.get('category');
+let myParam = urlParams.get('category');
+if(myParam == "individual"){
+  myParam = 2;
+}else if(myParam == "corporate"){
+  myParam = 1;
+}else if(myParam == "state"){
+  myParam = 3;
+}else {
+  myParam = 4;
+}
 // console.log(myParam);
 $("#CreateAccountBtn").on("click", (e) => {
   e.preventDefault()
 
-
+  
   let allInputs = document.querySelectorAll(".regInputs")
   let ppsword = document.querySelector("#pps").value
   let ppsword2 = document.querySelector("#pps2").value
@@ -183,7 +192,8 @@ $("#CreateAccountBtn").on("click", (e) => {
         "surname": "",
         "img": "assets/img/userprofile.png",
         "tax_number": "",
-        "category": "myParam"
+        "category": myParam,
+        "numberofstaff": ""
       }
     }
     allInputs.forEach(allInput => {

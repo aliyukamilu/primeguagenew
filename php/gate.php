@@ -460,10 +460,11 @@ function createPayerUser($data)
     $img = $data->img;
     $address = $data->address;
     $tin = $data->tin;
+    $numberofstaff = $data->numberofstaff;
     $verification = encripted_data($email . "£" . "2880" . "_");
     $verification_code = substr(str_shuffle(str_repeat("0123456789", 6)), 0, 6);
-    $query_User_re = sprintf("INSERT INTO `payer_user`(`tax_number`, `category`, `first_name`, `surname`, `email`, `phone`, `state`,'business_type','employment_status',`lga`, `address`, `password`,`verification_status`,`verification_code`,`img`,`tin`) 
-                VALUES ('$tax_number', '$category', '$first_name', '$surname','$email','$phone','$state','$business_type','$employment_status','$lga','$address','$password','$verification','$verification_code','$img','$tin')");
+    $query_User_re = sprintf("INSERT INTO `payer_user`(`tax_number`, `category`, `first_name`, `surname`, `email`, `phone`, `state`,`business_type`,`employment_status`,`lga`, `address`,`img`,`password`,`verification_status`,`verification_code`,`tin`,`number_of_staff`) 
+                VALUES ('$tax_number', '$category', '$first_name', '$surname','$email','$phone','$state','$business_type','$employment_status','$lga','$address','$img','$password','$verification','$verification_code','$tin','$numberofstaff')");
     $check_exist = check_db_query_staus("SELECT email, tax_number, tax_number FROM payer_user WHERE email='{$email}'", "CHK");
 
     if ($check_exist['status'] == 1) {
@@ -846,7 +847,7 @@ function UpdateTINStatus($data)
         $query = "UPDATE `payer_user` SET `tin_status`='{$status}' WHERE `id` = {$id}";
         $User_re = mysqli_query($ibsConnection, $query) or die(mysqli_error($ibsConnection));
         if ($User_re) {
-            $arr = ["status" => 1, "message" => "Htex payers tin status successfully updated"];
+            $arr = ["status" => 1, "message" => "Tax payers tin status successfully updated"];
             exit(json_encode($arr));
         } else {
             $error_updating = ["Error" => "Invalid operation"];
@@ -1081,7 +1082,7 @@ function verifyEmail($id)
     include "config/index.php";
     include "config/enctp.php";
     //print_r($data);
-    $query_User_re = sprintf("SELECT * FROM payer_user WHERE `id` = {$id}");
+    $query_User_re = sprintf("SELECT * FROM `payer_user` WHERE `id` = {$id}");
     $User_re = mysqli_query($ibsConnection, $query_User_re) or die(mysqli_error($ibsConnection));
     $row_User_re = mysqli_fetch_assoc($User_re);
     $totalRows_User_re = mysqli_num_rows($User_re);
@@ -1090,8 +1091,8 @@ function verifyEmail($id)
         $name = $row_User_re['first_name'];
         $verification = $row_User_re['verification_status'];
         $id = $row_User_re['id'];
-        $mail = new PHPMailer(true);
 
+        $mail = new PHPMailer(true);
 
         $mail->isSMTP();                                            //Send using SMTP
         $mail->Host       = 'steamledge.com';                     //Set the SMTP server to send through
