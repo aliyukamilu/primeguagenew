@@ -220,6 +220,13 @@ label {
   color: #667085;
 }
 
+@media(min-width: 767px) {
+  .form-group {
+    width: 100%;
+  }
+}
+
+
 /* ACCORDIONS
  */
 

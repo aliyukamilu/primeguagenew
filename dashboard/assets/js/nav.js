@@ -141,11 +141,11 @@ $("#logout").on("click", function (e) {
         'Your Account have been successfully Loggedout.',
         'success'
       )
-  localStorage.removeItem('userDataPrime');
+      localStorage.removeItem('userDataPrime');
       window.location.href = "index.html"
     }
   })
- 
+
 })
 
 function Profile() {
