@@ -68,31 +68,32 @@
             <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
               <i class="bx bx-menu bx-sm"></i>
             </a>
-            </div>
-            
-            <div class="navbar-nav-right flex items-center justify-between" id="navbar-collapse">
+          </div>
+
+          <div class="navbar-nav-right flex items-center justify-between" id="navbar-collapse">
             <div class="">
-            <p class="text-sm text-black" id="datei">-</p>
-            <h1 class="md:text-[30px] text-[14px] text-[#151515] pt-2">Payment history</h1>
+              <p class="text-sm text-black" id="datei">-</p>
+              <h1 class="md:text-[30px] text-[14px] text-[#151515] pt-2">Payment history</h1>
             </div>
-            
-                              <div class="mt-4 flex gap-x-5">
-                              <div class="input-group input-group-merge md:w-72 hidden md:flex">
-            <span class="input-group-text" id="basic-addon-search31"><i class="bx bx-search"></i></span>
-            <input type="text" class="form-control" placeholder="Search..." aria-label="Search..."
-              aria-describedby="basic-addon-search31">
+
+            <div class="mt-4 flex gap-x-5">
+              <div class="input-group input-group-merge md:w-72 hidden md:flex">
+                <span class="input-group-text" id="basic-addon-search31"><i class="bx bx-search"></i></span>
+                <input type="text" class="form-control" placeholder="Search..." aria-label="Search..."
+                  aria-describedby="basic-addon-search31">
+              </div>
+              <button data-bs-toggle="modal" data-bs-target="#generateInvModal" class="button ">
+                <iconify-icon icon="ic:baseline-plus"></iconify-icon> Generate Invoice</button>
+
+              <iconify-icon icon="mdi:bell-notification" data-bs-toggle="modal" data-bs-target="#notiModal"
+                class="hidden md:flex cursor-pointer text-[#F68C36]" width="32" height="32"></iconify-icon>
+
+              <div class="avatar avatar-online">
+                <img src="./assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+              </div>
             </div>
-            <button data-bs-toggle="modal" data-bs-target="#generateInvModal" class="button ">
-                          <iconify-icon icon="ic:baseline-plus"></iconify-icon> Generate Invoice</button>
-                          
-                            <iconify-icon icon="mdi:bell-notification" data-bs-toggle="modal" data-bs-target="#notiModal" class="hidden md:flex cursor-pointer text-[#F68C36]" width="32" height="32"></iconify-icon>
-                             
-                              <div class="avatar avatar-online">
-                    <img src="./assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
-                  </div>
-                              </div>
-                              
-            </div>
+
+          </div>
         </nav>
 
         <!-- / Navbar -->
@@ -102,8 +103,8 @@
 
           <div class="container-xxl flex-grow-1 container-p-y taxes">
             <div class="card px-4">
-        <h1 class="text-2xl text-[#282828] fontBold mt-4">Payment history</h1>
-        <hr class="text-[#F4F4F4] my-3">
+              <h1 class="text-2xl text-[#282828] fontBold mt-4">Payment history</h1>
+              <hr class="text-[#F4F4F4] my-3">
               <div class="table-responsive p-3">
 
                 <table class="table theTable" id="dataTable">
@@ -118,19 +119,19 @@
                     <th class="fontBold text-gray-500">Download</th>
                   </thead>
                   <tbody id="showPayment">
-      
+
                   </tbody>
                 </table>
-      
+
               </div>
               <div class="flex justify-center items-center mt-4" id="loader">
                 <!-- <div class="animate-spin rounded-full h-10 w-10 border-b-2 border-gray-900"></div> -->
+              </div>
             </div>
-        </div>
-            
+
           </div>
           <section class="mt-4 bg-[#FFFFFF] pt-4 px-4 pb-2 footer">
-             
+
           </section>
           <div class="content-backdrop fade"></div>
         </section>
@@ -143,114 +144,75 @@
     <!-- Overlay -->
     <div class="layout-overlay layout-menu-toggle"></div>
   </div>
-  <div class="modal fade" id="generateInvModal" tabindex="-1">
-    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
+
+  <div class="modal fade" id="notiModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
+          <h5 class="modal-title">Notifications</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
             <iconify-icon icon="fluent-mdl2:cancel"></iconify-icon>
           </button>
         </div>
         <div class="modal-body relative">
-          <div class="flex justify-center">
-            <form class=" sm:w-10/12 p-3 relative h-[50vh] overflow-y-auto">
-              <h1 class="text-2xl font-bold mb-6 text-center">Generate Invoice</h1>
-    
-              <div id="formShower">
-    
-              </div>
-              <div class="form-group">
-                <select name="" id="getMDAs" class="form-select">
-                  <option disabled selected>--- Select MDA ---</option>
-                </select>
-              </div>
-    
-              <p class="text-3xl fontBold mt-10">List of Payable Taxes</p>
-              <p class="text-gray-600">Select those applicable</p>
-    
-              <div class="mt-6" id="listOfpayable">
-    
-              </div>
-    
-    
-            </form>
-          </div>
-          <button class="button w-full mt-6" id="generateInvoice">Generate Invoice</button>
-          <div id="msg_box" class="w-full">
-    
-          </div>
-        </div>
-      </div>
-    </div>
-    </div>
-    <div class="modal fade" id="notiModal" tabindex="-1">
-      <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Notifications</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-              <iconify-icon icon="fluent-mdl2:cancel"></iconify-icon>
-            </button>
-          </div>
-          <div class="modal-body relative">
-            <div class="flex justify-between">
-             <p class="text-[16px]">Your TIN has been verified</p>
-             <button class="text-[#F68C36] text-[12px] underline underline-offset-1">clear</button>
+          <div class="flex justify-between">
+            <p class="text-[16px]">Your TIN has been verified</p>
+            <button class="text-[#F68C36] text-[12px] underline underline-offset-1">clear</button>
           </div>
           <hr class="text-[#D7D7D7] my-3">
           <div class="flex justify-between">
             <p class="text-[16px]">Your payment is successful</p>
             <button class="text-[#F68C36] text-[12px] underline underline-offset-1">clear</button>
-         </div>
-         <hr class="text-[#D7D7D7] my-3">
-         <div class="flex justify-between">
-          <p class="text-[16px]">Your complaint has been answered</p>
-          <button class="text-[#F68C36] text-[12px] underline underline-offset-1">clear</button>
-       </div>
-       <hr class="text-[#D7D7D7] my-3">
-       <div class="flex justify-between">
-        <p class="text-[16px]">Your payment is successful</p>
-        <button class="text-[#F68C36] text-[12px] underline underline-offset-1">clear</button>
-     </div>
-     <hr class="text-[#D7D7D7] my-3">
-     <div class="flex justify-between">
-      <p class="text-[16px]">Your payment is due</p>
-      <button class="text-[#F68C36] text-[12px] underline underline-offset-1">clear</button>
-   </div>
+          </div>
+          <hr class="text-[#D7D7D7] my-3">
+          <div class="flex justify-between">
+            <p class="text-[16px]">Your complaint has been answered</p>
+            <button class="text-[#F68C36] text-[12px] underline underline-offset-1">clear</button>
+          </div>
+          <hr class="text-[#D7D7D7] my-3">
+          <div class="flex justify-between">
+            <p class="text-[16px]">Your payment is successful</p>
+            <button class="text-[#F68C36] text-[12px] underline underline-offset-1">clear</button>
+          </div>
+          <hr class="text-[#D7D7D7] my-3">
+          <div class="flex justify-between">
+            <p class="text-[16px]">Your payment is due</p>
+            <button class="text-[#F68C36] text-[12px] underline underline-offset-1">clear</button>
+          </div>
         </div>
       </div>
-      </div>
     </div>
+  </div>
   <!-- / Layout wrapper -->
-    <!-- Core JS -->
-    <!-- build:js assets/vendor/js/core.js -->
-    <script src="./assets/vendor/libs/jquery/jquery.js"></script>
-    <script src="./assets/vendor/libs/popper/popper.js"></script>
-    <script src="./assets/vendor/js/bootstrap.js"></script>
-    <script src="./assets/js/jquery.datatables.min.js"></script>
-    <script src="./assets/js/dataTables.bootstrap5.min.js"></script>
-    <script src="./assets/vendor/libs/echarts/echarts.js"></script>
-    <script src="./assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-    <script src="./assets/js/nav.js"></script>
-    <script src="./assets/vendor/js/menu.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="./assets/js/session.js"></script>
-    <!-- endbuild -->
-    <script src="../assets/js/paymentHistory.js"></script>
-    <script>
-      let theAtivo = document.querySelector(`.mdp`)
-      theAtivo.parentElement.classList.add("active")
-    </script>
-    <!-- Vendors JS -->
-    <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
-    <!-- Main JS -->
+  <!-- Core JS -->
+  <!-- build:js assets/vendor/js/core.js -->
+  <script src="./assets/vendor/libs/jquery/jquery.js"></script>
+  <script src="./assets/vendor/libs/popper/popper.js"></script>
+  <script src="./assets/vendor/js/bootstrap.js"></script>
+  <script src="./assets/js/jquery.datatables.min.js"></script>
+  <script src="./assets/js/dataTables.bootstrap5.min.js"></script>
+  <script src="./assets/vendor/libs/echarts/echarts.js"></script>
+  <script src="./assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+  <script src="./assets/js/nav.js"></script>
+  <script src="./assets/vendor/js/menu.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="./assets/js/session.js"></script>
+  <!-- endbuild -->
+  <script src="../assets/js/paymentHistory.js"></script>
+  <script>
+    let theAtivo = document.querySelector(`.mdp`)
+    theAtivo.parentElement.classList.add("active")
+  </script>
+  <!-- Vendors JS -->
+  <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+  <!-- Main JS -->
 
-    <script src="./assets/js/main.js"></script>
+  <script src="./assets/js/main.js"></script>
 
-    <!-- Page JS -->
+  <!-- Page JS -->
 
-    <!-- Place this tag in your head or just before your close body tag. -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
 
 </html>

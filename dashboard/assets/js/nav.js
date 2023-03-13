@@ -1,6 +1,6 @@
-// let HOST = "http://localhost:8080/primeGuage/php/index.php"
+let HOST = "http://localhost:8080/primeGuage/php/index.php"
 // let HOST = "https://steamledge.com/primeguage/php/index.php";
-let HOST = "http://localhost/primeguagenew/php/index.php";
+// let HOST = "http://localhost/primeguagenew/php/index.php";
 
 $(".aside").html(`
     <div class="app-brand demo">
@@ -151,21 +151,24 @@ $("#logout").on("click", function (e) {
 function Profile() {
   let userInfo = JSON.parse(window.localStorage.getItem("mdaDataPrime"));
   let allProf = document.querySelector("#profilead");
-  allProf.innerHTML = `
-  <a class="dropdown-item" href="#" >
-  <div class="d-flex">
-    <div class="flex-shrink-0 me-3">
-      <div class="avatar avatar-online">
-        <img src="./assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+  if (allProf) {
+    allProf.innerHTML = `
+    <a class="dropdown-item" href="#" >
+    <div class="d-flex">
+      <div class="flex-shrink-0 me-3">
+        <div class="avatar avatar-online">
+          <img src="./assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+        </div>
+      </div>
+      <div class="flex-grow-1">
+        <span class="fw-semibold d-block">${userInfo && userInfo.name}</span>
+        <small class="text-muted">Admin</small>
       </div>
     </div>
-    <div class="flex-grow-1">
-      <span class="fw-semibold d-block">${userInfo.name}</span>
-      <small class="text-muted">Admin</small>
-    </div>
-  </div>
-</a>
-      `;
+  </a>
+        `;
+  }
+
 }
 
 Profile();

@@ -29,7 +29,7 @@ $("#LoginNow").on("click", (e) => {
         `)
         localStorage.setItem("userDataPrime", JSON.stringify(data.user))
         setTimeout(() => {
-          window.location.href = "/dashboard/index.html"
+          window.location.href = "./dashboard/index.html"
         }, 1000);
 
       } else if (data.status === 0) {

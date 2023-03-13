@@ -24,7 +24,7 @@ async function fetchMDAs() {
   }
 }
 
-fetchMDAs()
+// fetchMDAs()
 
 $("#paid").on('click', () => {
   var input, filter, table, tr, td, i;
@@ -180,18 +180,15 @@ async function fetchInvoices() {
     userInvoices.message.reverse().forEach((userInvoice, i) => {
       let addd = ""
       addd += `
-      <tr class="relative">
-        <td>${i + 1}</td>
-        <td>
-          <a class="text-primary" href="./invoice.html?id=${userInvoice.payer_id}&invnum=${userInvoice.invoice_number}">
-            ${userInvoice.tax_number}
-          </a>
-        </td>
+      <tr class="relative">    
+        <td>${userInvoice.tax_number}</td>
         <td>${userInvoice.invoice_number}</td>
-        <td>${userInvoice.due_date}</td>
-        <td>${userInvoice.due_date}</td>
-        <td>${userInvoice["COL_4"]}</td>
-        <td>${userInvoice["COL_6"]}</td>
+        <td>${userInvoice.COL_4}</td>
+        <td>${userInvoice.COL_6}</td>
+        <td>${userInvoice.COL_6}</td>
+        <td>${userInvoice.COL_6 - userInvoice.COL_6}</td>
+        <td>${userInvoice["due_date"]}</td>
+        <td>${userInvoice["due_date"]}</td>
         `
       if (userInvoice.payment_status === "paid") {
         addd += `
@@ -199,9 +196,9 @@ async function fetchInvoices() {
             <p class='text-success'>${userInvoice.payment_status}</p>
           </td>
           <td>
-            <div class="flex gap-2 check-bt" id="">
-            <a class="button disabled">Pay</a>
-            </div>
+          <div class="flex gap-2 check-bt" id="">
+            <a class="px-3 py-1 rounded-lg bgPrimary text-white diasbled">Pay</a>
+          </div>
           </td>
           `
       } else {
@@ -211,8 +208,7 @@ async function fetchInvoices() {
           </td>
           <td>
             <div class="flex gap-2 check-bt" id="">
-            <a class="button block" 
-            href="./invoice.html?id=${userInvoice.payer_id}&invnum=${userInvoice.invoice_number}">Pay</a>
+              <a class="px-3 py-1 rounded-lg bgPrimary text-white block">Pay</a>
             </div>
           </td>
           `
@@ -222,7 +218,7 @@ async function fetchInvoices() {
           
       </tr>
       `
-      $(".showInvoice").append(addd);
+      $("#showInvoice").append(addd);
     });
   } else {
     // $(".showInvoice").html("<tr></tr>");
