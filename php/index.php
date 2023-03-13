@@ -21,6 +21,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     loginMda($username, $password);
   } elseif (isset($_GET['getMDAs'])) {
     getMDAs();
+  }elseif (isset($_GET['getAllRevenueHeads'])) {
+    getRevenueHead();
   } elseif (isset($_GET['getMDAsRevenueHeads'])) {
     getMDAsRevenueHead($_GET['mdName']);
   } elseif (isset($_GET['getMDAsRevenueHeadId'])) {
