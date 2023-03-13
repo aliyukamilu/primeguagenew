@@ -484,6 +484,22 @@ function createPayerUser($data)
     }
 }
 
+function userProfile($id)
+{
+    include "config/index.php";
+    $query_User_re = sprintf("SELECT * FROM `payer_user` WHERE id='{$id}'");
+    $User_re = mysqli_query($ibsConnection, $query_User_re) or die(mysqli_error($ibsConnection));
+    $row_User_re = mysqli_fetch_assoc($User_re);
+    $totalRows_User_re = mysqli_num_rows($User_re);
+    if ($totalRows_User_re > 0) {
+            $arr = ['status' => 1, 'message' => 'Buzzing you in 😎', 'user' => $row_User_re];
+            exit(json_encode($arr));
+    } else {
+        $arr = ['status' => 0, 'message' => 'User does not exist',];
+        exit(json_encode($arr));
+    }
+}
+
 function updateMDA($data)
 {
     // print_r($data);
