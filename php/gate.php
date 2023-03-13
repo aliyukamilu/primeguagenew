@@ -1138,13 +1138,13 @@ function verifyEmail($id)
         $mail->isSMTP();                                            //Send using SMTP
         $mail->Host       = 'steamledge.com';                     //Set the SMTP server to send through
         $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-        $mail->Username   = 'primeguage@steamledge.com';                     //SMTP username
-        $mail->Password   = 'primeguage@2023';                               //SMTP password
+        $mail->Username   = 'info@useibs.com';                     //SMTP username
+        $mail->Password   = 'info@2023';                               //SMTP password
         $mail->SMTPSecure = 'ssl';          //Enable implicit TLS encryption
         $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
         //Recipients
-        $mail->setFrom('primeguage@steamledge.com', 'Primeguage');
+        $mail->setFrom('info@useibs.com', 'Primeguage');
         $mail->addAddress($email);     //Add a recipient
         // $mail->addAddress('ellen@example.com');               //Name is optional
         // $mail->addReplyTo('info@example.com', 'Information');
