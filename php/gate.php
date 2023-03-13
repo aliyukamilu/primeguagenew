@@ -737,7 +737,7 @@ function userInvoiceSingle($data)
     include "config/index.php";
     include "config/enctp.php";
     //print_r($data);
-    $check_exist = check_db_query_staus1("SELECT invoices.payer_id, invoices.revenue_head,invoices.invoice_number, invoices.due_date, invoices.payment_status,revenue_heads.COL_3,revenue_heads.COL_4,revenue_heads.COL_6,payer_user.tax_number,payer_user.first_name,payer_user.surname FROM invoices JOIN payer_user ON invoices.payer_id = payer_user.id JOIN revenue_heads ON invoices.revenue_head = revenue_heads.id WHERE invoices.invoice_number='{$data}'", "CHK");
+    $check_exist = check_db_query_staus1("SELECT invoices.payer_id, invoices.revenue_head,invoices.invoice_number, invoices.due_date, invoices.payment_status, invoices.date_created, revenue_heads.COL_3,revenue_heads.COL_4,revenue_heads.COL_6,payer_user.tax_number,payer_user.first_name,payer_user.surname,payer_user.address FROM invoices JOIN payer_user ON invoices.payer_id = payer_user.id JOIN revenue_heads ON invoices.revenue_head = revenue_heads.id WHERE invoices.invoice_number='{$data}'", "CHK");
     if ($check_exist['status'] == 1) {
         exit(json_encode($check_exist));
     } else if ($check_exist['status'] == 0) {
@@ -759,9 +759,11 @@ function updateProfile($data)
         $contact = $data->contact;
         $tax_id_no = $data->tax_id_no;
         $state = $data->state;
-        $l_g_a = $data->l_g_a;
+        $employment_status = $data->employment_status;
+        $business_type = $data->business_type;
 
-        $query = "UPDATE `profileUpdate` SET `subject`='{$data->subject}', `name_of_organization`='{$data->name_of_organization}', `username`='{$data->username}', `email`='{$data->email}', `contact`='{$data->contact}', `tax_id_no`='{$data->tax_id_no}', `state`='{$data->state}', `l_g_a`='{$data->l_g_a}' WHERE `id` = {$data->id}";
+
+        $query = "UPDATE `profileUpdate` SET `subject`='{$data->subject}', `name_of_organization`='{$data->name_of_organization}', `username`='{$data->username}', `email`='{$data->email}', `contact`='{$data->contact}', `tax_id_no`='{$data->tax_id_no}', `state`='{$data->state}', `l_g_a`='{$data->l_g_a}', `employment_status`='{$data->employment_status}', `business_type`='{$data->business_type}' WHERE `id` = {$data->id}";
         $User_re = mysqli_query($ibsConnection, $query) or die(mysqli_error($ibsConnection));
         if ($User_re) {
             $success_updating = ["status" => 1, "message" => "User Profile Successfully Updated"];
