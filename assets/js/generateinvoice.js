@@ -1,29 +1,17 @@
-var currentTab = 0;
-showTab(currentTab);
-
-function showTab(n) {
-  var x = document.getElementsByClassName("formTabs");
-  x[n].style.display = "block";
-
-  // fixStepIndicator(n)
-}
-
-function nextPrev(n) {
-  var x = document.getElementsByClassName("formTabs");
-  x[currentTab].style.display = "none";
-  currentTab = currentTab + n;
-
-
-  showTab(currentTab);
-}
-
-
-
 let theRevs = {}
-async function fetchRevHeads(mdn) {
-  const response = await fetch(`${HOST}/?getMDAsRevenueHeads&mdName=AKIRS`)
+let theCateg = ["", "Corporate", "Individual", "State Agency", "Federal Agency"]
+
+
+
+$(".selCateg").on("change", function () {
+  let theVal = $(this).val()
+
+  fetchRevHeads(theCateg[theVal])
+})
+
+async function fetchRevHeads(categ) {
+  const response = await fetch(`${HOST}/?getAllRevenueHeads`)
   const revHeads = await response.json()
-  $("#listOfpayable").html("")
 
   if (revHeads.status === 0) {
   } else {
@@ -33,14 +21,17 @@ async function fetchRevHeads(mdn) {
       <option disabled selected>Select--</option>
     `)
     revHeads.message.forEach((revHd, i) => {
-      $("#rev_heads").append(`
+      if (revHd.COL_5 === categ) {
+        $("#rev_heads").append(`
         <option value="${revHd["COL_4"]}">${revHd["COL_4"]}</option>
       `)
+      }
+
     });
 
   }
 }
-fetchRevHeads()
+
 
 let the_id
 $("#rev_heads").on("change", function () {
@@ -71,6 +62,10 @@ async function generateInvoiceNon() {
     "data": {
       "state": "Akwa Ibom",
       "category": categ,
+      "employment_status": "",
+      "business_type": "",
+      "numberofstaff": "",
+      "business_type": "",
       "img": "",
       "tin": tin,
       "lga": "",
