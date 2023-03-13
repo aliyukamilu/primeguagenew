@@ -458,56 +458,56 @@ $(".landing_cards").on("mouseover", function() {
 //   }
 // })
 
-// function sendMsg(e) {
-//   // e.preventDefault()
+function sendMsg(e) {
+  // e.preventDefault()
 
-//   let theInputs = document.querySelectorAll(".themsgform .form-control")
+  let theInputs = document.querySelectorAll(".themsgform .form-control")
 
-//   for (let i = 0; i < theInputs.length; i++) {
-//     const inn = theInputs[i];
-//     if (inn.value === "") {
-//       alert("All fields are required !")
-//       break;
-//     }
-
-
-
-//     if (i === theInputs.length - 1) {
-//       let obj = {}
-//       theInputs.forEach(inp => {
-//         obj[inp.dataset.name] = inp.value
-//       })
-
-//       console.log(obj)
-//       let StringedData = new URLSearchParams(obj).toString();
-//       console.log(StringedData)
-
-//       $.ajax({
-//         type: "GET",
-//         url: `${HOST}?sendContactEmail&${StringedData}`,
-//         dataType: 'json',
-//         // data: StringedData,
-//         success: function (data) {
-//           Swal.fire({
-//             title: 'Sent',
-//             text: "Your message has been received, we will get back to you shortly, Thanks !",
-//             icon: 'success',
-//             confirmButtonColor: '#3085d6',
-//             // cancelButtonColor: '#3085d6',
-//             confirmButtonText: 'Okay',
-//             allowOutsideClick: false
-//           })
-
-//         },
-//         error: function (request, error) {
-
-//         }
-//       });
-
-//     }
+  for (let i = 0; i < theInputs.length; i++) {
+    const inn = theInputs[i];
+    if (inn.value === "") {
+      alert("All fields are required !")
+      break;
+    }
 
 
-//   }
+
+    if (i === theInputs.length - 1) {
+      let obj = {}
+      theInputs.forEach(inp => {
+        obj[inp.dataset.name] = inp.value
+      })
+
+      console.log(obj)
+      let StringedData = new URLSearchParams(obj).toString();
+      console.log(StringedData)
+
+      $.ajax({
+        type: "GET",
+        url: `${HOST}?sendContactEmail&${StringedData}`,
+        dataType: 'json',
+        // data: StringedData,
+        success: function (data) {
+          Swal.fire({
+            title: 'Sent',
+            text: "Your message has been received, we will get back to you shortly, Thanks !",
+            icon: 'success',
+            confirmButtonColor: '#3085d6',
+            // cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Okay',
+            allowOutsideClick: false
+          })
+
+        },
+        error: function (request, error) {
+
+        }
+      });
+
+    }
 
 
-// }
+  }
+
+
+}

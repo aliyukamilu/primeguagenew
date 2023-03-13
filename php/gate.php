@@ -338,7 +338,11 @@ function getMDAs()
         exit(json_encode($returnResponse));
     }
 }
-
+function getRevenueHead()
+{
+    $pull_data = check_db_query_staus1("SELECT * FROM revenue_heads", "CHK");
+    exit(json_encode($pull_data));
+}
 function getMDAsRevenueHead($data)
 {
     $pull_data = check_db_query_staus1("SELECT `id`, `COL_1`, `COL_2`, `COL_3`, `COL_4`, `COL_5`, `COL_6`, COUNT(*) FROM `revenue_heads` WHERE `COL_3`= '{$data}' ", "CHK");
