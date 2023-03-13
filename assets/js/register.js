@@ -37,20 +37,20 @@ $(".checki").on("change", function () {
 })
 let selectcategory = document.querySelectorAll(".cardi")
 selectcategory.forEach(selecti => {
-  selecti.addEventListener("click", () =>{
+  selecti.addEventListener("click", () => {
     selecti.classList.add("selectedcat");
-   let btnclicked = document.querySelector(".bb");
-   btnclicked.classList.remove("disabled");
-        var dataId = selecti.getAttribute("data-name");
+    let btnclicked = document.querySelector(".bb");
+    btnclicked.classList.remove("disabled");
+    var dataId = selecti.getAttribute("data-name");
     // console.log(dataId)
-    if(dataId === "individual"){
+    if (dataId === "individual") {
       $(".bb").on("click", (e) => {
-      window.location.href = `register.html?category=${dataId}`;
+        window.location.href = `register.html?category=${dataId}`;
       })
-    }else{
+    } else {
       $(".bb").on("click", (e) => {
         window.location.href = `registerform.html?category=${dataId}`;
-        })
+      })
     }
   })
 })
@@ -105,24 +105,24 @@ if (allFirstNext) {
       //   validateInput.innerHTML = "Please enter a valid TIN"
       //   return false;
       // } else {
-        for (let i = 0; i < reginputs.length; i++) {
-          const reginput = reginputs[i];
-          let theSmall = reginput.nextElementSibling
-          if (reginput.value === "") {
-            theSmall.textContent = "This field is required"
-            break;
-          }
+      for (let i = 0; i < reginputs.length; i++) {
+        const reginput = reginputs[i];
+        let theSmall = reginput.nextElementSibling
+        if (reginput.required && reginput.value === "") {
+          theSmall.textContent = "This field is required"
+          break;
+        }
 
-          if (i === reginputs.length - 1) {
-            nextPrev(1)
-            let allTheSmal = document.querySelectorAll("small.validate")
-            allTheSmal.forEach(theSmall => {
-              theSmall.textContent = ""
-            })
-
-          }
+        if (i === reginputs.length - 1) {
+          nextPrev(1)
+          let allTheSmal = document.querySelectorAll("small.validate")
+          allTheSmal.forEach(theSmall => {
+            theSmall.textContent = ""
+          })
 
         }
+
+      }
       // }
 
 
@@ -139,20 +139,20 @@ function checkTin() {
 
 const urlParams = new URLSearchParams(window.location.search);
 let myParam = urlParams.get('category');
-if(myParam == "individual"){
+if (myParam == "individual") {
   myParam = 2;
-}else if(myParam == "corporate"){
+} else if (myParam == "corporate") {
   myParam = 1;
-}else if(myParam == "state"){
+} else if (myParam == "state") {
   myParam = 3;
-}else {
+} else {
   myParam = 4;
 }
 // console.log(myParam);
 $("#CreateAccountBtn").on("click", (e) => {
   e.preventDefault()
 
-  
+
   let allInputs = document.querySelectorAll(".regInputs")
   let ppsword = document.querySelector("#pps").value
   let ppsword2 = document.querySelector("#pps2").value
@@ -183,7 +183,7 @@ $("#CreateAccountBtn").on("click", (e) => {
         <div class="animate-spin rounded-full h-10 w-10 border-b-2 border-gray-900"></div>
       </div>
     `)
-   
+
     $("#CreateAccountBtn").addClass("hidden")
     let obj = {
       endpoint: "createPayerAccount",
