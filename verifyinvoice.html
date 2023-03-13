@@ -26,6 +26,10 @@
       padding-bottom: 0px;
       font-size: 14px;
     }
+
+    .imgTabs {
+      display: none;
+    }
   </style>
 </head>
 
@@ -36,38 +40,20 @@
 
     <div class="w-3/12 md:block hidden bg-[#F9FAFB] p-3">
 
-      <div class="flex px-1 items-center h-full">
-        <div>
-          <div class="flex gap-4 mb-4">
-            <div class="theRounder">
-              <div class="active"></div>
-            </div>
-            <div>
-              <h1 class="text-xl">Invoice Number</h1>
-              <p class="text-[#555555]">Please enter your Invoice Number</p>
-            </div>
+      <div class="flex px-1 h-full">
+        <div class="flex px-1 h-full">
+          <div class="mt-5 imgTabs">
+            <img src="./assets/img/verside1.png" />
           </div>
-
-          <div class="flex gap-4 mb-4">
-            <div class="theRounder">
-              <div></div>
-            </div>
-            <div>
-              <h1 class="text-xl">Invoice Status</h1>
-              <p class="text-[#555555]">Please provide your personal details</p>
-            </div>
+          <div class="mt-5 imgTabs">
+            <img src="./assets/img/verside2.png" />
           </div>
-
-          <div class="flex gap-4 mb-4">
-            <div class="theRounder">
-              <div></div>
-            </div>
-            <div>
-              <h1 class="text-xl">Make Payment</h1>
-              <p class="text-[#555555]">Download your invoice or make payment</p>
-            </div>
+          <div class="mt-5 imgTabs">
+            <img src="./assets/img/verside3.png" />
           </div>
-
+          <div class="mt-5 imgTabs">
+            <img src="./assets/img/verside4.png" />
+          </div>
         </div>
       </div>
 
@@ -317,6 +303,7 @@
   </script>
   <script src="assets/js/nav.js"></script>
   <script src="assets/js/payment.js"></script>
+  <script src="assets/js/tabHandler.js"></script>
   <script src="assets/js/verifyInvoice.js"></script>
   <script src="assets/js/landingcms.js"></script>
 </body>

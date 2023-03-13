@@ -21,6 +21,10 @@
       display: none;
     }
 
+    .imgTabs {
+      display: none;
+    }
+
     .invTa tr td {
       padding-left: 0;
       padding-bottom: 0px;
@@ -36,48 +40,21 @@
 
     <div class="md:block hidden w-3/12 bg-[#F9FAFB] p-3">
 
-      <div class="flex px-1 items-center h-full">
-        <div>
-          <div class="flex gap-4 mb-4">
-            <div class="theRounder">
-              <div class="active"></div>
-            </div>
-            <div>
-              <h1 class="text-xl">Billing Information</h1>
-              <p class="text-[#555555]">Please enter your details</p>
-            </div>
-          </div>
-
-          <div class="flex gap-4 mb-4">
-            <div class="theRounder">
-              <div></div>
-            </div>
-            <div>
-              <h1 class="text-xl">Personal Details</h1>
-              <p class="text-[#555555]">Please provide your personal details</p>
-            </div>
-          </div>
-
-          <div class="flex gap-4 mb-4">
-            <div class="theRounder">
-              <div></div>
-            </div>
-            <div>
-              <h1 class="text-xl">Generate Invoice</h1>
-              <p class="text-[#555555]">Download your invoice or make payment</p>
-            </div>
-          </div>
-
-          <div class="flex gap-4 mb-4">
-            <div class="theRounder">
-              <div></div>
-            </div>
-            <div>
-              <h1 class="text-xl">Make Payment</h1>
-              <p class="text-[#555555]">Choose a payment method and pay</p>
-            </div>
-          </div>
-
+      <div class="flex px-1 h-full">
+        <div class="mt-5 imgTabs">
+          <img src="./assets/img/geninv1.png" />
+        </div>
+        <div class="mt-5 imgTabs">
+          <img src="./assets/img/geninv2.png" />
+        </div>
+        <div class="mt-5 imgTabs">
+          <img src="./assets/img/geninv3.png" />
+        </div>
+        <div class="mt-5 imgTabs">
+          <img src="./assets/img/geninv4.png" />
+        </div>
+        <div class="mt-5 imgTabs">
+          <img src="./assets/img/geninv5.png" />
         </div>
       </div>
 
@@ -95,7 +72,7 @@
 
             <div class="form-group mb-4">
               <label for="">Select your category*</label>
-              <select class="form-select genInv" required name="" id="category">
+              <select class="form-select genInv selCateg" required name="" id="category">
                 <option disabled selected>Select--</option>
                 <option value="2">Individual</option>
                 <option value="1">Corporate</option>
@@ -487,6 +464,7 @@
   </script>
   <script src="assets/js/nav.js"></script>
   <script src="assets/js/payment.js"></script>
+  <script src="assets/js/tabHandler.js"></script>
   <script src="assets/js/generateinvoice.js"></script>
   <script src="assets/js/invoice.js"></script>
   <script src="assets/js/landingcms.js"></script>
