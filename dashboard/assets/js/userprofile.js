@@ -883,13 +883,82 @@ function Profile() {
     <div class="flex justify-between md:w-[550px] mt-2 items-center">
       <label class="w-[195px]">Category</label>
       <div class="form-group md:w-[454px] w-full">
-        <input class="form-control mt-1 regInputs" type="text" placeholder="Individual"
+        <input class="form-control mt-1 regInputs" readonly type="text" value="${userInfo.category}"
           maxlength="15" />
       </div>
     </div>
     <div class="flex justify-between md:w-[550px] mt-2 items-center">
       <label class="w-[195px]">Employment status</label>
-      <select class="form-select mt-1 md:w-[454px] w-full" data-name="surname" required>
+      <div class="form-group md:w-[454px] w-full">
+        <input class="form-control mt-1 regInputs" readonly type="text" value="${userInfo.employment_status}"
+        maxlength="15" />
+      </div>
+    </div>
+
+    <div class="flex justify-between md:w-[550px] mt-2 items-center">
+      <label class="w-[195px]">Type of business</label>
+      <div class="form-group md:w-[454px] w-full">
+        <input class="form-control mt-1 regInputs" readonly type="text" value="${userInfo.business_type}"
+        maxlength="15" />
+      </div>
+    </div>
+      `)
+
+  $(".contactInfo").html(`
+    <div class="flex justify-between md:w-[550px]">
+      <label class="w-[195px]">Email</label>
+      <div class="form-group md:w-[454px] w-full">
+        <input class="form-control mt-1 regInputs" readonly type="text" value="${userInfo.email}"
+          maxlength="15" />
+      </div>
+    </div>
+    <div class="flex justify-between md:w-[550px] mt-2 items-center">
+      <label class="w-[195px]">Phone number</label>
+      <div class="form-group md:w-[454px] w-full">
+        <input class="form-control mt-1 regInputs" readonly type="text" value="${userInfo.phone}"
+          maxlength="15" />
+      </div>
+    </div>
+    <div class="flex justify-between md:w-[550px] mt-2 items-center">
+      <label class="w-[195px]">State</label>
+      <select class="form-select mt-1 regInputs md:w-[454px]" id="selectState" data-name="state" required>
+        <option value="Akwa Ibom">Akwa Ibom</option>
+      </select>
+    </div>
+    <div class="flex justify-between md:w-[550px] mt-2 items-center">
+      <label class="w-[195px]">Local Government<br> Area</label>
+      <div class="form-group md:w-[454px] w-full">
+        <input class="form-control mt-1 regInputs" readonly type="text" value="${userInfo.lga}" />
+      </div>
+    </div>
+    <div class="flex justify-between md:w-[550px] mt-2 items-center">
+      <label class="w-[195px]">Address</label>
+      <div class="form-group md:w-[454px] w-full">
+        <input class="form-control mt-1" readonly type="text" value="${userInfo.address}" />
+      </div>
+    </div>
+  `)
+
+  $("#updtProfile").html(`
+    <div class="flex justify-between">
+      <label class="w-4/12">Tax Identification Number</label>
+      <div class="form-group w-8/12">
+        <input class="form-control mt-1 regInputs" type="text" value="${userInfo.tin}" maxlength="15" />
+      </div>
+    </div>
+    <div class="flex justify-between mt-2 items-center">
+      <label class="w-4/12">Category</label>
+      <select class="form-select mt-1 w-8/12 updtProf" data-name="category">
+        <option value="" selected disabled>-Select--</option>
+        <option value="Individual">Individual</option>
+        <option value="Corporate">Corporate</option>
+        <option value="State Agency">State Agency</option>
+        <option value="Federal Agency">Federal Agency</option>
+      </select>
+    </div>
+    <div class="flex justify-between mt-2 items-center">
+      <label class="w-4/12">Employment status</label>
+      <select class="form-select mt-1 w-8/12 updtProf" data-name="employment_status" required>
         <option value="" selected>-Select--</option>
         <option value="Selfemployed">Self-employed</option>
         <option value="Employee">Employee</option>
@@ -897,88 +966,87 @@ function Profile() {
         <option value="Unemployed">Unemployed</option>
       </select>
     </div>
-    <div class="flex justify-between md:w-[550px] mt-2 items-center">
-      <label class="w-[195px]">Industry</label>
-      <select class="form-select mt-1 md:w-[454px] w-full" data-name="surname" required>
-        <option value="" selected>-Select--</option>
-        <option value="Commercial">Commercial</option>
-        <option value="Pool/betting">Pool/betting</option>
-        <option value="Education">Education</option>
-        <option value="Hospitality">Hospitality</option>
-        <option value="Manufacturing">Manufacturing</option>
-        <option value="Retail">Retail</option>
-        <option value="Mining">Mining</option>
-        <option value="Services">Services</option>
-        <option value="Agriculture">Agriculture</option>
-        <option value="Housing/real estate/lands">Housing/real estate/lands</option>
-        <option value="Transporting">Transporting</option>
-        <option value="Legal">Legal</option>
-        <option value="General">General</option>
-      </select>
-    </div>
+
     <div class="flex gap-x-10 mt-3 md:flex-nowrap sm:flex-wrap">
       <p>Are you a business owner?</p>
       <div class="form-check">
-        <input class="form-check-input" type="radio" value="yes" name="flexRadioDefault"
-          id="flexRadioDefault1">
-        <label class="form-check-label" for="flexRadioDefault1">
-          Yes
-        </label>
+        <input class="form-check-input" type="radio" value="yes" name="flexRadioDefault" id="flexRadioDefault1">
+        <label class="form-check-label" for="flexRadioDefault1">Yes</label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="radio" value="no" name="flexRadioDefault"
-          id="flexRadioDefault2" checked>
-        <label class="form-check-label" for="flexRadioDefault2">
-          No
-        </label>
+        <input class="form-check-input" type="radio" value="no" name="flexRadioDefault" id="flexRadioDefault2"
+          checked>
+        <label class="form-check-label" for="flexRadioDefault2">No</label>
       </div>
     </div>
-    <div class="flex justify-between md:w-[550px] mt-2 items-center">
-      <label class="w-[195px]">Type of business</label>
-      <select class="form-select mt-1 md:w-[454px] w-full" data-name="surname" required>
+    <div class="flex justify-between mt-2 items-center">
+      <label class="w-4/12">Type of business</label>
+      <select class="form-select mt-1 w-8/12 updtProf" data-name="business_type"  required>
         <option value="" selected>-Select--</option>
         <option value="Poultry">Poultry farming</option>
       </select>
     </div>
-      `)
 
-  $("#profileInfo").html(`
-    <hr>
-    <p class="mainText">Name</p>
-    <p class="decis">${userInfo.first_name} ${userInfo.surname}</p>
-    <hr>
-    <p class="mainText">Payer ID</p>
-    <p class="decis">${userInfo.tax_number}</p>
-    <hr>
-    <p class="mainText">Category</p>
-    <p class="decis">${userInfo.category}</p>
-    <hr>
-    <p class="mainText">Email address</p>
-    <p class="decis">${userInfo.email}</p>
-    <hr>
-    <p class="mainText">Address</p>
-    <p class="decis">${userInfo.address}, ${userInfo.lga}, ${userInfo.state}.</p>
+    <div class="flex justify-between mt-2">
+      <label class="w-4/12">Email</label>
+      <div class="form-group w-8/12">
+        <input class="form-control mt-1 updtProf" data-name="email" type="text" value="${userInfo.email}" />
+      </div>
+    </div>
+
+    <div class="flex justify-between mt-2 items-center">
+      <label class="w-4/12">Phone number</label>
+      <div class="form-group w-8/12">
+        <input class="form-control mt-1 updtProf" data-name="phone" type="text" value="${userInfo.phone}" maxlength="15" />
+      </div>
+    </div>
+
+    <div class="flex justify-between mt-2 items-center">
+      <label class="w-4/12">State</label>
+      <select class="form-select mt-1 w-8/12 updtProf" id="selectState" data-name="state" required>
+        <option value="Akwa Ibom">Akwa Ibom</option>
+      </select>
+    </div>
+
+    <div class="flex justify-between mt-2 items-center">
+      <label class="w-4/12">Local Government Area</label>
+      <select class="form-select mt-1 w-8/12 updtProf" id="selectLGA" data-name="lga" required>
+
+      </select>
+    </div>
+
+    <div class="flex justify-between mt-2 items-center">
+      <label class="w-4/12">Address</label>
+      <div class="form-group w-8/12">
+        <input class="form-control mt-1 updtProf" data-name="address" type="text" value="${userInfo.address}" />
+      </div>
+    </div>
   `)
+
 
   let stateSelect = document.querySelector("#selectState")
   let lgaSelect = document.querySelector('#selectLGA')
-
-  stateSelect.addEventListener('change', function () {
-    let selectedState = $(this).val()
-
-    let arrStates = Object.values(lgaList)
-    let finalarrState = arrStates["AkwaIbom"]
-
-    lgaSelect.innerHTML = ''
-
-    finalarrState.forEach((opt, ii) => {
-      lgaSelect.innerHTML += `
-        <option value="${opt}">${opt}</option>
-      `
-    })
-
-
+  lgaList["AkwaIbom"].forEach(stst => {
+    lgaSelect.innerHTML += `
+      <option value="${stst}">${stst}</option>
+    `
   })
+  // stateSelect.addEventListener('change', function () {
+  //   let selectedState = $(this).val()
+
+  //   let arrStates = Object.values(lgaList)
+  //   let finalarrState = arrStates["AkwaIbom"]
+
+  //   lgaSelect.innerHTML = ''
+
+  //   finalarrState.forEach((opt, ii) => {
+  //     lgaSelect.innerHTML += `
+  //       <option value="${opt}">${opt}</option>
+  //     `
+  //   })
+
+
+  // })
 
 }
 
@@ -996,16 +1064,27 @@ $("#updateProfile").on("click", function (e) {
   $("#updateProfile").addClass("hidden")
 
   let obj = {
-    id: userDATA.id
+    // id: userDATA.id,
+    ...userDATA
   }
+  delete obj.password;
+  delete obj.verification_code;
+  delete obj.verification_status
+  delete obj.timeIn
+  delete obj.industry
 
   allInputs.forEach(allInput => {
-    obj[allInput.dataset.name] = allInput.value
+    if (allInput.value === "") {
+
+    } else {
+      obj[allInput.dataset.name] = allInput.value
+    }
+
   })
 
-  // console.log(obj)
+  console.log(obj)
   let queryString = new URLSearchParams(obj).toString();
-  // console.log(queryString)
+  console.log(queryString)
 
   $.ajax({
     type: "GET",
@@ -1040,6 +1119,95 @@ $("#updateProfile").on("click", function (e) {
       $("#updateProfile").removeClass("hidden")
     }
   });
+
+})
+
+let userDetails
+async function fetchUserDetails() {
+  const response = await fetch(`${HOST}?userProfile&id=${userDATA.id}`)
+  const userPrf = await response.json()
+
+  // console.log(userPrf.user)
+  userDetails = userPrf.user
+}
+
+fetchUserDetails()
+
+function showPass(pos) {
+  let AllF = document.querySelectorAll(".passinput")
+
+  if (AllF[pos].type === "password") {
+
+    AllF[pos].type = "text"
+
+  } else {
+    AllF[pos].type = "password"
+  }
+}
+
+$("#updatePass").on("click", function (e) {
+
+  let oldPass = document.querySelector("#oldPass").value
+  let passField = document.querySelector("#oldPass").value
+  let confirmField = document.querySelector("#oldPass").value
+
+  console.log(oldPass, userDetails)
+  if (oldPass === "" || passField === "" || confirmField === "") {
+
+    $("#msg_box2").html(`
+      <p class="text-danger text-center">Fields can't be empty!</p>
+    `)
+
+  } else if (oldPass !== userDetails.password) {
+
+    $("#msg_box2").html(`
+      <p class="text-danger text-center">Not correct password !</p>
+    `)
+
+  } else if (passField !== confirmField) {
+
+    $("#msg_box2").html(`
+      <p class="text-danger text-center">Confirm password didn't match password!</p>
+    `)
+
+  } else {
+
+    $.ajax({
+      type: "GET",
+      url: `${HOST}?userPassword&id=${userDATA.id}&password=${passField}`,
+      dataType: 'json',
+      success: function (data) {
+        console.log(data)
+        if (data.status === 2) {
+          // $("#msg_box").html(`
+          //   <p class="text-warning text-center mt-4 text-lg">${data.message}</p>
+          // `)
+          // $("#updateProfile").removeClass("hidden")
+
+        } else if (data.status === 1) {
+          $("#msg_box").html(`
+            <p class="text-success text-center mt-4 text-lg">Password changed successfully !</p>
+          `)
+
+
+          setTimeout(() => {
+            window.location.href = "../signin.html"
+          }, 1000);
+
+        }
+      },
+      error: function (request, error) {
+        console.log(error);
+        $("#msg_box").html(`
+          <p class="text-danger text-center mt-4 text-lg">Something went wrong !</p>
+        `)
+        $("#updateProfile").removeClass("hidden")
+      }
+    });
+
+
+  }
+
 
 })
 
