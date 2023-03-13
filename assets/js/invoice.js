@@ -48,6 +48,37 @@ function convertNumberToWords(number) {
   return words.trim();
 }
 
+function editoo() {
+  let theBal = $(".theBal").text();
+
+  $(".showEorAp").html(`
+    <button class="textPrimary gap-2 flex items-center" id="applyBtn">
+      <i class="fas fa-check"></i>
+      <span>Apply</span>
+    </button>
+  `);
+
+  $("#showBal").html(`
+      <input type="number" id="inpBal" class="p-[5px] outline-none w-[100px] rounded-lg border border-gray-500" value="${theBal}" />
+    `);
+
+  $("#applyBtn").on("click", function () {
+    $(".showEorAp").html(`
+        <button class="textPrimary gap-2 flex items-center" id="editBtn">
+          <i class="fas fa-pen"></i>
+          <span>Edit</span>
+        </button>
+      `);
+    $("#editBtn").on("click", function () {
+      editoo();
+    });
+    let theFBal = $("#inpBal").val();
+
+    $("#showBal").html(`
+        &#8358; <span class="theBal">${theFBal}</span>
+      `);
+  });
+}
 
 async function openInvoice(invoicenum) {
   console.log(invoicenum)
@@ -91,10 +122,7 @@ async function openInvoice(invoicenum) {
             <div class="w-full md:mr-[-30%]">
               <p class="text-[#555555]">TO :</p>
               <p class="fontBold text-left">${invoice_info.surname} ${invoice_info.first_name}</p>
-              <p class="text-[#222234] text-sm md:w-[60%]">1 ,Mount Zion Road, Ikot Ekpene, Akwa Ibom,
-                Nigeria, Ikot Ekpene
-                L.G.A
-              </p>
+              <p class="text-[#222234] text-sm md:w-[60%]">${invoice_info.address}, Akwa Ibom</p>
             </div>
 
           </div>
@@ -110,8 +138,8 @@ async function openInvoice(invoicenum) {
                 <td>Due Date: ${invoice_info.due_date}</td>
               </tr>
               <tr>
-                <td>Invoice Date: 27/03/2020</td>
-                <td>Expiry Date: 04/04/2020</td>
+                <td>Invoice Date: ${invoice_info.date_created}</td>
+                <td>Expiry Date: ${invoice_info.due_date}</td>
               </tr>
             </table>
           </div>
@@ -151,8 +179,19 @@ async function openInvoice(invoicenum) {
 
                 <tr>
                   <td colspan="2" class="text-[#000]">Paying</td>
-                  <td class="textPrimary">Edit</td>
-                  <td class="text-xl textPrimary fontBold">${invoice_info.COL_6}.00</td>
+                  <td class="textPrimary">
+                    <div class="showEorAp">
+                      <button class="textPrimary gap-1 flex items-center" id="editBtn">
+                        <i class="fas fa-pen"></i>
+                        <span>Edit</span>
+                      </button>
+                    </div>
+                  </td>
+                  <td class="text-xl textPrimary fontBold">
+                    <div id="showBal">
+                     &#8358; <span class="theBal">${invoice_info.COL_6}</span>
+                    </div>
+                  </td>
                 </tr>
                 <tr>
                   <td colspan="4" class="text-sm text-[#000] pb-0">Amount in words</td>
@@ -200,6 +239,7 @@ async function openInvoice(invoicenum) {
 
           </div>
       `)
+
     })
 
     $("#editBtn").on("click", function () {
@@ -208,4 +248,14 @@ async function openInvoice(invoicenum) {
   } else {
     $("#invoiceCard").html(`Invalid Invoice, or expired invoice`)
   }
+}
+
+
+
+let urlParams = new URLSearchParams(window.location.search);
+const load = urlParams.get('load')
+const invoicenumber = urlParams.get('invnumber')
+
+if (load) {
+  openInvoice(invoicenumber)
 }

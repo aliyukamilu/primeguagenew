@@ -1151,24 +1151,34 @@ $("#updatePass").on("click", function (e) {
   let passField = document.querySelector("#oldPass").value
   let confirmField = document.querySelector("#oldPass").value
 
+  $("#msg_box2").html(`
+    <div class="flex justify-center items-center mt-4">
+      <div class="animate-spin rounded-full h-10 w-10 border-b-2 border-gray-900"></div>
+    </div>
+  `)
+  $("#updatePass").addClass("hidden")
+
   console.log(oldPass, userDetails)
   if (oldPass === "" || passField === "" || confirmField === "") {
 
     $("#msg_box2").html(`
       <p class="text-danger text-center">Fields can't be empty!</p>
     `)
+    $("#updatePass").removeClass("hidden")
 
   } else if (oldPass !== userDetails.password) {
 
     $("#msg_box2").html(`
       <p class="text-danger text-center">Not correct password !</p>
     `)
+    $("#updatePass").removeClass("hidden")
 
   } else if (passField !== confirmField) {
 
     $("#msg_box2").html(`
       <p class="text-danger text-center">Confirm password didn't match password!</p>
     `)
+    $("#updatePass").removeClass("hidden")
 
   } else {
 
