@@ -1847,7 +1847,7 @@ function insertTaxFiling($data)
     $form_assessment_upload = $data->form_assessment_upload;
     $tax_income_upload = $data->tax_income_upload;
     $evidence_of_tax_payment = $data->evidence_of_tax_payment;
-    $tax_filling_refrence = $data->tax_filling_refrence;
+    $tax_filling_refrence =  (time() + rand(1, 1000));
 
 
 
@@ -1856,10 +1856,20 @@ function insertTaxFiling($data)
     $User_re = mysqli_query($ibsConnection, $query_User_re) or die(mysqli_error($ibsConnection));
 
     if ($User_re) {
-        $returnResponse = ['status' => 1, 'message' => "Tax Filing Created successfully"];
-        exit(json_encode($returnResponse));
-    } else {
-        $returnResponse = ['status' => 0, 'message' => "failed, try again"];
+        $check_exist = check_db_query_staus("SELECT tax_filling_refrence FROM tax_filing  WHERE `user_id`='{$user_id}'", "CHK");
+
+        $arr = [];
+      
+
+        $arr[] = ['status' => 1, 'message' => "Tax Filing Created successfully"];
+
+          $arr[] = $check_exist['message'];
+
+        exit(json_encode($arr));
+    }else {
+        $returnResponse = ['status' => 0, 'message' => "Tax Filing failed, try again"];
         exit(json_encode($returnResponse));
     }
+
+
 }
