@@ -1,18 +1,18 @@
 // let HOST = "http://localhost/primeguagenew/php/index.php";
 // let HOST = "http://localhost:8080/primeGuage/php/index.php"
-let HOST = "https://steamledge.com/primeguage/php/index.php"
-// let HOST = "https://useibs.com/php/index.php"
+// let HOST = "https://steamledge.com/primeguage/php/index.php"
+let HOST = "https://useibs.com/php/index.php"
 // let THE_SESSION = localStorage.getItem("userDataPrime")
 
 
 // if (THE_SESSION) {
 $("#theHeader").html(`
-  <div class="flex gap-2 items-center">
+  <a href="index.html" class="flex gap-2 items-center">
     <div class="w-[40px] h-[40px]">
       <img src="./assets/img/logo.png" class="" />
     </div>
     <p class="text-black fontBold">Pay Ibom</p>
-  </div>
+  </a>
 
   <div class="md:flex hidden items-center gap-5 text-[#555555]">
 

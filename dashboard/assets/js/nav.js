@@ -1,19 +1,18 @@
 // let HOST = "http://localhost:8080/primeGuage/php/index.php"
-let HOST = "https://steamledge.com/primeguage/php/index.php";
+// let HOST = "https://steamledge.com/primeguage/php/index.php";
 // let HOST = "http://localhost/primeguagenew/php/index.php";
-// let HOST = "https://useibs.com/php/index.php"
-
+let HOST = "https://useibs.com/php/index.php"
 $(".aside").html(`
     <div class="app-brand demo">
     <div class="flex gap-x-2">
-      <a href="index.html">
+      <a href="../index.html">
         <img src="./assets/img/logo.png" class="w-[70px] -ml-2" alt="" />
       </a>
       <div class="pt-3">
       <h5 class="text-[#FFFFFF] text-[16px]">Primegauge IBS</h5>
       <p class="text-[#727283] text-[12px] pt-2">Future of tax payment</p>
       </div>
-</div>
+      </div>
       <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
         <i class="bx bx-chevron-left bx-sm align-middle"></i>
       </a>
@@ -75,6 +74,7 @@ $(".aside").html(`
     </ul>
 
 `);
+let userInfo2 = JSON.parse(window.localStorage.getItem("userDataPrime"));
 
 $(".navi")
   .html(`<div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
@@ -95,19 +95,30 @@ $(".navi")
 <input type="text" class="form-control" placeholder="Search..." aria-label="Search..."
   aria-describedby="basic-addon-search31">
 </div>
-<button data-bs-toggle="modal" data-bs-target="#generateInvModal" class="button ">
-              <iconify-icon icon="ic:baseline-plus"></iconify-icon> Generate Invoice</button>
+<a href="taxes.html" class="button ">
+              <iconify-icon icon="ic:baseline-plus"></iconify-icon> Generate Invoice</a>
               
                 <iconify-icon icon="mdi:bell-notification" data-bs-toggle="modal" data-bs-target="#notiModal" class="hidden md:flex cursor-pointer text-[#F68C36]" width="32" height="32"></iconify-icon>
                  
                   <div class="avatar avatar-online">
-        <img src="./assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
-      </div>
+                    <img src="./assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
                   </div>
+                </div>
                   
 </div>
 
 `);
+
+let profImg = document.querySelector(".avatar img")
+// console.log(userInfo2.img)
+if (profImg) {
+  if (userInfo2.img === "") {
+    profImg.src = "./assets/img/userprofile.png"
+  } else {
+    profImg.src = userInfo2.img
+  }
+}
+
 
 $(".footer").html(`
 <div class="flex justify-between">
