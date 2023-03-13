@@ -874,6 +874,25 @@ function UpdateTINStatus($data)
     }
 }
 
+function updatePassword($data)
+{
+    include "config/index.php";
+    include "config/enctp.php";
+
+    $id = $_GET['id'];
+    $password = $_GET['password'];
+
+        $query = "UPDATE `payer_user` SET `password`='{$password}' WHERE `id` = {$id}";
+        $User_re = mysqli_query($ibsConnection, $query) or die(mysqli_error($ibsConnection));
+        if ($User_re) {
+            $arr = ["status" => 1, "message" => "Password successfully updated"];
+            exit(json_encode($arr));
+        } else {
+            $error_updating = ["Error" => "Invalid operation"];
+            exit(json_encode($error_updating));
+        }
+    }
+
 function ParticularMDAUsers($data)
 {
     //print_r($data);die;
