@@ -208,7 +208,7 @@ async function fetchInvoices() {
           </td>
           <td>
             <div class="flex gap-2 check-bt" id="">
-              <a class="px-3 py-1 rounded-lg bgPrimary text-white block">Pay</a>
+              <a href="../viewinvoice.html?invnumber=${userInvoice.invoice_number}&load=true" class="px-3 py-1 rounded-lg bgPrimary text-white block">Pay</a>
             </div>
           </td>
           `

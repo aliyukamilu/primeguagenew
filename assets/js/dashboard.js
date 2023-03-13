@@ -25,15 +25,15 @@ async function fetchInvoice() {
   if (userInvoices.status === 1) {
     let NumberOFInvoices = userInvoices.message.length;
     $(".invNumbers").html(userInvoices.message.length)
-   
+
     for (let i = 0; i < userInvoices.message.length; i++) {
       const userInvoice = userInvoices.message[i];
-      $("#showInvoice").append(`
+      $("#showInvoice2").append(`
         <tr class="relative">
           <td>${i + 1}</td>
-          <td><a class="text-primary" href="./invoice.html?id=${userInvoice.payer_id}&invnum=${userInvoice.invoice_number}">${userInvoice.tax_number}</a></td>
+          <td><a class="text-primary" href="../viewinvoice.html?invnumber=${userInvoice.invoice_number}&load=true">${userInvoice.tax_number}</a></td>
           <td>${userInvoice.invoice_number}</td>
-          <td>${userInvoice.due_date}</td>
+          <td>&#8358; ${userInvoice.COL_6}</td>
           <td>${userInvoice.due_date}</td>            
         </tr>
       `);
@@ -41,37 +41,37 @@ async function fetchInvoice() {
       if (i === 4) {
         break;
       }
-      if(userInvoice.payment_status == "paid") {
+      if (userInvoice.payment_status == "paid") {
         gg.push("g")
       }
-      
+
     }
-     let NumberOfPaid = gg.length
-     $("#paid_invoices").html(NumberOfPaid)
-console.log(NumberOfPaid)
+    let NumberOfPaid = gg.length
+    $("#paid_invoices").html(NumberOfPaid)
+    console.log(NumberOfPaid)
     const ctx = document.getElementById('dashboardGuage');
 
-new Chart(ctx, {
-  type: 'bar',
-  data: {
-    labels: ['Invoice Generated', 'Invoice Paid'],
-    datasets: [{
-      label: 'Invoice',
-      data: [NumberOFInvoices, NumberOfPaid],
-      borderWidth: 0,
-      borderRadius: 5,
-      barThickness: 40,
-      backgroundColor: '#F68C36',
-    }]
-  },
-  options: {
-    scales: {
-      y: {
-        beginAtZero: true
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Invoice Generated', 'Invoice Paid'],
+        datasets: [{
+          label: 'Invoice',
+          data: [NumberOFInvoices, NumberOfPaid],
+          borderWidth: 0,
+          borderRadius: 5,
+          barThickness: 40,
+          backgroundColor: '#F68C36',
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
       }
-    }
-  }
-});
+    });
   } else {
     $("#showInvoice").html(`
       <tr>
@@ -81,6 +81,35 @@ new Chart(ctx, {
     $("#dataTable").DataTable();
   }
 }
+
+async function fetchTaxes() {
+  let userInfo = JSON.parse(localStorage.getItem("userDataPrime"))
+
+  const response = await fetch(`${HOST}?getAllRevenueHeads`)
+  const revenueHeads = await response.json()
+
+  console.log(revenueHeads)
+
+  let ii = 0
+  for (let i = 0; i < revenueHeads.message.length; i++) {
+    const revenuehead = revenueHeads.message[i];
+    if (revenuehead.COL_5 === userInfo.category) {
+      ii++
+      $("#showTaxes").append(`
+        <tr>
+          <td>${ii}</td>
+          <td>Monthly</td>
+          <td>${revenuehead["COL_4"]}</td>          
+        </tr>
+      `)
+    }
+    if (ii === 5) {
+      break;
+    }
+  }
+}
+
+fetchTaxes()
 
 fetchInvoice()
 
@@ -161,95 +190,3 @@ async function fetchAnalytics() {
 }
 
 fetchAnalytics()
-
-var chartDom = document.getElementById('chart');
-var myChart = echarts.init(chartDom);
-var option;
-
-option = {
-  series: [
-    {
-      type: 'gauge',
-      startAngle: 180,
-      endAngle: 0,
-      center: ['50%', '75%'],
-      radius: '90%',
-      min: 0,
-      max: 1,
-      splitNumber: 8,
-      axisLine: {
-        lineStyle: {
-          width: 6,
-          color: [
-            [0.25, '#FF6E76'],
-            [0.5, '#FDDD60'],
-            [0.75, '#58D9F9'],
-            [1, '#7CFFB2']
-          ]
-        }
-      },
-      pointer: {
-        icon: 'path://M12.8,0.7l12,40.1H0.7L12.8,0.7z',
-        length: '12%',
-        width: 20,
-        offsetCenter: [0, '-60%'],
-        itemStyle: {
-          color: 'inherit'
-        }
-      },
-      axisTick: {
-        length: 12,
-        lineStyle: {
-          color: 'inherit',
-          width: 2
-        }
-      },
-      splitLine: {
-        length: 20,
-        lineStyle: {
-          color: 'inherit',
-          width: 5
-        }
-      },
-      axisLabel: {
-        color: '#464646',
-        fontSize: 20,
-        distance: -60,
-        rotate: 'tangential',
-        formatter: function (value) {
-          if (value === 0.875) {
-            return '100%';
-          } else if (value === 0.625) {
-            return '75%';
-          } else if (value === 0.375) {
-            return '50%';
-          } else if (value === 0.125) {
-            return '0%';
-          }
-          return '';
-        }
-      },
-      title: {
-        offsetCenter: [0, '-10%'],
-        fontSize: 20
-      },
-      detail: {
-        fontSize: 20,
-        offsetCenter: [0, '-35%'],
-        valueAnimation: true,
-        formatter: function (value) {
-          return Math.round(value * 100) + '';
-        },
-        color: 'inherit'
-      },
-      data: [
-        {
-          value: 0.7,
-          name: ''
-        }
-      ]
-    }
-  ]
-};
-
-option && myChart.setOption(option);

@@ -119,54 +119,56 @@
                       <p class="zanumbers" id="due_invoices">-</p>
                     </div>
                   </div>
-                  <div class="flex-none md:flex mt-3 gap-3">
-                    <div class="grid grid-cols-2 grid-cols-1 gap-2 md:w-6/12">
-                      <!-- 7ad0c7 -->
-                      <div class="dashCards card w-full">
-                        <div class="flex justify-end">
-                          <div class="icoCont bg-[#7ad0c714]">
-                            <iconify-icon class="text-[#7ad0c7]" icon="la:file-invoice-dollar"></iconify-icon>
+                  <div class="flex-none md:flex mt-4 gap-3">
+                    <div>
+                      <div class="grid grid-cols-2 grid-cols-1 gap-3">
+                        <!-- 7ad0c7 -->
+                        <div class="dashCards card w-full">
+                          <div class="flex justify-end">
+                            <div class="icoCont bg-[#7ad0c714]">
+                              <iconify-icon class="text-[#7ad0c7]" icon="la:file-invoice-dollar"></iconify-icon>
+                            </div>
                           </div>
+                          <p class="headder text-gray-500">TOTAL AMOUNT OF
+                            INVOICE PAID </p>
+                          <p class="zanumbers">&#8358; <span id="total_amount"></span></p>
                         </div>
-                        <p class="headder text-gray-500">TOTAL AMOUNT OF
-                          INVOICE PAID </p>
-                        <p class="zanumbers">&#8358; <span id="total_amount"></span></p>
+
+                        <div class="dashCards card w-full">
+                          <div class="flex justify-end">
+                            <div class="icoCont bg-[#d7a1271f]">
+                              <iconify-icon class="text-[#D7A127]" icon="mdi:recurring-payment"></iconify-icon>
+                            </div>
+                          </div>
+                          <p class="headder text-gray-500">PAID AMOUNT</p>
+                          <p class="zanumbers">&#8358; <span id="total_amountP">-</span></p>
+                        </div>
+
                       </div>
 
-                      <div class="dashCards card w-full">
-                        <div class="flex justify-end">
-                          <div class="icoCont bg-[#d7a1271f]">
-                            <iconify-icon class="text-[#D7A127]" icon="mdi:recurring-payment"></iconify-icon>
-                          </div>
-                        </div>
-                        <p class="headder text-gray-500">PAID AMOUNT</p>
-                        <p class="zanumbers">&#8358; <span id="total_amountP">-</span></p>
-                      </div>
-                      <div class="w-full card">
+                      <div class="w-full card mt-4">
                         <div class="flex justify-center py-5 px-3">
                           <canvas id="dashboardGuage"></canvas>
                         </div>
-                        <!-- <div class="flex justify-center py-5 px-3">
-                          <div id="chart" style="width: 700px;height:200px;"></div>
-                        </div>
-                        <p class="text-sm text-center -mt-10 mb-2">you have paid 75% tax on time</p> -->
                       </div>
                     </div>
+
+
+
                     <div class="card md:w-6/12 table-responsive mt-2 md:mt-0">
                       <h1 class="m-4 text-xl">Upcoming taxes</h1>
                       <table class="table">
                         <thead>
                           <tr>
-                            <th></th>
                             <th>S/N</th>
                             <th>Description</th>
                             <th>Frequency</th>
                             <th></th>
                           </tr>
                         </thead>
-                        <!-- <tbody id="showInvoice">
-      
-                      </tbody> -->
+                        <tbody id="showTaxes">
+
+                        </tbody>
                       </table>
 
                     </div>
@@ -190,7 +192,7 @@
                             <th>Due Date</th>
                           </tr>
                         </thead>
-                        <tbody id="showInvoice">
+                        <tbody id="showInvoice2">
 
                         </tbody>
                       </table>
@@ -239,46 +241,8 @@
     <div class="layout-overlay layout-menu-toggle"></div>
   </div>
   <!-- / Layout wrapper -->
-  <div class="modal fade" id="generateInvModal" tabindex="-1">
-    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-            <iconify-icon icon="fluent-mdl2:cancel"></iconify-icon>
-          </button>
-        </div>
-        <div class="modal-body relative">
-          <div class="flex justify-center">
-            <form class=" sm:w-10/12 p-3 relative h-[50vh] overflow-y-auto">
-              <h1 class="text-2xl font-bold mb-6 text-center">Generate Invoice</h1>
-
-              <div id="formShower">
-
-              </div>
-              <div class="form-group">
-                <select name="" id="getMDAs" class="form-select">
-                  <option disabled selected>--- Select MDA ---</option>
-                </select>
-              </div>
-
-              <p class="text-3xl fontBold mt-10">List of Payable Taxes</p>
-              <p class="text-gray-600">Select those applicable</p>
-
-              <div class="mt-6" id="listOfpayable">
-
-              </div>
 
 
-            </form>
-          </div>
-          <button class="button w-full mt-6" id="generateInvoice">Generate Invoice</button>
-          <div id="msg_box" class="w-full">
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
   <div class="modal fade" id="notiModal" tabindex="-1">
     <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
       <div class="modal-content">
@@ -323,6 +287,7 @@
   <script src="./assets/vendor/libs/popper/popper.js"></script>
   <script src="./assets/vendor/js/bootstrap.js"></script>
   <script src="./assets/vendor/libs/echarts/echarts.js"></script>
+  <script src="./assets/vendor/libs/chartjs/dist/chart.js"></script>
   <script src="./assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
   <script src="../assets/js/sweetalert2/dist/sweetalert2.all.min.js"></script>
   <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
@@ -333,7 +298,6 @@
     theAtivo.parentElement.classList.add("active")
   </script>
   <script src="./assets/vendor/js/menu.js"></script>
-  <script src="./assets/js/dashCharts.js"></script>
   <!-- endbuild -->
 
   <!-- Vendors JS -->
