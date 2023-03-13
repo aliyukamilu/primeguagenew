@@ -113,6 +113,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     userProfile($_GET['id']);
   }elseif (isset($_GET['userPassword'])) {
     updatePassword($_GET);
+  }elseif (isset($_GET['getTaxClearanceCert'])) {
+    getTaxClearanceCert($_GET['user_id']);
+  }elseif (isset($_GET['getTINRequest'])) {
+    getTINRequest($_GET['user_id']);
+  }elseif (isset($_GET['getTaxFiling'])) {
+    getTaxFiling($_GET['user_id']);
   }
 } elseif ($_SERVER['REQUEST_METHOD'] == 'POST') {
   include 'gate.php';
@@ -152,6 +158,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
       insertContactUs($data['data']);
     } elseif ($data['endpoint'] == "insertOurServices") {
       insertOurServices($data['data']);
+    } elseif ($data['endpoint'] == "createTaxClearanceCert") {
+      // print_r($data['data']);
+      createTaxClearanceCert($data['data']);
+    } elseif ($data['endpoint'] == "createTINRequest") {
+      // print_r($data['data']);
+      createTINRequest($data['data']);
+    }elseif ($data['endpoint'] == "insertTaxFiling") {
+      // print_r($data['data']);
+      insertTaxFiling($data['data']);
     }
   }
 } elseif ($_SERVER['REQUEST_METHOD'] == 'PUT') {

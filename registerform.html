@@ -26,7 +26,7 @@
     <header class="flex justify-between px-10 bg-white py-3" id="theHeader"></header>
     <section class="reg formTabs firstForm">
         <div class="row">
-            <div class="col-md-3 col-12 bg-[#F9FAFB]">
+            <div class="col-md-3 col-12 bg-[#F9FAFB] md:block hidden">
                 <div class="pl-4">
                     <img src="./assets/img/reg2.png" alt="">
                 </div>
@@ -37,13 +37,13 @@
                         <div class="">
                             <h4 class="text-[#101828] text-[30px]">Register</h4>
                             <p class="text-[#101828] text-[20px] pt-3">Basic Information</p>
-                            <div class="form-group mb-3 md:w-[320px] w-full">
+                            <div class="form-group mb-3 w-full">
                                 <label>Name of Organization <span class="text-[red]">*</span></label>
                                 <input class="form-control mt-1 regInputs" data-name="first_name" type="text"
                                     placeholder="Enter organization name" required />
                                 <small class="validate text-[red]"></small>
                             </div>
-                            <div class="form-group mb-3  md:w-[320px] w-full">
+                            <div class="form-group mb-3  w-full">
                                 <label>Industry <span class="text-[red]">*</span></label>
                                 <select class="form-select mt-1" regInputs" required data-name="business_type" required>
                                     <option value="" selected>-Select--</option>
@@ -63,20 +63,20 @@
                                 </select>
                                 <small class="validate text-[red]"></small>
                             </div>
-                            <div class="form-group mb-3 md:w-[320px] w-full">
+                            <div class="form-group mb-3  w-full">
                                 <label>No of staff <span class="text-[red]">*</span></label>
                                 <input class="form-control mt-1 regInputs" required data-name="numberofstaff"
                                     type="number" placeholder="Number of staff" />
                                 <small class="validate text-[red]"></small>
                             </div>
-                            <div class="form-group mb-3 md:w-[320px] w-full">
+                            <div class="form-group mb-3  w-full">
                                 <label>Tax Identification Number(TIN) <span class="">(Optional)</span></label>
                                 <input class="form-control mt-1 regInputs" id="tinInput" data-name="tin"
                                     type="text" placeholder="Enter your 14 digits TIN E.g 1234567890-1111"
                                     maxlength="15" />
                                 <small class="validate text-[red]"></small>
                             </div>
-                            <div class="md:w-[320px] pt-3">
+                            <div class=" pt-3">
                                 <button
                                     class="button flex items-center gap-x-4 justify-center firstNext">Continue<iconify-icon
                                         icon="material-symbols:line-end-arrow-notch-sharp"></iconify-icon></button>
@@ -93,7 +93,7 @@
     </section>
     <section class="reg formTabs">
         <div class="row">
-            <div class="col-md-3 col-12 bg-[#F9FAFB]">
+            <div class="col-md-3 col-12 bg-[#F9FAFB]  md:block hidden">
                 <div class="pl-4">
                     <img src="./assets/img/reg2.png" alt="">
                 </div>
@@ -104,35 +104,35 @@
                         <div class="">
                             <h4 class="text-[#101828] text-[30px]">Register</h4>
                             <p class="text-[#101828] text-[20px] pt-3">Basic Information</p>
-                                <div class="form-group my-2 md:w-[320px] w-full">
+                                <div class="form-group my-2 w-full">
                                     <label>Email address <span class="text-[red]">*</span></label>
                                     <input class="form-control mt-1 regInputs" required data-name="email" type="text"
                                       placeholder="Enter your Email" />
                                     <small class="validate text-[red]"></small>
                                   </div>
                             
-                                  <div class="form-group mb-2 md:w-[320px] w-full">
+                                  <div class="form-group mb-2 w-full">
                                     <label>Phone Number <span class="text-[red]">*</span></label>
                                     <input class="form-control mt-1 regInputs" required data-name="phone"
                                       placeholder="11 digits phone number e.g 08032434354" type="text" minlength="11" maxlength="11" />
                                     <small class="validate text-[red]"></small>
                                   </div>
                            
-                                <div class="form-group mb-2 md:w-[320px] w-full">
+                                <div class="form-group mb-2 w-full">
                                     <label>State</label>
                                     <select class="form-select mt-1 regInputs" id="selectState" data-name="state" required>
                                       <option value="Akwa Ibom">Akwa Ibom</option>
                                     </select>
                                     <small class="validate text-[red]"></small>
                                   </div>
-                                  <div class="form-group mb-2 md:w-[320px] w-full">
+                                  <div class="form-group mb-2 w-full">
                                     <label>Local Govt</label>
                                     <select class="form-select mt-1 regInputs" id="selectLGA" data-name="lga" required>
                                       <option selected disabled>--Select LGA--</option>
                                     </select>
                                     <small class="validate text-[red]"></small>
                                   </div>
-                            <div class="form-group mt-2 md:w-[320px] w-full">
+                            <div class="form-group mt-2  w-full">
                                 <label>Address</label>
                                 <input class="form-control mt-1 regInputs" data-name="address" type="text" placeholder="Enter your address" />
                                 <small class="validate text-[red]"></small>
@@ -150,7 +150,7 @@
     </section>
     <section class="reg formTabs">
         <div class="row">
-            <div class="col-md-3 col-12 bg-[#F9FAFB]">
+            <div class="col-md-3 col-12 bg-[#F9FAFB] md:block hidden">
                 <div class="pl-6 pt-3">
                     <img src="./assets/img/reg3.png" alt="">
                 </div>

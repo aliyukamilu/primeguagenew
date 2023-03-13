@@ -66,7 +66,7 @@ $("#theHeader").html(`
 
     <div class="flex items-center gap-3 mt-5">
       <a class="outline-btn" href="signin.html">Sign In</a>
-      <a class="button" href="register.html">Register</a>
+      <a class="button" href="regcategory.html">Register</a>
     </div>
   </div>
 

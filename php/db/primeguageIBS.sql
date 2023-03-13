@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 12, 2023 at 11:45 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Generation Time: Mar 13, 2023 at 05:38 PM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -44,7 +44,7 @@ CREATE TABLE `Administrative_users` (
   `img` longtext NOT NULL,
   `verification_status` longtext NOT NULL,
   `time_in` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `Administrative_users`
@@ -69,7 +69,7 @@ CREATE TABLE `banner` (
   `description` varchar(400) NOT NULL,
   `description_2` varchar(400) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `banner`
@@ -91,7 +91,7 @@ CREATE TABLE `contact_us` (
   `email` varchar(350) NOT NULL,
   `phone_number` varchar(15) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `contact_us`
@@ -113,7 +113,7 @@ CREATE TABLE `invoices` (
   `invoice_number` varchar(15) NOT NULL,
   `due_date` date NOT NULL,
   `payment_status` enum('paid','unpaid') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `invoices`
@@ -375,7 +375,7 @@ CREATE TABLE `mda` (
   `status` enum('active','deactivated') NOT NULL,
   `time_in` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `password` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `mda`
@@ -454,7 +454,7 @@ CREATE TABLE `mda_users` (
   `users_access` enum('view','full') NOT NULL,
   `report_access` enum('view','full') NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `mda_users`
@@ -479,7 +479,7 @@ CREATE TABLE `our_services` (
   `body` text NOT NULL,
   `icon` varchar(200) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `our_services`
@@ -520,7 +520,7 @@ CREATE TABLE `payer_user` (
   `verification_code` int(20) NOT NULL,
   `tin_status` enum('Unverified','Verified') NOT NULL,
   `timeIn` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `payer_user`
@@ -554,7 +554,7 @@ CREATE TABLE `payment_2` (
   `0` varchar(100) DEFAULT NULL,
   `1` int(255) DEFAULT NULL,
   `time_in` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -572,7 +572,7 @@ CREATE TABLE `payment_collection_report_individual` (
   `payment_reference_number` varchar(50) NOT NULL,
   `receipt_number` varchar(50) NOT NULL,
   `timeIn` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `payment_collection_report_individual`
@@ -593,7 +593,7 @@ CREATE TABLE `payment_form_labels` (
   `content` longtext NOT NULL,
   `mda_id` int(255) NOT NULL,
   `time_in` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `payment_form_labels`
@@ -619,7 +619,7 @@ CREATE TABLE `pending_payment_list` (
   `payment_status` enum('unpaid','invoiced','paid') NOT NULL,
   `status` enum('inactive','active') NOT NULL,
   `date_of_payment` varchar(12) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `pending_payment_list`
@@ -628,6 +628,119 @@ CREATE TABLE `pending_payment_list` (
 INSERT INTO `pending_payment_list` (`id`, `user_id`, `payer_id`, `mda_id`, `revenue_id`, `payment_amount`, `other_info`, `payment_status`, `status`, `date_of_payment`) VALUES
 (1, 2, 1, 5, 2, 140.00, 'Mon, Tues, Wed', 'unpaid', 'inactive', '2023-01-12'),
 (2, 2, 1, 4, 2, 140.00, 'Mon, Tues, Wed', 'unpaid', 'inactive', '2023-01-12');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `primary_tax_clearance_certificate`
+--
+
+CREATE TABLE `primary_tax_clearance_certificate` (
+  `id` int(11) NOT NULL,
+  `user_id` bigint(20) NOT NULL,
+  `category` varchar(350) NOT NULL,
+  `title` varchar(400) NOT NULL,
+  `first_name` varchar(400) NOT NULL,
+  `surname` varchar(400) NOT NULL,
+  `middle_name` varchar(400) DEFAULT NULL,
+  `date_of_birth` date NOT NULL,
+  `gender` varchar(400) NOT NULL,
+  `merital_status` varchar(400) NOT NULL,
+  `tin` varchar(400) NOT NULL,
+  `bvn` varchar(400) NOT NULL,
+  `state` varchar(400) NOT NULL,
+  `local_area` varchar(400) NOT NULL,
+  `ward` varchar(400) NOT NULL,
+  `city` varchar(400) NOT NULL,
+  `street_name` varchar(400) NOT NULL,
+  `house_no` varchar(400) NOT NULL,
+  `national_id_no` varchar(400) NOT NULL,
+  `phone` varchar(400) NOT NULL,
+  `natioality` varchar(450) NOT NULL,
+  `tax_station_name` varchar(450) NOT NULL,
+  `employment_type` varchar(450) NOT NULL,
+  `occupation` varchar(450) NOT NULL,
+  `profession` varchar(450) NOT NULL,
+  `mother_maiden_name` varchar(450) NOT NULL,
+  `first_year` date NOT NULL,
+  `first_income` varchar(450) NOT NULL,
+  `second_year` date NOT NULL,
+  `second_income` varchar(450) NOT NULL,
+  `third_year` date NOT NULL,
+  `third_income` varchar(450) NOT NULL,
+  `tax_paid` varchar(450) NOT NULL,
+  `cop_rep_authorization` varchar(450) NOT NULL,
+  `head_tax_station_authorization` varchar(450) NOT NULL,
+  `reference_number` varchar(400) NOT NULL,
+  `application_status` enum('approved','pending') NOT NULL,
+  `admin_status` enum('active','inactive') NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `primary_tax_clearance_certificate`
+--
+
+INSERT INTO `primary_tax_clearance_certificate` (`id`, `user_id`, `category`, `title`, `first_name`, `surname`, `middle_name`, `date_of_birth`, `gender`, `merital_status`, `tin`, `bvn`, `state`, `local_area`, `ward`, `city`, `street_name`, `house_no`, `national_id_no`, `phone`, `natioality`, `tax_station_name`, `employment_type`, `occupation`, `profession`, `mother_maiden_name`, `first_year`, `first_income`, `second_year`, `second_income`, `third_year`, `third_income`, `tax_paid`, `cop_rep_authorization`, `head_tax_station_authorization`, `reference_number`, `application_status`, `admin_status`, `created_at`) VALUES
+(1, 1, 'string', 'Mr', 'string', 'string', 'string', '2023-03-01', 'male', 'Single', '12345', '3456789', 'Niger', 'Bida', 'Wadata', 'Bida', 'string', '1234', '3345678', '090878987645', 'Nigeria', 'string', 'string', 'string', 'string', 'string', '2023-03-01', '200', '2023-03-01', '300', '2023-03-01', '400', '7000', 'string', 'string', '23456', 'pending', 'active', '2023-03-13 10:56:59'),
+(2, 2, 'string1', 'Mrs', 'string1', 'string1', 'string1', '2023-03-01', 'Female', 'Married', '12345', '3456789', 'Niger', 'Bida', 'Wadata', 'Bida', 'string1', '1234', '3345678', '090878987645', 'Nigeria', 'string', 'string', 'string', 'string', 'string', '2023-03-01', '200', '2023-03-01', '300', '2023-03-01', '400', '7000', 'string1', 'string1', '23456', 'pending', 'active', '2023-03-13 10:57:57'),
+(3, 3, 'string', 'Mr', 'string', 'string', 'string', '2023-03-01', 'male', 'Single', '12345', '3456789', 'Niger', 'Bida', 'Wadata', 'Bida', 'string', '1234', '3345678', '090878987645', 'Nigeria', 'string', 'string', 'string', 'string', 'string', '2023-03-01', '200', '2023-03-01', '300', '2023-03-01', '400', '7000', 'string', 'string', '1678711440', 'pending', 'active', '2023-03-13 12:40:36');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `primary_TIN_request`
+--
+
+CREATE TABLE `primary_TIN_request` (
+  `id` int(11) NOT NULL,
+  `user_id` bigint(20) NOT NULL,
+  `title` varchar(400) NOT NULL,
+  `first_name` varchar(400) NOT NULL,
+  `surname` varchar(400) NOT NULL,
+  `middle_name` varchar(400) DEFAULT NULL,
+  `natioality` varchar(400) NOT NULL,
+  `phone_number_1` varchar(400) NOT NULL,
+  `phone_number_2` varchar(400) NOT NULL,
+  `state_of_origin` varchar(400) NOT NULL,
+  `marital_status` varchar(400) NOT NULL,
+  `birthday` date NOT NULL,
+  `occupation` varchar(400) NOT NULL,
+  `gender` varchar(400) NOT NULL,
+  `email` varchar(400) NOT NULL,
+  `mother_maiden_name` varchar(400) NOT NULL,
+  `mother_name` varchar(400) NOT NULL,
+  `id_card` varchar(400) NOT NULL,
+  `id_number` varchar(400) NOT NULL,
+  `date_issue` date NOT NULL,
+  `expiring_date` date NOT NULL,
+  `place_of_issue` varchar(400) NOT NULL,
+  `id_issuing_authority` varchar(400) NOT NULL,
+  `last_assessment_date` date DEFAULT NULL,
+  `last_assessment_amount` varchar(400) DEFAULT NULL,
+  `last_payment_date` date DEFAULT NULL,
+  `last_payment_amount` varchar(400) DEFAULT NULL,
+  `tax_type` varchar(400) DEFAULT NULL,
+  `first_year` varchar(400) DEFAULT NULL,
+  `first_income` varchar(400) DEFAULT NULL,
+  `second_year` varchar(400) DEFAULT NULL,
+  `second_income` varchar(400) DEFAULT NULL,
+  `third_year` varchar(400) DEFAULT NULL,
+  `third_income` varchar(400) DEFAULT NULL,
+  `reference_number` varchar(400) NOT NULL,
+  `application_status` enum('approved','pending') NOT NULL,
+  `admin_status` enum('active','inactive') NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `primary_TIN_request`
+--
+
+INSERT INTO `primary_TIN_request` (`id`, `user_id`, `title`, `first_name`, `surname`, `middle_name`, `natioality`, `phone_number_1`, `phone_number_2`, `state_of_origin`, `marital_status`, `birthday`, `occupation`, `gender`, `email`, `mother_maiden_name`, `mother_name`, `id_card`, `id_number`, `date_issue`, `expiring_date`, `place_of_issue`, `id_issuing_authority`, `last_assessment_date`, `last_assessment_amount`, `last_payment_date`, `last_payment_amount`, `tax_type`, `first_year`, `first_income`, `second_year`, `second_income`, `third_year`, `third_income`, `reference_number`, `application_status`, `admin_status`, `created_at`) VALUES
+(1, 2, 'Mr', 'string', 'string', 'string', 'Nigeria', '09087878787', '09088787676', 'Bida', 'Single', '2023-03-01', 'string', 'Male', 'string@gmail.com', 'string', 'string', '23434345', '45656545', '2023-03-01', '2023-03-09', 'Bida', 'string', '2023-03-08', '400', '2023-03-02', '300', 'string', '2000', '2001', '2001', '2001', '2001', '2001', '1678723199', 'pending', 'active', '2023-03-13 15:54:23'),
+(2, 2, 'Mr', 'string', 'string', 'string', 'Nigeria', '09087878787', '09088787676', 'Bida', 'Single', '2023-03-01', 'string', 'Male', 'string@gmail.com', 'string', 'string', '23434345', '45656545', '2023-03-01', '2023-03-09', 'Bida', 'string', '2023-03-08', '400', '2023-03-02', '300', 'string', '2000', '2001', '2001', '2001', '2001', '2001', '1678723858', 'pending', 'active', '2023-03-13 16:08:26'),
+(3, 2, 'Mr', 'string', 'string', 'string', 'Nigeria', '09087878787', '09088787676', 'Bida', 'Single', '2023-03-01', 'string', 'Male', 'string@gmail.com', 'string', 'string', '23434345', '45656545', '2023-03-01', '2023-03-09', 'Bida', 'string', '2023-03-08', '400', '2023-03-02', '300', 'string', '2000', '2001', '2001', '2001', '2001', '2001', '1678725889', 'pending', 'active', '2023-03-13 16:31:12');
 
 -- --------------------------------------------------------
 
@@ -644,7 +757,7 @@ CREATE TABLE `revenue_heads` (
   `COL_5` varchar(14) DEFAULT NULL,
   `COL_6` varchar(6) DEFAULT NULL,
   `time_in` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `revenue_heads`
@@ -1097,7 +1210,7 @@ CREATE TABLE `revenue_heads1` (
   `amount` double(10,2) NOT NULL,
   `mda_id` int(255) NOT NULL,
   `time_in` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `revenue_heads1`
@@ -1108,6 +1221,127 @@ INSERT INTO `revenue_heads1` (`id`, `fullname`, `description`, `amount`, `mda_id
 (2, '22', 'lll', 2.50, 2, '2023-01-11 14:41:08'),
 (3, 'PAYE', 'tax to be paid as PAYE', 3232.00, 2, '2023-01-14 09:31:39'),
 (4, '434', 'fsgd', 2232.00, 2, '2023-01-14 15:28:38');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `secondary_tax_clearance_certificate`
+--
+
+CREATE TABLE `secondary_tax_clearance_certificate` (
+  `id` int(11) NOT NULL,
+  `primary_tax_clearance_certificate_id` bigint(20) NOT NULL,
+  `emai_address` varchar(400) NOT NULL,
+  `state_of_origin` varchar(400) NOT NULL,
+  `company_name` varchar(300) NOT NULL,
+  `company_branch` varchar(400) NOT NULL,
+  `company_address` varchar(400) NOT NULL,
+  `web_address` varchar(400) NOT NULL,
+  `official_position` varchar(400) NOT NULL,
+  `international_passport_no` varchar(400) NOT NULL,
+  `alien_negistration_no` varchar(400) NOT NULL,
+  `sponsor_name` varchar(400) DEFAULT NULL,
+  `sponsor_occupation` varchar(400) DEFAULT NULL,
+  `sponsor_business` varchar(400) DEFAULT NULL,
+  `employment_from_1` varchar(400) DEFAULT NULL,
+  `employment_to_1` varchar(400) DEFAULT NULL,
+  `employment_from_2` varchar(400) DEFAULT NULL,
+  `employment_to_2` varchar(400) DEFAULT NULL,
+  `employment_from_3` varchar(400) DEFAULT NULL,
+  `employment_to_3` varchar(400) DEFAULT NULL,
+  `signature_1` varchar(400) DEFAULT NULL,
+  `date_1` date DEFAULT NULL,
+  `signature_2` varchar(400) DEFAULT NULL,
+  `date_2` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `secondary_tax_clearance_certificate`
+--
+
+INSERT INTO `secondary_tax_clearance_certificate` (`id`, `primary_tax_clearance_certificate_id`, `emai_address`, `state_of_origin`, `company_name`, `company_branch`, `company_address`, `web_address`, `official_position`, `international_passport_no`, `alien_negistration_no`, `sponsor_name`, `sponsor_occupation`, `sponsor_business`, `employment_from_1`, `employment_to_1`, `employment_from_2`, `employment_to_2`, `employment_from_3`, `employment_to_3`, `signature_1`, `date_1`, `signature_2`, `date_2`) VALUES
+(1, 1, 'www@gmail.com', 'niger', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', '2002', '2008', '2008', '2010', '2010', '2018', 'string', '2023-03-01', 'string', '2023-03-01'),
+(2, 2, 'fff@gmail.com', 'niger', 'string1', 'string1', 'string1', 'string1', 'string1', 'string1', 'string1', 'string1', 'string1', 'string1', '2002', '2008', '2008', '2010', '2010', '2018', 'string1', '2023-03-01', 'string1', '2023-03-01'),
+(3, 3, 'www@gmail.com', 'niger', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', '2002', '2008', '2008', '2010', '2010', '2018', 'string', '2023-03-01', 'string', '2023-03-01');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `secondary_TIN_request`
+--
+
+CREATE TABLE `secondary_TIN_request` (
+  `id` int(11) NOT NULL,
+  `primary_TIN_request_id` bigint(20) NOT NULL,
+  `name` varchar(350) NOT NULL,
+  `tin` varchar(400) NOT NULL,
+  `retyp` varchar(400) NOT NULL,
+  `reason` varchar(300) NOT NULL,
+  `state` varchar(400) NOT NULL,
+  `local_gvt` varchar(400) NOT NULL,
+  `ward` varchar(400) NOT NULL,
+  `city` varchar(400) NOT NULL,
+  `street_name` varchar(400) NOT NULL,
+  `house_no` varchar(400) NOT NULL,
+  `phone_number_1` varchar(400) NOT NULL,
+  `phone_number_2` varchar(400) NOT NULL,
+  `email` varchar(400) NOT NULL,
+  `source_of_income` varchar(400) NOT NULL,
+  `employer_name` varchar(400) NOT NULL,
+  `employer_tin` varchar(400) NOT NULL,
+  `start_date_of_employment` date NOT NULL,
+  `dep_child_first_name` varchar(400) NOT NULL,
+  `dep_child_surname` varchar(400) NOT NULL,
+  `dep_child_middle_name` varchar(400) NOT NULL,
+  `dep_child_state` varchar(400) NOT NULL,
+  `dep_child_birthday` date NOT NULL,
+  `dep_child_tin` varchar(400) NOT NULL,
+  `dep_child_relationship_type` varchar(400) NOT NULL,
+  `sponser_first_name` varchar(400) DEFAULT NULL,
+  `sponser_surname` varchar(400) DEFAULT NULL,
+  `sponser_middle_name` varchar(400) DEFAULT NULL,
+  `start_date` date DEFAULT NULL,
+  `sponser_tin` varchar(400) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `secondary_TIN_request`
+--
+
+INSERT INTO `secondary_TIN_request` (`id`, `primary_TIN_request_id`, `name`, `tin`, `retyp`, `reason`, `state`, `local_gvt`, `ward`, `city`, `street_name`, `house_no`, `phone_number_1`, `phone_number_2`, `email`, `source_of_income`, `employer_name`, `employer_tin`, `start_date_of_employment`, `dep_child_first_name`, `dep_child_surname`, `dep_child_middle_name`, `dep_child_state`, `dep_child_birthday`, `dep_child_tin`, `dep_child_relationship_type`, `sponser_first_name`, `sponser_surname`, `sponser_middle_name`, `start_date`, `sponser_tin`) VALUES
+(1, 1, 'string', '1234', 'string', 'string', 'string', 'minna', 'wadata', 'minna', 'string', 'string', '09087878787', '09088787676', 'string@gmail.com', 'string', 'string', '23434', '2023-03-01', 'string', 'string', 'string', 'string', '2023-03-01', '34565654', 'string', 'string', 'string', 'string', '2023-03-08', 'string'),
+(2, 2, 'string', '1234', 'string', 'string', 'string', 'minna', 'wadata', 'minna', 'string', 'string', '09087878787', '09088787676', 'string@gmail.com', 'string', 'string', '23434', '2023-03-01', 'string', 'string', 'string', 'string', '2023-03-01', '34565654', 'string', 'string', 'string', 'string', '2023-03-08', 'string'),
+(3, 3, 'string', '1234', 'string', 'string', 'string', 'minna', 'wadata', 'minna', 'string', 'string', '09087878787', '09088787676', 'string@gmail.com', 'string', 'string', '23434', '2023-03-01', 'string', 'string', 'string', 'string', '2023-03-01', '34565654', 'string', 'string', 'string', 'string', '2023-03-08', 'string');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tax_filing`
+--
+
+CREATE TABLE `tax_filing` (
+  `id` int(11) NOT NULL,
+  `user_id` bigint(20) NOT NULL,
+  `category` varchar(400) NOT NULL,
+  `tax_to_file` varchar(400) NOT NULL,
+  `first_name` varchar(400) NOT NULL,
+  `surname` varchar(400) NOT NULL,
+  `email` varchar(400) NOT NULL,
+  `phone_number` varchar(400) NOT NULL,
+  `form_assessment_upload` varchar(400) NOT NULL,
+  `tax_income_upload` varchar(400) NOT NULL,
+  `evidence_of_tax_payment` varchar(400) NOT NULL,
+  `tax_filling_refrence` varchar(200) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tax_filing`
+--
+
+INSERT INTO `tax_filing` (`id`, `user_id`, `category`, `tax_to_file`, `first_name`, `surname`, `email`, `phone_number`, `form_assessment_upload`, `tax_income_upload`, `evidence_of_tax_payment`, `tax_filling_refrence`, `created_at`) VALUES
+(1, 2, 'string', 'string', 'string', 'string', 'string@gmail.com', '090988787778', 'string', 'string', 'string', '43554566', '2023-03-13 16:23:13'),
+(2, 1, 'string', 'string', 'string', 'string', 'string@gmail.com', '090988787778', 'string', 'string', 'string', '43554566', '2023-03-13 16:38:17');
 
 --
 -- Indexes for dumped tables
@@ -1187,6 +1421,18 @@ ALTER TABLE `pending_payment_list`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `primary_tax_clearance_certificate`
+--
+ALTER TABLE `primary_tax_clearance_certificate`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `primary_TIN_request`
+--
+ALTER TABLE `primary_TIN_request`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `revenue_heads`
 --
 ALTER TABLE `revenue_heads`
@@ -1196,6 +1442,24 @@ ALTER TABLE `revenue_heads`
 -- Indexes for table `revenue_heads1`
 --
 ALTER TABLE `revenue_heads1`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `secondary_tax_clearance_certificate`
+--
+ALTER TABLE `secondary_tax_clearance_certificate`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `secondary_TIN_request`
+--
+ALTER TABLE `secondary_TIN_request`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tax_filing`
+--
+ALTER TABLE `tax_filing`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1275,6 +1539,18 @@ ALTER TABLE `pending_payment_list`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `primary_tax_clearance_certificate`
+--
+ALTER TABLE `primary_tax_clearance_certificate`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `primary_TIN_request`
+--
+ALTER TABLE `primary_TIN_request`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `revenue_heads`
 --
 ALTER TABLE `revenue_heads`
@@ -1285,6 +1561,24 @@ ALTER TABLE `revenue_heads`
 --
 ALTER TABLE `revenue_heads1`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `secondary_tax_clearance_certificate`
+--
+ALTER TABLE `secondary_tax_clearance_certificate`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `secondary_TIN_request`
+--
+ALTER TABLE `secondary_TIN_request`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `tax_filing`
+--
+ALTER TABLE `tax_filing`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
