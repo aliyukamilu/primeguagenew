@@ -1576,3 +1576,286 @@ function deleteOurServices($data)
     // print_r($data); die;
     exit(json_encode(check_db_query_staus("DELETE FROM `our_services` WHERE `id`='{$data}'", "DEL")));
 }
+
+function getTaxClearanceCert($data)
+{
+    include "config/index.php";
+    include "config/enctp.php";
+    print_r($data);
+    $check_exist = check_db_query_staus1("SELECT * FROM secondary_tax_clearance_certificate  WHERE `primary_tax_clearance_certificate_id`='{$data}'", "CHK");
+    if ($check_exist['status'] == 1) {
+        exit(json_encode($check_exist));
+    } else if ($check_exist['status'] == 0) {
+        exit(json_encode($check_exist));
+    }
+}
+
+function createTaxClearanceCert($data)
+{
+    include "config/index.php";
+    include "config/enctp.php";
+    // print_r($data);
+    $user_id = $data->user_id;
+    $category = $data->category;
+    $title = $data->title;
+    $first_name = $data->first_name;
+    $surname = $data->surname;
+    $middle_name = $data->middle_name;
+    $date_of_birth = $data->date_of_birth;
+    $gender = $data->gender;
+    $merital_status = $data->merital_status;
+    $tin = $data->tin;
+    $bvn = $data->bvn;
+    $state = $data->state;
+    $local_area = $data->local_area;
+    $ward = $data->ward;
+    $city = $data->city;
+    $street_name = $data->street_name;
+    $house_no = $data->house_no;
+    $national_id_no = $data->national_id_no;
+    $phone = $data->phone;
+    $natioality = $data->natioality;
+    $tax_station_name = $data->tax_station_name;
+    $employment_type = $data->employment_type;
+    $occupation = $data->occupation;
+    $profession = $data->profession;
+    $mother_maiden_name = $data->mother_maiden_name;
+    $first_year = $data->first_year;
+    $first_income = $data->first_income;
+    $second_year = $data->second_year;
+    $second_income = $data->second_income;
+    $third_year = $data->third_year;
+    $third_income = $data->third_income;
+    $tax_paid = $data->tax_paid;
+    $cop_rep_authorization = $data->cop_rep_authorization;
+    $head_tax_station_authorization = $data->head_tax_station_authorization;
+    $reference_number =  (time() + rand(1, 1000));
+    $application_status = "pending";
+    $admin_status = 'active';
+
+
+    $emai_address = $data->emai_address;
+    $state_of_origin = $data->state_of_origin;
+    $company_name = $data->company_name;
+    $company_branch = $data->company_branch;
+    $company_address = $data->company_address;
+    $web_address = $data->web_address;
+    $official_position = $data->official_position;
+    $international_passport_no = $data->international_passport_no;
+    $alien_negistration_no = $data->alien_negistration_no;
+    $sponsor_name = $data->sponsor_name;
+    $sponsor_occupation = $data->sponsor_occupation;
+    $sponsor_business = $data->sponsor_business;
+    $employment_from_1 = $data->employment_from_1;
+    $employment_to_1 = $data->employment_to_1;
+    $employment_from_2 = $data->employment_from_2;
+    $employment_to_2 = $data->employment_to_2;
+    $employment_from_3 = $data->employment_from_3;
+    $employment_to_3 = $data->employment_to_3;
+    $signature_1 = $data->signature_1;
+    $date_1 = $data->date_1;
+    $signature_2 = $data->signature_2;
+    $date_2 = $data->date_2;
+
+    $query_User_re = sprintf("INSERT INTO `primary_tax_clearance_certificate`(`user_id`, `category`, `title`, `first_name`, `surname`, `middle_name`, `date_of_birth`, `gender`, `merital_status`, `tin`, `bvn`, `state`, `local_area`, `ward`, `city`, `street_name`, `house_no`, `national_id_no`, `phone`, `natioality`, `tax_station_name`, `employment_type`, `occupation`, `profession`, `mother_maiden_name`, `first_year`, `first_income`, `second_year`, `second_income`, `third_year`, `third_income`, `tax_paid`, `cop_rep_authorization`, `head_tax_station_authorization`, `reference_number`, `application_status`, `admin_status`) VALUES ('$user_id', '$category','$title', '$first_name', '$surname', '$middle_name', '$date_of_birth', '$gender', '$merital_status', '$tin', '$bvn', '$state', '$local_area', '$ward', '$city', '$street_name', '$house_no', '$national_id_no', '$phone', '$natioality', '$tax_station_name', '$employment_type', '$occupation', '$profession', '$mother_maiden_name', '$first_year', '$first_income', '$second_year', '$second_income', '$third_year', '$third_income', '$tax_paid', '$cop_rep_authorization', '$head_tax_station_authorization', '$reference_number', '$application_status', '$admin_status')");
+    // print_r($query_User_re); die;
+
+    $User_re = mysqli_query($ibsConnection, $query_User_re) or die(mysqli_error($ibsConnection));
+
+    if ($User_re) {
+        $primary_tax_clearance_certificate_id = $ibsConnection->insert_id;
+
+
+        $query_User_re2 = sprintf("INSERT INTO `secondary_tax_clearance_certificate`(`primary_tax_clearance_certificate_id`, `emai_address`, `state_of_origin`, `company_name`, `company_branch`, `company_address`, `web_address`, `official_position`, `international_passport_no`, `alien_negistration_no`, `sponsor_name`, `sponsor_occupation`, `sponsor_business`, `employment_from_1`, `employment_to_1`, `employment_from_2`, `employment_to_2`, `employment_from_3`, `employment_to_3`, `signature_1`, `date_1`, `signature_2`, `date_2`) VALUES ('$primary_tax_clearance_certificate_id', '$emai_address', '$state_of_origin', '$company_name', '$company_branch', '$company_address', '$web_address', '$official_position', '$international_passport_no', '$alien_negistration_no', '$sponsor_name', '$sponsor_occupation', '$sponsor_business', '$employment_from_1', '$employment_to_1', '$employment_from_2', '$employment_to_2', '$employment_from_3', '$employment_to_3', '$signature_1', '$date_1', '$signature_2', '$date_2')");
+        // print_r($query_User_re2); die;
+
+        $User_re2 = mysqli_query($ibsConnection, $query_User_re2) or die(mysqli_error($ibsConnection));
+
+        if ($User_re2) {
+            $check_exist = check_db_query_staus("SELECT reference_number FROM primary_tax_clearance_certificate  WHERE `user_id`='{$user_id}'", "CHK");
+
+            $arr = [];
+          
+
+            $arr[] = ['status' => 1, 'message' => "Tax Clearance Certificate Created successfully"];
+
+              $arr[] = $check_exist['message'];
+
+            exit(json_encode($arr));
+        }else {
+            $returnResponse = ['status' => 0, 'message' => "Secondary Tax Clearance Certificate failed, try again"];
+            exit(json_encode($returnResponse));
+        }
+    } else {
+        $returnResponse = ['status' => 0, 'message' => "Primary Tax Clearance Certificate failed, try again"];
+        exit(json_encode($returnResponse));
+    }
+
+
+}
+function getTINRequest($data)
+{
+    include "config/index.php";
+    include "config/enctp.php";
+    // print_r($data);
+    $check_exist = check_db_query_staus1("SELECT * FROM primary_TIN_request  WHERE `user_id`='{$data}'", "CHK");
+    if ($check_exist['status'] == 1) {
+        exit(json_encode($check_exist));
+    } else if ($check_exist['status'] == 0) {
+        exit(json_encode($check_exist));
+    }
+}
+
+function createTINRequest($data)
+{
+    include "config/index.php";
+    include "config/enctp.php";
+    // print_r($data);
+    $user_id = $data->user_id;
+    $title = $data->title;
+    $first_name = $data->first_name;
+    $surname = $data->surname;
+    $middle_name = $data->middle_name;
+    $natioality = $data->natioality;
+    $phone_number_1 = $data->phone_number_1;
+    $phone_number_2 = $data->phone_number_2;
+    $state_of_origin = $data->state_of_origin;
+    $marital_status = $data->marital_status;
+    $birthday = $data->birthday;
+    $occupation = $data->occupation;
+    $gender = $data->gender;
+    $email = $data->email;
+    $mother_maiden_name = $data->mother_maiden_name;
+    $mother_name = $data->mother_name;
+    $id_card = $data->id_card;
+    $id_number = $data->id_number;
+    $date_issue = $data->date_issue;
+    $expiring_date = $data->expiring_date;
+    $place_of_issue = $data->place_of_issue;
+    $id_issuing_authority = $data->id_issuing_authority;
+    $last_assessment_date = $data->last_assessment_date;
+    $last_assessment_amount = $data->last_assessment_amount;
+    $last_payment_date = $data->last_payment_date;
+    $last_payment_amount = $data->last_payment_amount;
+    $tax_type = $data->tax_type;
+    $first_year = $data->first_year;
+    $first_income = $data->first_income;
+    $second_year = $data->second_year;
+    $second_income = $data->second_income;
+    $third_year = $data->third_year;
+    $third_income = $data->third_income;
+    $reference_number =  (time() + rand(1, 1000));
+    $application_status = "pending";
+    $admin_status = 'active';
+    
+    
+    $name = $data->name;
+    $tin = $data->tin;
+    $retyp = $data->retyp;
+    $reason = $data->reason;
+    $state = $data->state;
+    $local_gvt = $data->local_gvt;
+    $ward = $data->ward;
+    $city = $data->city;
+    $street_name = $data->street_name;
+    $house_no = $data->house_no;
+    $source_of_income = $data->source_of_income;
+    $employer_name = $data->employer_name;
+    $employer_tin = $data->employer_tin;
+    $start_date_of_employment = $data->start_date_of_employment;
+    $dep_child_first_name = $data->dep_child_first_name;
+    $dep_child_surname = $data->dep_child_surname;
+    $dep_child_middle_name = $data->dep_child_middle_name;
+    $dep_child_state = $data->dep_child_state;
+    $dep_child_birthday = $data->dep_child_birthday;
+    $dep_child_tin = $data->dep_child_tin;
+    $dep_child_relationship_type = $data->dep_child_relationship_type;
+    $sponser_first_name = $data->sponser_first_name;
+    $sponser_surname = $data->sponser_surname;
+    $sponser_middle_name = $data->sponser_middle_name;
+    $start_date = $data->start_date;
+    $sponser_tin = $data->sponser_tin;
+
+
+    $query_User_re = sprintf("INSERT INTO `primary_TIN_request`( `user_id`, `title`, `first_name`, `surname`, `middle_name`, `natioality`, `phone_number_1`, `phone_number_2`, `state_of_origin`, `marital_status`, `birthday`, `occupation`, `gender`, `email`, `mother_maiden_name`, `mother_name`, `id_card`, `id_number`, `date_issue`, `expiring_date`, `place_of_issue`, `id_issuing_authority`, `last_assessment_date`, `last_assessment_amount`, `last_payment_date`, `last_payment_amount`, `tax_type`, `first_year`, `first_income`, `second_year`, `second_income`, `third_year`, `third_income`, `reference_number`, `application_status`, `admin_status`) VALUES  ('$user_id','$title','$first_name','$surname','$middle_name','$natioality','$phone_number_1','$phone_number_2','$state_of_origin','$marital_status','$birthday','$occupation','$gender','$email','$mother_maiden_name','$mother_name','$id_card','$id_number','$date_issue','$expiring_date','$place_of_issue','$id_issuing_authority','$last_assessment_date','$last_assessment_amount','$last_payment_date','$last_payment_amount','$tax_type','$first_year','$first_income','$second_year','$second_income','$third_year','$third_income','$reference_number','$application_status','$admin_status')");
+    // print_r($query_User_re); die;
+
+    $User_re = mysqli_query($ibsConnection, $query_User_re) or die(mysqli_error($ibsConnection));
+
+    if ($User_re) {
+        $primary_TIN_request_id = $ibsConnection->insert_id;
+
+
+        $query_User_re2 = sprintf("INSERT INTO `secondary_TIN_request`(`primary_TIN_request_id`, `name`, `tin`, `retyp`, `reason`, `state`, `local_gvt`, `ward`, `city`, `street_name`, `house_no`, `phone_number_1`, `phone_number_2`, `email`, `source_of_income`, `employer_name`, `employer_tin`, `start_date_of_employment`, `dep_child_first_name`, `dep_child_surname`, `dep_child_middle_name`, `dep_child_state`, `dep_child_birthday`, `dep_child_tin`, `dep_child_relationship_type`, `sponser_first_name`, `sponser_surname`, `sponser_middle_name`, `start_date`, `sponser_tin`) VALUES ('$primary_TIN_request_id','$name','$tin','$retyp','$reason','$state','$local_gvt','$ward','$city','$street_name','$house_no','$phone_number_1','$phone_number_2','$email','$source_of_income','$employer_name','$employer_tin','$start_date_of_employment','$dep_child_first_name','$dep_child_surname','$dep_child_middle_name','$dep_child_state','$dep_child_birthday','$dep_child_tin','$dep_child_relationship_type','$sponser_first_name','$sponser_surname','$sponser_middle_name','$start_date','$sponser_tin')");
+        // print_r($query_User_re2); die;
+
+        $User_re2 = mysqli_query($ibsConnection, $query_User_re2) or die(mysqli_error($ibsConnection));
+
+        if ($User_re2) {
+            $check_exist = check_db_query_staus("SELECT reference_number FROM primary_TIN_request  WHERE `user_id`='{$user_id}'", "CHK");
+
+            $arr = [];
+          
+
+            $arr[] = ['status' => 1, 'message' => "Tin Request Created successfully"];
+
+              $arr[] = $check_exist['message'];
+
+            exit(json_encode($arr));
+        }else {
+            $returnResponse = ['status' => 0, 'message' => "Tin Request failed, try again"];
+            exit(json_encode($returnResponse));
+        }
+    } else {
+        $returnResponse = ['status' => 0, 'message' => "Tin Request failed, try again"];
+        exit(json_encode($returnResponse));
+    }
+
+
+}
+
+function getTaxFiling($data)
+{
+    include "config/index.php";
+    include "config/enctp.php";
+    // print_r($data);
+    $check_exist = check_db_query_staus1("SELECT * FROM tax_filing  WHERE `user_id`='{$data}'", "CHK");
+    if ($check_exist['status'] == 1) {
+        exit(json_encode($check_exist));
+    } else if ($check_exist['status'] == 0) {
+        exit(json_encode($check_exist));
+    }
+
+}
+
+function insertTaxFiling($data)
+{
+    include "config/index.php";
+    include "config/enctp.php";
+    // print_r($data);die;
+    $user_id = $data->user_id;
+    $category = $data->category;
+    $tax_to_file = $data->tax_to_file;
+    $first_name = $data->first_name;
+    $surname = $data->surname;
+    $email = $data->email;
+    $phone_number = $data->phone_number;
+    $form_assessment_upload = $data->form_assessment_upload;
+    $tax_income_upload = $data->tax_income_upload;
+    $evidence_of_tax_payment = $data->evidence_of_tax_payment;
+    $tax_filling_refrence = $data->tax_filling_refrence;
+
+
+
+    $query_User_re = sprintf("INSERT INTO `tax_filing`(`user_id`, `category`, `tax_to_file`, `first_name`, `surname`, `email`, `phone_number`, `form_assessment_upload`, `tax_income_upload`, `evidence_of_tax_payment`, `tax_filling_refrence`) VALUES ('$user_id', '$category','$tax_to_file','$first_name', '$surname','$email','$phone_number', '$form_assessment_upload','$tax_income_upload','$evidence_of_tax_payment', '$tax_filling_refrence')");
+    // print_r($query_User_re); die;
+    $User_re = mysqli_query($ibsConnection, $query_User_re) or die(mysqli_error($ibsConnection));
+
+    if ($User_re) {
+        $returnResponse = ['status' => 1, 'message' => "Tax Filing Created successfully"];
+        exit(json_encode($returnResponse));
+    } else {
+        $returnResponse = ['status' => 0, 'message' => "failed, try again"];
+        exit(json_encode($returnResponse));
+    }
+}
